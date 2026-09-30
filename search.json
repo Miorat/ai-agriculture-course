@@ -1,0 +1,575 @@
+[
+  {
+    "objectID": "ressources.html",
+    "href": "ressources.html",
+    "title": "Ressources",
+    "section": "",
+    "text": "Ressources du cours\nCette page peut accueillir progressivement :\n\nnotebooks Python ;\njeux de données d’exemple ;\nfiches pratiques ;\nsupports PDF ;\nfichiers QGIS ;\nexercices ;\ncorrigés ;\nliens utiles.\n\n\n\n\n\n\n\nNote\n\n\n\nLes ressources seront ajoutées au fur et à mesure de la formation."
+  },
+  {
+    "objectID": "modules/05-analyse-geospatiale.html",
+    "href": "modules/05-analyse-geospatiale.html",
+    "title": "05 · Analyse géospatiale",
+    "section": "",
+    "text": "Cette section décrira l’installation et l’environnement de travail QGIS.",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/05-analyse-geospatiale.html#installation-de-qgis",
+    "href": "modules/05-analyse-geospatiale.html#installation-de-qgis",
+    "title": "05 · Analyse géospatiale",
+    "section": "",
+    "text": "Cette section décrira l’installation et l’environnement de travail QGIS.",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/05-analyse-geospatiale.html#étapes-de-création-dune-carte",
+    "href": "modules/05-analyse-geospatiale.html#étapes-de-création-dune-carte",
+    "title": "05 · Analyse géospatiale",
+    "section": "Étapes de création d’une carte",
+    "text": "Étapes de création d’une carte\n\najouter une couche ;\nvérifier le système de coordonnées ;\ndéfinir la symbologie ;\ncréer une mise en page ;\nexporter une carte.",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/05-analyse-geospatiale.html#ajouter-des-données-excel",
+    "href": "modules/05-analyse-geospatiale.html#ajouter-des-données-excel",
+    "title": "05 · Analyse géospatiale",
+    "section": "Ajouter des données Excel",
+    "text": "Ajouter des données Excel\nLes données tabulaires pourront être importées et converties en points lorsqu’elles contiennent des coordonnées géographiques.",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/05-analyse-geospatiale.html#joindre-une-carte-et-des-données",
+    "href": "modules/05-analyse-geospatiale.html#joindre-une-carte-et-des-données",
+    "title": "05 · Analyse géospatiale",
+    "section": "Joindre une carte et des données",
+    "text": "Joindre une carte et des données\nNous verrons comment associer une table agricole à une couche géographique afin de produire une carte thématique.\n\n← Diagnostic des plantes Installation de QGIS →",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/05-3-excel.html",
+    "href": "modules/05-3-excel.html",
+    "title": "Ajouter des données Excel",
+    "section": "",
+    "text": "Ajouter des données Excel\nCette section montrera comment importer et géolocaliser des données tabulaires.\n\n← Création d’une carte Joindre carte et données →",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Ajouter des données Excel"
+    ]
+  },
+  {
+    "objectID": "modules/05-1-qgis.html",
+    "href": "modules/05-1-qgis.html",
+    "title": "Installation de QGIS",
+    "section": "",
+    "text": "Installation de QGIS\nCette section décrira l’installation et la configuration de QGIS.\n\n← Analyse géospatiale Création d’une carte →",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Installation de QGIS"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html",
+    "href": "modules/04-5-diagnostic-plantes.html",
+    "title": "Diagnostic des plantes",
+    "section": "",
+    "text": "Diagnostic des plantes\nCette section accueillera le cas pratique de machine learning pour le diagnostic des plantes.\n\n← Random Forest Analyse géospatiale →",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html",
+    "href": "modules/04-3-logistique.html",
+    "title": "Régression logistique",
+    "section": "",
+    "text": "Régression logistique\nCette section contiendra l’exemple pratique de régression logistique.\n\n← Types d’algorithmes Random Forest →",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html",
+    "href": "modules/04-1-introduction.html",
+    "title": "Introduction au Machine Learning",
+    "section": "",
+    "text": "Introduction au Machine Learning\nCette section introduira les concepts de base du machine learning et la logique d’un pipeline de modélisation.\n\n← Machine Learning Types d’algorithmes →",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/03-3-statistiques.html",
+    "href": "modules/03-3-statistiques.html",
+    "title": "Tests statistiques",
+    "section": "",
+    "text": "Tests statistiques\nCette section couvrira la normalité, la corrélation, l’ANOVA, l’ANCOVA, l’ACP et l’ACM.\n\n← Traitement des données Machine Learning →",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Tests statistiques"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html",
+    "href": "modules/03-1-pandas.html",
+    "title": "Pandas",
+    "section": "",
+    "text": "Pandas\nCette section couvrira l’importation, l’exploration et la manipulation de données agricoles avec pandas.\n\n← Analyse de données agricoles Traitement des données →",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html",
+    "href": "modules/02-5-fonctions.html",
+    "title": "Fonctions",
+    "section": "",
+    "text": "Fonctions\nCette section montrera comment créer et utiliser des fonctions en Python.\n\n← Conditions et boucles Analyse de données agricoles →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html",
+    "href": "modules/02-3-calculs.html",
+    "title": "Calculs numériques",
+    "section": "",
+    "text": "Calculs numériques\nCette section introduira les opérations numériques et les calculs avec Python et NumPy.\n\n← Variables Conditions et boucles →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html",
+    "href": "modules/02-1-installation.html",
+    "title": "Installation et environnement de travail",
+    "section": "",
+    "text": "Installation et environnement de travail\nCette section présentera l’installation de Python, Jupyter et l’environnement utilisé pendant la formation.\n\n← Bases de Python Variables →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "",
+    "text": "FORMATION · AGRICULTURE NUMÉRIQUE\n\n\n\nUne formation pratique destinée aux étudiants de la Mention Agriculture Tropicale et Développement Durable (AT2D) de l’Ecole Supérieure de Sciences Agronomiques de l’Université d’Antananarivo, conçue dans le cadre du projet TADY et Expert’Izy.\nLe cours introduit les fondamentaux de la programmation Python, l’analyse de données agricoles, le machine learning et l’analyse géospatiale.\nDécouvrir le programme"
+  },
+  {
+    "objectID": "index.html#à-propos-de-la-formation",
+    "href": "index.html#à-propos-de-la-formation",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "À propos de la formation",
+    "text": "À propos de la formation\nCe cours a été conçu pour accompagner l’apprentissage des méthodes numériques appliquées à l’agriculture, depuis les bases de Python jusqu’au machine learning et aux systèmes d’information géographique.\nL’objectif est de proposer un parcours progressif, pratique et directement exploitable à partir de données agricoles, climatiques et géospatiales."
+  },
+  {
+    "objectID": "index.html#à-propos-de-la-formatrice",
+    "href": "index.html#à-propos-de-la-formatrice",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "À propos de la formatrice",
+    "text": "À propos de la formatrice\n\nMioratina\nJe suis Mioratina, Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience internationale dans le développement de systèmes analytiques et de solutions d’aide à la décision déployés à l’échelle internationale."
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html",
+    "href": "modules/01-ia-agriculture.html",
+    "title": "01 · IA dans l’agriculture",
+    "section": "",
+    "text": "À la fin de ce module, vous pourrez :\n\nexpliquer simplement ce qu’est l’intelligence artificielle ;\ndistinguer IA, machine learning et automatisation ;\nidentifier des applications agricoles pertinentes ;\nreconnaître les limites d’un modèle prédictif.",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#objectifs-du-module",
+    "href": "modules/01-ia-agriculture.html#objectifs-du-module",
+    "title": "01 · IA dans l’agriculture",
+    "section": "",
+    "text": "À la fin de ce module, vous pourrez :\n\nexpliquer simplement ce qu’est l’intelligence artificielle ;\ndistinguer IA, machine learning et automatisation ;\nidentifier des applications agricoles pertinentes ;\nreconnaître les limites d’un modèle prédictif.",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#pourquoi-utiliser-lia-en-agriculture",
+    "href": "modules/01-ia-agriculture.html#pourquoi-utiliser-lia-en-agriculture",
+    "title": "01 · IA dans l’agriculture",
+    "section": "Pourquoi utiliser l’IA en agriculture ?",
+    "text": "Pourquoi utiliser l’IA en agriculture ?\nL’agriculture génère aujourd’hui de nombreuses données : observations climatiques, données de sol, historiques de cultures, rendements, maladies, images satellites et informations géographiques.\nL’intelligence artificielle peut aider à exploiter ces données pour appuyer certaines décisions.",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#exemples-dapplication",
+    "href": "modules/01-ia-agriculture.html#exemples-dapplication",
+    "title": "01 · IA dans l’agriculture",
+    "section": "Exemples d’application",
+    "text": "Exemples d’application\n\nestimation des rendements ;\ndiagnostic ou classification de maladies ;\ndétection de stress hydrique ;\nclassification des cultures ;\nanalyse d’images ;\nidentification de facteurs de risque.\n\n\n\n\n\n\n\nImportant\n\n\n\nUn modèle performant n’est pas automatiquement un bon outil de décision. La qualité des données, la validation scientifique et le contexte d’utilisation restent essentiels.\n\n\n\n← Programme Bases de Python →",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html",
+    "href": "modules/02-2-variables.html",
+    "title": "Variables",
+    "section": "",
+    "text": "Variables\nCette section couvrira les principaux types de variables et structures de données en Python.\n\n← Installation et environnement Calculs numériques →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html",
+    "href": "modules/02-4-boucles.html",
+    "title": "Conditions et boucles",
+    "section": "",
+    "text": "Conditions et boucles\nCette section couvrira les conditions if, les boucles for et les boucles while.\n\n← Calculs numériques Fonctions →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html",
+    "href": "modules/02-bases-python.html",
+    "title": "02 · Bases de Python",
+    "section": "",
+    "text": "Cette section présentera l’installation de Python et l’utilisation d’un environnement adapté au cours.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html#installation-et-environnement-de-travail",
+    "href": "modules/02-bases-python.html#installation-et-environnement-de-travail",
+    "title": "02 · Bases de Python",
+    "section": "",
+    "text": "Cette section présentera l’installation de Python et l’utilisation d’un environnement adapté au cours.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html#variables",
+    "href": "modules/02-bases-python.html#variables",
+    "title": "02 · Bases de Python",
+    "section": "Variables",
+    "text": "Variables\n\nculture = \"Riz\"\nrendement = 4.2\nsurface_ha = 2.5\n\nprint(culture)\nprint(rendement)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html#calculs-numériques",
+    "href": "modules/02-bases-python.html#calculs-numériques",
+    "title": "02 · Bases de Python",
+    "section": "Calculs numériques",
+    "text": "Calculs numériques\n\nproduction = rendement * surface_ha\nprint(production)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html#conditions",
+    "href": "modules/02-bases-python.html#conditions",
+    "title": "02 · Bases de Python",
+    "section": "Conditions",
+    "text": "Conditions\n\nif rendement &gt; 4:\n    print(\"Rendement supérieur à 4 t/ha\")\nelse:\n    print(\"Rendement inférieur ou égal à 4 t/ha\")",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html#boucles",
+    "href": "modules/02-bases-python.html#boucles",
+    "title": "02 · Bases de Python",
+    "section": "Boucles",
+    "text": "Boucles\n\ncultures = [\"Riz\", \"Maïs\", \"Haricot\"]\n\nfor culture in cultures:\n    print(culture)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html#fonctions",
+    "href": "modules/02-bases-python.html#fonctions",
+    "title": "02 · Bases de Python",
+    "section": "Fonctions",
+    "text": "Fonctions\n\ndef production_totale(rendement, surface):\n    return rendement * surface\n\nproduction_totale(4.2, 2.5)\n\n\n← IA dans l’agriculture Installation et environnement →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html",
+    "href": "modules/03-2-traitement.html",
+    "title": "Traitement des données",
+    "section": "",
+    "text": "Traitement des données\nCette section abordera le nettoyage, les valeurs manquantes, le filtrage et la transformation des données.\n\n← Pandas Tests statistiques →",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-analyse-donnees.html",
+    "href": "modules/03-analyse-donnees.html",
+    "title": "03 · Analyse de données agricoles",
+    "section": "",
+    "text": "import pandas as pd\n\ndf = pd.read_csv(\"../data/donnees_agricoles.csv\")\ndf.head()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/03-analyse-donnees.html#pandas",
+    "href": "modules/03-analyse-donnees.html#pandas",
+    "title": "03 · Analyse de données agricoles",
+    "section": "",
+    "text": "import pandas as pd\n\ndf = pd.read_csv(\"../data/donnees_agricoles.csv\")\ndf.head()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/03-analyse-donnees.html#traitement-des-données",
+    "href": "modules/03-analyse-donnees.html#traitement-des-données",
+    "title": "03 · Analyse de données agricoles",
+    "section": "Traitement des données",
+    "text": "Traitement des données\nNous aborderons notamment :\n\nvaleurs manquantes ;\ntypes de variables ;\nfiltrage ;\ntransformation ;\nagrégation ;\ncontrôle de cohérence.",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/03-analyse-donnees.html#tests-statistiques",
+    "href": "modules/03-analyse-donnees.html#tests-statistiques",
+    "title": "03 · Analyse de données agricoles",
+    "section": "Tests statistiques",
+    "text": "Tests statistiques\n\nTest de normalité\n\n\nAnalyse de corrélation\n\n\nANOVA\n\n\nANCOVA\n\n\nACP\n\n\nACM\nLes exemples seront progressivement complétés avec des jeux de données agricoles et du code Python.\n\n← Fonctions Pandas →",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html",
+    "href": "modules/04-2-algorithmes.html",
+    "title": "Types d’algorithmes",
+    "section": "",
+    "text": "Types d’algorithmes\nCette section présentera les principales familles d’algorithmes utilisées dans le cours.\n\n← Introduction au Machine Learning Régression logistique →",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-4-random-forest.html",
+    "href": "modules/04-4-random-forest.html",
+    "title": "Random Forest",
+    "section": "",
+    "text": "Random Forest\nCette section contiendra l’exemple pratique avec Random Forest.\n\n← Régression logistique Diagnostic des plantes →",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "modules/04-machine-learning.html",
+    "href": "modules/04-machine-learning.html",
+    "title": "04 · Machine Learning",
+    "section": "",
+    "text": "Le machine learning permet de construire des modèles qui apprennent des relations à partir de données.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/04-machine-learning.html#introduction",
+    "href": "modules/04-machine-learning.html#introduction",
+    "title": "04 · Machine Learning",
+    "section": "",
+    "text": "Le machine learning permet de construire des modèles qui apprennent des relations à partir de données.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/04-machine-learning.html#types-dalgorithmes",
+    "href": "modules/04-machine-learning.html#types-dalgorithmes",
+    "title": "04 · Machine Learning",
+    "section": "Types d’algorithmes",
+    "text": "Types d’algorithmes\n\nclassification ;\nrégression ;\nclustering ;\narbres de décision ;\nméthodes d’ensemble.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/04-machine-learning.html#exemple-pratique-1-régression-logistique",
+    "href": "modules/04-machine-learning.html#exemple-pratique-1-régression-logistique",
+    "title": "04 · Machine Learning",
+    "section": "Exemple pratique 1 — Régression logistique",
+    "text": "Exemple pratique 1 — Régression logistique\nLe code sera ajouté à partir des exemples du cours.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/04-machine-learning.html#exemple-pratique-2-random-forest",
+    "href": "modules/04-machine-learning.html#exemple-pratique-2-random-forest",
+    "title": "04 · Machine Learning",
+    "section": "Exemple pratique 2 — Random Forest",
+    "text": "Exemple pratique 2 — Random Forest\nLe code sera ajouté à partir des exemples du cours.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/04-machine-learning.html#cas-pratique-diagnostic-des-plantes",
+    "href": "modules/04-machine-learning.html#cas-pratique-diagnostic-des-plantes",
+    "title": "04 · Machine Learning",
+    "section": "Cas pratique — Diagnostic des plantes",
+    "text": "Cas pratique — Diagnostic des plantes\nLe cas pratique servira à relier préparation des données, entraînement du modèle, prédiction et évaluation.\n\n← Tests statistiques Introduction au Machine Learning →",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "modules/05-2-carte.html",
+    "href": "modules/05-2-carte.html",
+    "title": "Création d’une carte",
+    "section": "",
+    "text": "Création d’une carte\nCette section détaillera les principales étapes de création d’une carte dans QGIS.\n\n← Installation de QGIS Ajouter des données Excel →",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Création d’une carte"
+    ]
+  },
+  {
+    "objectID": "modules/05-4-jointure.html",
+    "href": "modules/05-4-jointure.html",
+    "title": "Joindre une carte et des données",
+    "section": "",
+    "text": "Joindre une carte et des données\nCette section présentera les jointures attributaires et spatiales.\n\n← Ajouter des données Excel",
+    "crumbs": [
+      "Programme",
+      "5. Analyse géospatiale",
+      "Joindre carte et données"
+    ]
+  },
+  {
+    "objectID": "programme.html",
+    "href": "programme.html",
+    "title": "Programme",
+    "section": "",
+    "text": "À l’issue de la formation, les participants seront progressivement amenés à :\n\n\n\n01\n\nStructurer et analyser des données agricoles avec Python.\n\n\n\n02\n\nConstruire et évaluer des modèles simples de machine learning.\n\n\n\n03\n\nInterpréter les résultats statistiques et les performances d’un modèle.\n\n\n\n04\n\nAssocier des données agricoles à des informations géographiques.\n\n\n\n05\n\nCréer des cartes et visualisations utiles à l’aide à la décision.",
+    "crumbs": [
+      "Programme",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "programme.html#objectifs-pédagogiques",
+    "href": "programme.html#objectifs-pédagogiques",
+    "title": "Programme",
+    "section": "",
+    "text": "À l’issue de la formation, les participants seront progressivement amenés à :\n\n\n\n01\n\nStructurer et analyser des données agricoles avec Python.\n\n\n\n02\n\nConstruire et évaluer des modèles simples de machine learning.\n\n\n\n03\n\nInterpréter les résultats statistiques et les performances d’un modèle.\n\n\n\n04\n\nAssocier des données agricoles à des informations géographiques.\n\n\n\n05\n\nCréer des cartes et visualisations utiles à l’aide à la décision.",
+    "crumbs": [
+      "Programme",
+      "Vue d’ensemble"
+    ]
+  },
+  {
+    "objectID": "programme.html#contenu-du-cours",
+    "href": "programme.html#contenu-du-cours",
+    "title": "Programme",
+    "section": "Contenu du cours",
+    "text": "Contenu du cours\n\n\n\n01\n\n\nIA dans l’agriculture\nComprendre le rôle de l’intelligence artificielle dans l’agriculture moderne, ses applications, ses limites et les principaux types de problèmes traités.\nOuvrir le module →\n\n\n\n\n02\n\n\nBases de Python\nInstaller l’environnement de travail et maîtriser variables, calculs numériques, conditions, boucles et fonctions.\nOuvrir le module →\n\n\n\n\n03\n\n\nAnalyse de données agricoles\nManipuler les données avec pandas, préparer les données et appliquer des méthodes statistiques : normalité, corrélation, ANOVA, ANCOVA, ACP et ACM.\nOuvrir le module →\n\n\n\n\n04\n\n\nMachine Learning\nDécouvrir les grands types d’algorithmes et développer des exemples pratiques avec la régression logistique, Random Forest et un cas de diagnostic des plantes.\nOuvrir le module →\n\n\n\n\n05\n\n\nAnalyse géospatiale\nUtiliser QGIS, créer des cartes, ajouter des données tabulaires et réaliser des jointures entre données agricoles et couches cartographiques.\nOuvrir le module →",
+    "crumbs": [
+      "Programme",
+      "Vue d’ensemble"
+    ]
+  }
+]
