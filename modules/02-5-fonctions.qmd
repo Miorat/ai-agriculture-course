@@ -1,0 +1,13 @@
+---
+title: "Fonctions"
+---
+
+# Fonctions
+
+Cette section montrera comment créer et utiliser des fonctions en Python.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="02-4-boucles.qmd">← Conditions et boucles</a>
+<a class="chapter-next" href="03-analyse-donnees.qmd">Analyse de données agricoles →</a>
+:::

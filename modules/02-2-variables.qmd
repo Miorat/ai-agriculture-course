@@ -1,0 +1,13 @@
+---
+title: "Variables"
+---
+
+# Variables
+
+Cette section couvrira les principaux types de variables et structures de données en Python.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="02-1-installation.qmd">← Installation et environnement</a>
+<a class="chapter-next" href="02-3-calculs.qmd">Calculs numériques →</a>
+:::

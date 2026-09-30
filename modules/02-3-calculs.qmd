@@ -1,0 +1,13 @@
+---
+title: "Calculs numériques"
+---
+
+# Calculs numériques
+
+Cette section introduira les opérations numériques et les calculs avec Python et NumPy.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="02-2-variables.qmd">← Variables</a>
+<a class="chapter-next" href="02-4-boucles.qmd">Conditions et boucles →</a>
+:::

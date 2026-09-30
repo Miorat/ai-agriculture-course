@@ -1,0 +1,101 @@
+project:
+  type: website
+
+website:
+  title: "Introduction à l’IA pour l’agriculture"
+  site-url: "https://Miorat.github.io/ai-agriculture-course/"
+
+  navbar:
+    pinned: true
+    background: "#557a46"
+    foreground: "#ffffff"
+    left:
+      - href: programme.qmd
+        text: Programme
+      - href: ressources.qmd
+        text: Ressources
+    right:
+      - icon: github
+        href: "https://github.com/Miorat/ai-agriculture-course"
+        aria-label: GitHub
+
+  sidebar:
+    style: docked
+    background: "#557a46"
+    collapse-level: 1
+    contents:
+      - section: "Programme"
+        contents:
+          - href: programme.qmd
+            text: "Vue d’ensemble"
+          - href: modules/01-ia-agriculture.qmd
+            text: "1. IA dans l’agriculture"
+          - section: "2. Bases de Python"
+            contents:
+              - href: modules/02-bases-python.qmd
+                text: "Vue d’ensemble"
+              - href: modules/02-1-installation.qmd
+                text: "Installation et environnement"
+              - href: modules/02-2-variables.qmd
+                text: "Variables"
+              - href: modules/02-3-calculs.qmd
+                text: "Calculs numériques"
+              - href: modules/02-4-boucles.qmd
+                text: "Conditions et boucles"
+              - href: modules/02-5-fonctions.qmd
+                text: "Fonctions"
+          - section: "3. Analyse de données agricoles"
+            contents:
+              - href: modules/03-analyse-donnees.qmd
+                text: "Vue d’ensemble"
+              - href: modules/03-1-pandas.qmd
+                text: "Pandas"
+              - href: modules/03-2-traitement.qmd
+                text: "Traitement des données"
+              - href: modules/03-3-statistiques.qmd
+                text: "Tests statistiques"
+          - section: "4. Machine Learning"
+            contents:
+              - href: modules/04-machine-learning.qmd
+                text: "Vue d’ensemble"
+              - href: modules/04-1-introduction.qmd
+                text: "Introduction"
+              - href: modules/04-2-algorithmes.qmd
+                text: "Types d’algorithmes"
+              - href: modules/04-3-logistique.qmd
+                text: "Régression logistique"
+              - href: modules/04-4-random-forest.qmd
+                text: "Random Forest"
+              - href: modules/04-5-diagnostic-plantes.qmd
+                text: "Diagnostic des plantes"
+          - section: "5. Analyse géospatiale"
+            contents:
+              - href: modules/05-analyse-geospatiale.qmd
+                text: "Vue d’ensemble"
+              - href: modules/05-1-qgis.qmd
+                text: "Installation de QGIS"
+              - href: modules/05-2-carte.qmd
+                text: "Création d’une carte"
+              - href: modules/05-3-excel.qmd
+                text: "Ajouter des données Excel"
+              - href: modules/05-4-jointure.qmd
+                text: "Joindre carte et données"
+
+  page-footer:
+    border: true
+    left: "Cours développé dans le cadre du projet TADY"
+    right: "ESSA · Université d’Antananarivo"
+
+format:
+  html:
+    lang: fr
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-location: right
+    code-copy: true
+    code-overflow: wrap
+    smooth-scroll: true
+
+execute:
+  freeze: auto

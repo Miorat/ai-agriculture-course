@@ -1,0 +1,13 @@
+---
+title: "Ajouter des données Excel"
+---
+
+# Ajouter des données Excel
+
+Cette section montrera comment importer et géolocaliser des données tabulaires.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="05-2-carte.qmd">← Création d’une carte</a>
+<a class="chapter-next" href="05-4-jointure.qmd">Joindre carte et données →</a>
+:::

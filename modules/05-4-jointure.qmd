@@ -1,0 +1,13 @@
+---
+title: "Joindre une carte et des données"
+---
+
+# Joindre une carte et des données
+
+Cette section présentera les jointures attributaires et spatiales.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="05-3-excel.qmd">← Ajouter des données Excel</a>
+
+:::

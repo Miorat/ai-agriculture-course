@@ -1,0 +1,13 @@
+---
+title: "Traitement des données"
+---
+
+# Traitement des données
+
+Cette section abordera le nettoyage, les valeurs manquantes, le filtrage et la transformation des données.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="03-1-pandas.qmd">← Pandas</a>
+<a class="chapter-next" href="03-3-statistiques.qmd">Tests statistiques →</a>
+:::

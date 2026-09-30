@@ -1,0 +1,12 @@
+{
+  "hash": "b397d074666741bd406e92b4d9107666",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"02 · Bases de Python\"\n---\n\n## Installation et environnement de travail\n\nCette section présentera l’installation de Python et l’utilisation d’un environnement adapté au cours.\n\n## Variables\n\n::: {#c54acdc6 .cell execution_count=1}\n``` {.python .cell-code}\nculture = \"Riz\"\nrendement = 4.2\nsurface_ha = 2.5\n\nprint(culture)\nprint(rendement)\n```\n:::\n\n\n## Calculs numériques\n\n::: {#9344291f .cell execution_count=2}\n``` {.python .cell-code}\nproduction = rendement * surface_ha\nprint(production)\n```\n:::\n\n\n## Conditions\n\n::: {#8803164c .cell execution_count=3}\n``` {.python .cell-code}\nif rendement > 4:\n    print(\"Rendement supérieur à 4 t/ha\")\nelse:\n    print(\"Rendement inférieur ou égal à 4 t/ha\")\n```\n:::\n\n\n## Boucles\n\n::: {#93c60970 .cell execution_count=4}\n``` {.python .cell-code}\ncultures = [\"Riz\", \"Maïs\", \"Haricot\"]\n\nfor culture in cultures:\n    print(culture)\n```\n:::\n\n\n## Fonctions\n\n::: {#90b53540 .cell execution_count=5}\n``` {.python .cell-code}\ndef production_totale(rendement, surface):\n    return rendement * surface\n\nproduction_totale(4.2, 2.5)\n```\n:::\n\n\n::: {.chapter-nav}\n<a class=\"chapter-prev\" href=\"01-ia-agriculture.qmd\">← IA dans l’agriculture</a>\n<a class=\"chapter-next\" href=\"02-1-installation.qmd\">Installation et environnement →</a>\n:::\n\n",
+    "supporting": [
+      "02-bases-python_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,37 @@
+---
+title: "01 · IA dans l’agriculture"
+---
+
+## Objectifs du module
+
+À la fin de ce module, vous pourrez :
+
+- expliquer simplement ce qu’est l’intelligence artificielle ;
+- distinguer IA, machine learning et automatisation ;
+- identifier des applications agricoles pertinentes ;
+- reconnaître les limites d’un modèle prédictif.
+
+## Pourquoi utiliser l’IA en agriculture ?
+
+L’agriculture génère aujourd’hui de nombreuses données : observations climatiques, données de sol, historiques de cultures, rendements, maladies, images satellites et informations géographiques.
+
+L’intelligence artificielle peut aider à exploiter ces données pour appuyer certaines décisions.
+
+## Exemples d’application
+
+- estimation des rendements ;
+- diagnostic ou classification de maladies ;
+- détection de stress hydrique ;
+- classification des cultures ;
+- analyse d’images ;
+- identification de facteurs de risque.
+
+::: {.callout-important}
+Un modèle performant n’est pas automatiquement un bon outil de décision. La qualité des données, la validation scientifique et le contexte d’utilisation restent essentiels.
+:::
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="../programme.qmd">← Programme</a>
+<a class="chapter-next" href="02-bases-python.qmd">Bases de Python →</a>
+:::

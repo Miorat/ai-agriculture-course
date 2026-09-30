@@ -1,0 +1,13 @@
+---
+title: "Création d’une carte"
+---
+
+# Création d’une carte
+
+Cette section détaillera les principales étapes de création d’une carte dans QGIS.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="05-1-qgis.qmd">← Installation de QGIS</a>
+<a class="chapter-next" href="05-3-excel.qmd">Ajouter des données Excel →</a>
+:::

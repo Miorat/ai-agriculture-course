@@ -1,0 +1,13 @@
+---
+title: "Installation et environnement de travail"
+---
+
+# Installation et environnement de travail
+
+Cette section présentera l’installation de Python, Jupyter et l’environnement utilisé pendant la formation.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="02-bases-python.qmd">← Bases de Python</a>
+<a class="chapter-next" href="02-2-variables.qmd">Variables →</a>
+:::

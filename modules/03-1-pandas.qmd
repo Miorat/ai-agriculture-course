@@ -1,0 +1,13 @@
+---
+title: "Pandas"
+---
+
+# Pandas
+
+Cette section couvrira l’importation, l’exploration et la manipulation de données agricoles avec pandas.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="03-analyse-donnees.qmd">← Analyse de données agricoles</a>
+<a class="chapter-next" href="03-2-traitement.qmd">Traitement des données →</a>
+:::

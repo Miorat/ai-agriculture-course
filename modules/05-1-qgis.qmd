@@ -1,0 +1,13 @@
+---
+title: "Installation de QGIS"
+---
+
+# Installation de QGIS
+
+Cette section décrira l’installation et la configuration de QGIS.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="05-analyse-geospatiale.qmd">← Analyse géospatiale</a>
+<a class="chapter-next" href="05-2-carte.qmd">Création d’une carte →</a>
+:::

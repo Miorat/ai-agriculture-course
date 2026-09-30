@@ -1,0 +1,13 @@
+---
+title: "Types d’algorithmes"
+---
+
+# Types d’algorithmes
+
+Cette section présentera les principales familles d’algorithmes utilisées dans le cours.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="04-1-introduction.qmd">← Introduction au Machine Learning</a>
+<a class="chapter-next" href="04-3-logistique.qmd">Régression logistique →</a>
+:::

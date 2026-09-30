@@ -1,0 +1,29 @@
+---
+title: "05 · Analyse géospatiale"
+---
+
+## Installation de QGIS
+
+Cette section décrira l’installation et l’environnement de travail QGIS.
+
+## Étapes de création d’une carte
+
+- ajouter une couche ;
+- vérifier le système de coordonnées ;
+- définir la symbologie ;
+- créer une mise en page ;
+- exporter une carte.
+
+## Ajouter des données Excel
+
+Les données tabulaires pourront être importées et converties en points lorsqu’elles contiennent des coordonnées géographiques.
+
+## Joindre une carte et des données
+
+Nous verrons comment associer une table agricole à une couche géographique afin de produire une carte thématique.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="04-5-diagnostic-plantes.qmd">← Diagnostic des plantes</a>
+<a class="chapter-next" href="05-1-qgis.qmd">Installation de QGIS →</a>
+:::

@@ -1,0 +1,68 @@
+---
+title: "02 · Bases de Python"
+---
+
+## Installation et environnement de travail
+
+Cette section présentera l’installation de Python et l’utilisation d’un environnement adapté au cours.
+
+## Variables
+
+```{python}
+#| eval: false
+
+culture = "Riz"
+rendement = 4.2
+surface_ha = 2.5
+
+print(culture)
+print(rendement)
+```
+
+## Calculs numériques
+
+```{python}
+#| eval: false
+
+production = rendement * surface_ha
+print(production)
+```
+
+## Conditions
+
+```{python}
+#| eval: false
+
+if rendement > 4:
+    print("Rendement supérieur à 4 t/ha")
+else:
+    print("Rendement inférieur ou égal à 4 t/ha")
+```
+
+## Boucles
+
+```{python}
+#| eval: false
+
+cultures = ["Riz", "Maïs", "Haricot"]
+
+for culture in cultures:
+    print(culture)
+```
+
+## Fonctions
+
+```{python}
+#| eval: false
+
+def production_totale(rendement, surface):
+    return rendement * surface
+
+production_totale(4.2, 2.5)
+```
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="01-ia-agriculture.qmd">← IA dans l’agriculture</a>
+<a class="chapter-next" href="02-1-installation.qmd">Installation et environnement →</a>
+:::

@@ -1,0 +1,13 @@
+---
+title: "Diagnostic des plantes"
+---
+
+# Diagnostic des plantes
+
+Cette section accueillera le cas pratique de machine learning pour le diagnostic des plantes.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="04-4-random-forest.qmd">← Random Forest</a>
+<a class="chapter-next" href="05-analyse-geospatiale.qmd">Analyse géospatiale →</a>
+:::

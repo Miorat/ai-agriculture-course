@@ -1,0 +1,98 @@
+---
+title: "Programme"
+toc: false
+---
+
+## Objectifs pédagogiques
+
+À l’issue de la formation, les participants seront progressivement amenés à :
+
+::: {.objectives-grid}
+
+::: {.objective-card}
+<div class="objective-number">01</div>
+
+Structurer et analyser des données agricoles avec Python.
+:::
+
+::: {.objective-card}
+<div class="objective-number">02</div>
+
+Construire et évaluer des modèles simples de machine learning.
+:::
+
+::: {.objective-card}
+<div class="objective-number">03</div>
+
+Interpréter les résultats statistiques et les performances d’un modèle.
+:::
+
+::: {.objective-card}
+<div class="objective-number">04</div>
+
+Associer des données agricoles à des informations géographiques.
+:::
+
+::: {.objective-card}
+<div class="objective-number">05</div>
+
+Créer des cartes et visualisations utiles à l’aide à la décision.
+:::
+
+:::
+
+## Contenu du cours
+
+::: {.course-grid-programme}
+
+::: {.course-card-programme}
+<div class="module-badge">01</div>
+
+### IA dans l’agriculture
+
+Comprendre le rôle de l’intelligence artificielle dans l’agriculture moderne, ses applications, ses limites et les principaux types de problèmes traités.
+
+[Ouvrir le module →](modules/01-ia-agriculture.qmd)
+:::
+
+::: {.course-card-programme}
+<div class="module-badge">02</div>
+
+### Bases de Python
+
+Installer l’environnement de travail et maîtriser variables, calculs numériques, conditions, boucles et fonctions.
+
+[Ouvrir le module →](modules/02-bases-python.qmd)
+:::
+
+::: {.course-card-programme}
+<div class="module-badge">03</div>
+
+### Analyse de données agricoles
+
+Manipuler les données avec pandas, préparer les données et appliquer des méthodes statistiques : normalité, corrélation, ANOVA, ANCOVA, ACP et ACM.
+
+[Ouvrir le module →](modules/03-analyse-donnees.qmd)
+:::
+
+::: {.course-card-programme}
+<div class="module-badge module-badge-accent">04</div>
+
+### Machine Learning
+
+Découvrir les grands types d’algorithmes et développer des exemples pratiques avec la régression logistique, Random Forest et un cas de diagnostic des plantes.
+
+[Ouvrir le module →](modules/04-machine-learning.qmd)
+:::
+
+::: {.course-card-programme}
+<div class="module-badge">05</div>
+
+### Analyse géospatiale
+
+Utiliser QGIS, créer des cartes, ajouter des données tabulaires et réaliser des jointures entre données agricoles et couches cartographiques.
+
+[Ouvrir le module →](modules/05-analyse-geospatiale.qmd)
+:::
+
+:::

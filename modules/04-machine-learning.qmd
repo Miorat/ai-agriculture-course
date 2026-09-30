@@ -1,0 +1,33 @@
+---
+title: "04 · Machine Learning"
+---
+
+## Introduction
+
+Le machine learning permet de construire des modèles qui apprennent des relations à partir de données.
+
+## Types d’algorithmes
+
+- classification ;
+- régression ;
+- clustering ;
+- arbres de décision ;
+- méthodes d’ensemble.
+
+## Exemple pratique 1 — Régression logistique
+
+Le code sera ajouté à partir des exemples du cours.
+
+## Exemple pratique 2 — Random Forest
+
+Le code sera ajouté à partir des exemples du cours.
+
+## Cas pratique — Diagnostic des plantes
+
+Le cas pratique servira à relier préparation des données, entraînement du modèle, prédiction et évaluation.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="03-3-statistiques.qmd">← Tests statistiques</a>
+<a class="chapter-next" href="04-1-introduction.qmd">Introduction au Machine Learning →</a>
+:::

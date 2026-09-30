@@ -1,0 +1,20 @@
+---
+title: "Ressources"
+---
+
+# Ressources du cours
+
+Cette page peut accueillir progressivement :
+
+- notebooks Python ;
+- jeux de données d’exemple ;
+- fiches pratiques ;
+- supports PDF ;
+- fichiers QGIS ;
+- exercices ;
+- corrigés ;
+- liens utiles.
+
+::: {.callout-note}
+Les ressources seront ajoutées au fur et à mesure de la formation.
+:::

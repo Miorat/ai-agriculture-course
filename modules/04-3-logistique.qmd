@@ -1,0 +1,13 @@
+---
+title: "Régression logistique"
+---
+
+# Régression logistique
+
+Cette section contiendra l’exemple pratique de régression logistique.
+
+
+::: {.chapter-nav}
+<a class="chapter-prev" href="04-2-algorithmes.qmd">← Types d’algorithmes</a>
+<a class="chapter-next" href="04-4-random-forest.qmd">Random Forest →</a>
+:::
