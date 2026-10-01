@@ -46,9 +46,7 @@ L’objectif est de proposer un parcours progressif, pratique et directement exp
 
 ::: {.about-card}
 
-## À propos de la formatrice
-
-### Mioratina
+## À propos moi
 
 Je suis **Mioratina, Data Scientist**, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.
 
