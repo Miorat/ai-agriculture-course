@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>01 · IA dans l’agriculture – Introduction à l’IA pour l’agriculture</title>
+<title>IA dans l’agriculture – Introduction à l’IA pour l’agriculture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -336,9 +336,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
-  <li><a href="#pourquoi-utiliser-lia-en-agriculture" id="toc-pourquoi-utiliser-lia-en-agriculture" class="nav-link" data-scroll-target="#pourquoi-utiliser-lia-en-agriculture">Pourquoi utiliser l’IA en agriculture ?</a></li>
-  <li><a href="#exemples-dapplication" id="toc-exemples-dapplication" class="nav-link" data-scroll-target="#exemples-dapplication">Exemples d’application</a></li>
+  <li><a href="#objectifs-de-cette-partie" id="toc-objectifs-de-cette-partie" class="nav-link active" data-scroll-target="#objectifs-de-cette-partie">Objectifs de cette partie</a></li>
+  <li><a href="#contexte-et-enjeux" id="toc-contexte-et-enjeux" class="nav-link" data-scroll-target="#contexte-et-enjeux">Contexte et enjeux</a></li>
+  <li><a href="#comment-lia-intervient-en-agriculture" id="toc-comment-lia-intervient-en-agriculture" class="nav-link" data-scroll-target="#comment-lia-intervient-en-agriculture">Comment l’IA intervient en agriculture</a>
+  <ul class="collapse">
+  <li><a href="#collecte-des-données" id="toc-collecte-des-données" class="nav-link" data-scroll-target="#collecte-des-données">1. Collecte des données</a></li>
+  <li><a href="#préparation-et-exploration-avec-python" id="toc-préparation-et-exploration-avec-python" class="nav-link" data-scroll-target="#préparation-et-exploration-avec-python">2. Préparation et exploration avec Python</a></li>
+  <li><a href="#analyses-et-modélisation" id="toc-analyses-et-modélisation" class="nav-link" data-scroll-target="#analyses-et-modélisation">3. Analyses et modélisation</a></li>
+  <li><a href="#décision-et-interprétation" id="toc-décision-et-interprétation" class="nav-link" data-scroll-target="#décision-et-interprétation">4. Décision et interprétation</a></li>
+  </ul></li>
+  <li><a href="#applications-et-exemples-concrets" id="toc-applications-et-exemples-concrets" class="nav-link" data-scroll-target="#applications-et-exemples-concrets">Applications et exemples concrets</a>
+  <ul class="collapse">
+  <li><a href="#avant-la-campagne-agricole" id="toc-avant-la-campagne-agricole" class="nav-link" data-scroll-target="#avant-la-campagne-agricole">Avant la campagne agricole</a></li>
+  <li><a href="#pendant-la-campagne-agricole" id="toc-pendant-la-campagne-agricole" class="nav-link" data-scroll-target="#pendant-la-campagne-agricole">Pendant la campagne agricole</a></li>
+  <li><a href="#surveillance-des-ravageurs-et-des-maladies" id="toc-surveillance-des-ravageurs-et-des-maladies" class="nav-link" data-scroll-target="#surveillance-des-ravageurs-et-des-maladies">Surveillance des ravageurs et des maladies</a></li>
+  <li><a href="#images-drones-et-télédétection" id="toc-images-drones-et-télédétection" class="nav-link" data-scroll-target="#images-drones-et-télédétection">Images, drones et télédétection</a></li>
+  </ul></li>
+  <li><a href="#quelques-exemples-de-questions-agricoles" id="toc-quelques-exemples-de-questions-agricoles" class="nav-link" data-scroll-target="#quelques-exemples-de-questions-agricoles">Quelques exemples de questions agricoles</a></li>
+  <li><a href="#ia-statistiques-et-sig-des-outils-complémentaires" id="toc-ia-statistiques-et-sig-des-outils-complémentaires" class="nav-link" data-scroll-target="#ia-statistiques-et-sig-des-outils-complémentaires">IA, statistiques et SIG : des outils complémentaires</a></li>
+  <li><a href="#points-à-retenir" id="toc-points-à-retenir" class="nav-link" data-scroll-target="#points-à-retenir">Points à retenir</a></li>
+  <li><a href="#petite-réflexion" id="toc-petite-réflexion" class="nav-link" data-scroll-target="#petite-réflexion">Petite réflexion</a></li>
   </ul>
 </nav>
     </div>
@@ -347,7 +364,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../programme.html">Programme</a></li><li class="breadcrumb-item"><a href="../modules/01-ia-agriculture.html">1. IA dans l’agriculture</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">01 · IA dans l’agriculture</h1>
+<h1 class="title">IA dans l’agriculture</h1>
 </div>
 
 
@@ -364,47 +381,278 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="objectifs-du-module" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
-<p>À la fin de ce module, vous pourrez :</p>
+<section id="objectifs-de-cette-partie" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-cette-partie">Objectifs de cette partie</h2>
+<p>À la fin de cette partie, vous serez capables de :</p>
 <ul>
-<li>expliquer simplement ce qu’est l’intelligence artificielle ;</li>
-<li>distinguer IA, machine learning et automatisation ;</li>
-<li>identifier des applications agricoles pertinentes ;</li>
-<li>reconnaître les limites d’un modèle prédictif.</li>
+<li>comprendre les principaux enjeux liés à l’utilisation des données en agriculture ;</li>
+<li>identifier comment l’intelligence artificielle peut intervenir dans une chaîne de traitement de données agricoles ;</li>
+<li>reconnaître plusieurs applications concrètes de l’IA, de l’analyse statistique et des SIG en agriculture ;</li>
+<li>distinguer le rôle de Python, du machine learning et de l’analyse géospatiale dans l’aide à la décision.</li>
 </ul>
 </section>
-<section id="pourquoi-utiliser-lia-en-agriculture" class="level2">
-<h2 class="anchored" data-anchor-id="pourquoi-utiliser-lia-en-agriculture">Pourquoi utiliser l’IA en agriculture ?</h2>
-<p>L’agriculture génère aujourd’hui de nombreuses données : observations climatiques, données de sol, historiques de cultures, rendements, maladies, images satellites et informations géographiques.</p>
-<p>L’intelligence artificielle peut aider à exploiter ces données pour appuyer certaines décisions.</p>
-</section>
-<section id="exemples-dapplication" class="level2">
-<h2 class="anchored" data-anchor-id="exemples-dapplication">Exemples d’application</h2>
+<section id="contexte-et-enjeux" class="level2">
+<h2 class="anchored" data-anchor-id="contexte-et-enjeux">Contexte et enjeux</h2>
+<p>Le secteur agricole doit aujourd’hui répondre à plusieurs défis :</p>
 <ul>
-<li>estimation des rendements ;</li>
-<li>diagnostic ou classification de maladies ;</li>
-<li>détection de stress hydrique ;</li>
-<li>classification des cultures ;</li>
-<li>analyse d’images ;</li>
-<li>identification de facteurs de risque.</li>
+<li>améliorer la production et les rendements ;</li>
+<li>s’adapter aux changements climatiques ;</li>
+<li>gérer durablement les ressources naturelles ;</li>
+<li>suivre l’état des cultures et des exploitations ;</li>
+<li>anticiper les risques agricoles ;</li>
+<li>améliorer la prise de décision.</li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>Dans ce contexte, les <strong>données</strong> occupent une place de plus en plus importante.</p>
+<p>Elles peuvent provenir de différentes sources :</p>
+<ul>
+<li>observations de terrain ;</li>
+<li>données météorologiques ;</li>
+<li>données climatiques ;</li>
+<li>données sur les sols ;</li>
+<li>données historiques de production ;</li>
+<li>fichiers Excel ;</li>
+<li>coordonnées GPS ;</li>
+<li>images satellites ;</li>
+<li>images acquises par drone ;</li>
+<li>observations sur les ravageurs et les maladies.</li>
+</ul>
+<p>L’objectif n’est pas seulement de collecter ces données, mais surtout de les <strong>transformer en informations utiles pour comprendre une situation et appuyer une décision</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+<span class="screen-reader-only">Note</span>Idée clé
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un modèle performant n’est pas automatiquement un bon outil de décision. La qualité des données, la validation scientifique et le contexte d’utilisation restent essentiels.</p>
+<p>Une donnée brute n’est pas encore une décision.</p>
+<p>Elle doit être collectée, préparée, analysée puis interprétée avant de pouvoir être utilisée dans un contexte agricole.</p>
 </div>
 </div>
-<div class="chapter-nav">
-<p><a class="chapter-prev" href="../programme.html">← Programme</a> <a class="chapter-next" href="../modules/02-bases-python.html">Bases de Python →</a></p>
+</section>
+<section id="comment-lia-intervient-en-agriculture" class="level2">
+<h2 class="anchored" data-anchor-id="comment-lia-intervient-en-agriculture">Comment l’IA intervient en agriculture</h2>
+<p>L’intelligence artificielle intervient au sein d’une chaîne plus large de traitement des données.</p>
+<p>Dans ce cours, cette chaîne est représentée en quatre grandes étapes :</p>
+<ol type="1">
+<li><strong>Collecter les données</strong></li>
+<li><strong>Explorer et préparer les données avec Python</strong></li>
+<li><strong>Analyser et modéliser</strong></li>
+<li><strong>Interpréter les résultats pour appuyer la décision</strong></li>
+</ol>
+<p><img src="../images/workflow_donnees.png" class="img-fluid" style="width:100.0%" alt="Chaîne de traitement des données agricoles, de la collecte à la décision"></p>
+<section id="collecte-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="collecte-des-données">1. Collecte des données</h3>
+<p>Les données agricoles peuvent prendre des formes très différentes :</p>
+<ul>
+<li>données tabulaires issues d’Excel ;</li>
+<li>mesures météorologiques ;</li>
+<li>coordonnées GPS ;</li>
+<li>relevés effectués sur le terrain ;</li>
+<li>observations de cultures, ravageurs ou maladies ;</li>
+<li>images satellites ou drones ;</li>
+<li>informations sur les sols ou les pratiques culturales.</li>
+</ul>
+<p>Ces différentes sources permettent de construire une vision plus complète du système étudié.</p>
+</section>
+<section id="préparation-et-exploration-avec-python" class="level3">
+<h3 class="anchored" data-anchor-id="préparation-et-exploration-avec-python">2. Préparation et exploration avec Python</h3>
+<p>Avant toute analyse, les données doivent généralement être préparées.</p>
+<p>Python permet notamment de :</p>
+<ul>
+<li>nettoyer les données ;</li>
+<li>identifier les valeurs manquantes ;</li>
+<li>explorer les variables ;</li>
+<li>produire des graphiques ;</li>
+<li>fusionner plusieurs sources de données ;</li>
+<li>préparer les données pour l’analyse.</li>
+</ul>
+</section>
+<section id="analyses-et-modélisation" class="level3">
+<h3 class="anchored" data-anchor-id="analyses-et-modélisation">3. Analyses et modélisation</h3>
+<p>Plusieurs approches peuvent ensuite être mobilisées selon la question étudiée.</p>
+<section id="analyse-statistique" class="level4">
+<h4 class="anchored" data-anchor-id="analyse-statistique">Analyse statistique</h4>
+<p>Elle permet par exemple de :</p>
+<ul>
+<li>comprendre les tendances ;</li>
+<li>identifier les facteurs associés à un phénomène ;</li>
+<li>comparer des groupes ;</li>
+<li>tester des hypothèses.</li>
+</ul>
+</section>
+<section id="machine-learning" class="level4">
+<h4 class="anchored" data-anchor-id="machine-learning">Machine Learning</h4>
+<p>Le machine learning peut être utilisé pour :</p>
+<ul>
+<li>prédire des rendements ;</li>
+<li>classer des observations ;</li>
+<li>identifier des situations à risque ;</li>
+<li>produire certaines recommandations.</li>
+</ul>
+</section>
+<section id="sig" class="level4">
+<h4 class="anchored" data-anchor-id="sig">SIG</h4>
+<p>Les systèmes d’information géographique permettent de :</p>
+<ul>
+<li>explorer les données spatiales ;</li>
+<li>produire des cartes ;</li>
+<li>identifier des zones prioritaires ;</li>
+<li>analyser la variabilité spatiale.</li>
+</ul>
+</section>
+</section>
+<section id="décision-et-interprétation" class="level3">
+<h3 class="anchored" data-anchor-id="décision-et-interprétation">4. Décision et interprétation</h3>
+<p>L’objectif final n’est pas seulement de produire un modèle ou une carte.</p>
+<p>Il s’agit surtout de transformer les résultats en informations utiles, par exemple :</p>
+<ul>
+<li>recommandations adaptées ;</li>
+<li>aide à la décision ;</li>
+<li>alertes précoces ;</li>
+<li>suivi et évaluation ;</li>
+<li>prévisions agricoles.</li>
+</ul>
+</section>
+</section>
+<section id="applications-et-exemples-concrets" class="level2">
+<h2 class="anchored" data-anchor-id="applications-et-exemples-concrets">Applications et exemples concrets</h2>
+<p>Les applications de l’intelligence artificielle et de la science des données sont nombreuses.</p>
+<p>Elles peuvent intervenir avant, pendant et après une campagne agricole.</p>
+<p><img src="../images/example_application.png" class="img-fluid" style="width:100.0%" alt="Exemples d’applications pratiques de l’intelligence artificielle en agriculture"></p>
+<section id="avant-la-campagne-agricole" class="level3">
+<h3 class="anchored" data-anchor-id="avant-la-campagne-agricole">Avant la campagne agricole</h3>
+<p>Les données historiques et les prévisions climatiques peuvent contribuer à identifier une période optimale de plantation.</p>
+<p>L’analyse peut notamment servir à :</p>
+<ul>
+<li>comparer plusieurs années ;</li>
+<li>tenir compte des conditions climatiques ;</li>
+<li>adapter les recommandations à une zone donnée ;</li>
+<li>compléter les calendriers agricoles existants.</li>
+</ul>
+</section>
+<section id="pendant-la-campagne-agricole" class="level3">
+<h3 class="anchored" data-anchor-id="pendant-la-campagne-agricole">Pendant la campagne agricole</h3>
+<p>Les prévisions météorologiques peuvent être transformées en conseils plus directement exploitables.</p>
+<p>Par exemple :</p>
+<ul>
+<li>faut-il irriguer ?</li>
+<li>à quel moment intervenir ?</li>
+<li>quelle variété semble la plus adaptée ?</li>
+<li>certaines conditions présentent-elles un risque particulier ?</li>
+</ul>
+</section>
+<section id="surveillance-des-ravageurs-et-des-maladies" class="level3">
+<h3 class="anchored" data-anchor-id="surveillance-des-ravageurs-et-des-maladies">Surveillance des ravageurs et des maladies</h3>
+<p>Un système peut combiner plusieurs informations :</p>
+<ul>
+<li>conditions météorologiques ;</li>
+<li>type de culture ;</li>
+<li>stade de développement ;</li>
+<li>observations historiques de ravageurs ;</li>
+<li>observations historiques de maladies.</li>
+</ul>
+<p>L’objectif peut être d’identifier des périodes ou des zones à risque et de produire une <strong>alerte précoce</strong>.</p>
+</section>
+<section id="images-drones-et-télédétection" class="level3">
+<h3 class="anchored" data-anchor-id="images-drones-et-télédétection">Images, drones et télédétection</h3>
+<p>Les images satellites ou acquises par drone peuvent contribuer à :</p>
+<ul>
+<li>suivre le développement des cultures ;</li>
+<li>détecter certaines zones de stress ;</li>
+<li>identifier des signes de maladie ;</li>
+<li>observer les différences au sein d’une parcelle ;</li>
+<li>estimer l’état général des cultures.</li>
+</ul>
+</section>
+</section>
+<section id="quelques-exemples-de-questions-agricoles" class="level2">
+<h2 class="anchored" data-anchor-id="quelques-exemples-de-questions-agricoles">Quelques exemples de questions agricoles</h2>
+<p>La science des données peut contribuer à répondre à des questions telles que :</p>
+<ul>
+<li>Quel rendement peut-on attendre ?</li>
+<li>Quels facteurs sont associés à une faible production ?</li>
+<li>Quelles zones sont les plus vulnérables ?</li>
+<li>Quelles cultures semblent affectées ?</li>
+<li>Comment évolue l’occupation des sols ?</li>
+<li>Où se trouvent les zones prioritaires ?</li>
+<li>Comment mieux allouer certaines ressources ?</li>
+<li>Comment améliorer la planification agricole ?</li>
+</ul>
+</section>
+<section id="ia-statistiques-et-sig-des-outils-complémentaires" class="level2">
+<h2 class="anchored" data-anchor-id="ia-statistiques-et-sig-des-outils-complémentaires">IA, statistiques et SIG : des outils complémentaires</h2>
+<p>L’intelligence artificielle ne fonctionne pas seule.</p>
+<p>Dans une analyse agricole, plusieurs approches peuvent être combinées :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Outil</th>
+<th>Rôle principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Python</strong></td>
+<td>préparer, explorer et analyser les données</td>
+</tr>
+<tr class="even">
+<td><strong>Analyse statistique</strong></td>
+<td>comprendre les relations et tester des hypothèses</td>
+</tr>
+<tr class="odd">
+<td><strong>Machine Learning</strong></td>
+<td>prédire, classer ou détecter certains phénomènes</td>
+</tr>
+<tr class="even">
+<td><strong>SIG</strong></td>
+<td>analyser et représenter les phénomènes dans l’espace</td>
+</tr>
+</tbody>
+</table>
+<p>Le choix de l’outil dépend toujours de la <strong>question agricole étudiée</strong>, de la qualité des données disponibles et de l’objectif recherché.</p>
+</section>
+<section id="points-à-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="points-à-retenir">Points à retenir</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Les données agricoles proviennent de sources très variées.</li>
+<li>Python permet de préparer et explorer ces données.</li>
+<li>L’analyse statistique aide à comprendre les phénomènes observés.</li>
+<li>Le machine learning peut produire des prédictions ou des classifications.</li>
+<li>Les SIG permettent d’intégrer la dimension spatiale.</li>
+<li>L’objectif final est de produire une information utile pour la décision agricole.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="petite-réflexion" class="level2">
+<h2 class="anchored" data-anchor-id="petite-réflexion">Petite réflexion</h2>
+<p>Choisissez un problème agricole que vous connaissez.</p>
+<p>Posez-vous les questions suivantes :</p>
+<ol type="1">
+<li>Quelles données seraient nécessaires pour mieux comprendre ce problème ?</li>
+<li>D’où pourraient provenir ces données ?</li>
+<li>Une analyse statistique serait-elle utile ?</li>
+<li>Un modèle de machine learning pourrait-il être pertinent ?</li>
+<li>La dimension géographique est-elle importante ?</li>
+<li>Quelle décision pourrait être améliorée grâce à ces informations ?</li>
+</ol>
 
 
 </section>
