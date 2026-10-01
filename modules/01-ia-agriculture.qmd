@@ -33,226 +33,49 @@ Sous-domaine de l’IA dans lequel les modèles apprennent des relations à part
 Informations utilisées pour entraîner, tester et appliquer ces modèles.
 :::
 
-## Contexte et enjeux
 
 ## Contexte et enjeux
 
-<div class="context-diagram">
+::: {.context-diagram}
 
-  <div class="context-box challenge-box">
-    <h3>Le secteur agricole doit répondre à plusieurs défis :</h3>
-    <ul>
-      <li>amélioration de la production et des rendements ;</li>
-      <li>adaptation aux changements climatiques ;</li>
-      <li>gestion des ressources naturelles ;</li>
-      <li>suivi des cultures et des exploitations ;</li>
-      <li>anticipation des risques agricoles ;</li>
-      <li>amélioration de la prise de décision.</li>
-    </ul>
-  </div>
+::: {.context-box .challenge-box}
+### Le secteur agricole doit répondre à plusieurs défis
 
-  <div class="context-arrow">➜</div>
-
-  <div class="context-box data-box">
-    <p>
-      Les <strong>données</strong> peuvent aider à mieux comprendre les problèmes
-      agricoles et à prendre des décisions plus éclairées.
-    </p>
-  </div>
-
-  <div class="context-arrow">➜</div>
-
-  <div class="context-box tools-box">
-    <h3>Outils d’aide à la décision</h3>
-    <h4>Intelligence Artificielle</h4>
-    <ul class="tools-list">
-      <li>Analyse statistique</li>
-      <li>Machine learning</li>
-      <li>SIG</li>
-      <li>Python</li>
-      <li>R</li>
-    </ul>
-  </div>
-
-</div>
-
-Le secteur agricole doit aujourd’hui répondre à plusieurs défis :
-
-- améliorer la production et les rendements ;
-- s’adapter aux changements climatiques ;
-- gérer durablement les ressources naturelles ;
-- suivre l’état des cultures et des exploitations ;
-- anticiper les risques agricoles ;
-- améliorer la prise de décision.
-
-Dans ce contexte, les **données** occupent une place de plus en plus importante.
-
-Elles peuvent provenir de différentes sources :
-
-- observations de terrain ;
-- données météorologiques et climatiques ;
-- données sur les sols ;
-- données historiques de production ;
-- fichiers Excel ;
-- coordonnées GPS ;
-- images satellites ;
-- images acquises par drone ;
-- observations sur les ravageurs et les maladies.
-
-L’objectif n’est pas seulement de collecter ces données, mais surtout de les **transformer en informations utiles pour comprendre une situation et appuyer une décision**.
-
-::: {.callout-note}
-## Idée clé
-
-Une donnée brute n’est pas encore une décision.
-
-Elle doit être **collectée, préparée, analysée puis interprétée** avant de pouvoir être utilisée dans un contexte agricole.
+- amélioration de la production et des rendements ;
+- adaptation aux changements climatiques ;
+- gestion des ressources naturelles ;
+- suivi des cultures et des exploitations ;
+- anticipation des risques agricoles ;
+- amélioration de la prise de décision.
 :::
 
-## Comment l’IA intervient en agriculture
-
-L’intelligence artificielle intervient au sein d’une chaîne plus large de traitement des données.
-
-::: {.callout-important}
-## De la donnée à la décision
-
-**1. Collecte des données**  
-Données Excel, météo, GPS, observations de terrain, images satellites, drones, sols et pratiques culturales.
-
-**2. Préparation et exploration**  
-Nettoyage, visualisation et combinaison des données, notamment avec Python.
-
-**3. Analyses et modélisation**  
-Analyse statistique, Machine Learning et analyse géospatiale.
-
-**4. Décision et interprétation**  
-Prévisions, recommandations, alertes précoces, cartes et aide à la décision.
+::: {.context-arrow}
+→
 :::
 
-### Collecte et préparation des données
+::: {.context-box .data-box}
+### Les données
 
-Avant de construire un modèle, les données doivent généralement être préparées.
+Les **données** peuvent aider à mieux comprendre les problèmes agricoles et à prendre des décisions plus éclairées.
+:::
 
-Avec **Python**, il est possible de :
+::: {.context-arrow}
+→
+:::
 
-- nettoyer les données ;
-- identifier les valeurs manquantes ;
-- explorer les variables ;
-- produire des graphiques ;
-- fusionner plusieurs sources de données ;
-- préparer un jeu de données pour la modélisation.
+::: {.context-box .tools-box}
+### Outils d’aide à la décision
 
-### Analyse statistique
+**Intelligence artificielle & science des données**
 
-L’analyse statistique permet notamment de :
+- Analyse statistique
+- Machine learning
+- SIG
+- Python
+- R
+:::
 
-- comprendre les tendances ;
-- identifier les facteurs associés à un phénomène ;
-- comparer des groupes ;
-- tester des hypothèses.
-
-### Machine Learning
-
-Le Machine Learning est utilisé lorsque l’on souhaite construire un modèle capable d’apprendre à partir de données historiques.
-
-Le modèle peut ensuite être utilisé pour :
-
-- faire une prédiction ;
-- classer une observation ;
-- détecter une situation particulière ;
-- produire une probabilité de risque.
-
-### SIG
-
-Les systèmes d’information géographique permettent d’ajouter la dimension spatiale à l’analyse.
-
-Ils permettent notamment de :
-
-- produire des cartes ;
-- identifier des zones prioritaires ;
-- croiser plusieurs couches d’information ;
-- analyser la variabilité spatiale.
-
-## Du problème agricole au résultat
-
-Une application de l’IA peut être résumée simplement comme une chaîne :
-
-<div class="ai-flow">
-
-<div class="ai-step">
-<strong>Problème agricole</strong><br>
-Prévoir le rendement
-</div>
-
-<div class="ai-arrow">→</div>
-
-<div class="ai-step">
-<strong>Données</strong><br>
-Pluie, température,<br>sol, variété
-</div>
-
-<div class="ai-arrow">→</div>
-
-<div class="ai-step">
-<strong>Outil IA / données</strong><br>
-Modèle de régression
-</div>
-
-<div class="ai-arrow">→</div>
-
-<div class="ai-step">
-<strong>Résultat attendu</strong><br>
-Rendement prédit
-</div>
-
-</div>
-
-Cette logique peut être réutilisée pour de nombreux problèmes agricoles :
-
-**problème → données → méthode → résultat**
-
-## Applications concrètes en agriculture
-
-### Prévision des rendements
-
-Supposons que nous disposions de données historiques contenant :
-
-- la pluviométrie ;
-- la température ;
-- le type de sol ;
-- la variété cultivée ;
-- les pratiques culturales ;
-- le rendement observé.
-
-<div class="ai-flow">
-
-<div class="ai-step">
-<strong>Problème</strong><br>
-Prévoir le rendement
-</div>
-
-<div class="ai-arrow">→</div>
-
-<div class="ai-step">
-<strong>Données</strong><br>
-Climat, sol, variété,<br>pratiques culturales
-</div>
-
-<div class="ai-arrow">→</div>
-
-<div class="ai-step">
-<strong>Outil</strong><br>
-Modèle de régression
-</div>
-
-<div class="ai-arrow">→</div>
-
-<div class="ai-step">
-<strong>Résultat</strong><br>
-Rendement estimé
-</div>
-
-</div>
+:::
 
 ::: {.callout-tip}
 ## Outil utilisé : modèle de Machine Learning
