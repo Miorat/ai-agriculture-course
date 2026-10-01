@@ -44,21 +44,28 @@ L’objectif n’est pas seulement de collecter ces données, mais surtout de le
 
 Une donnée brute n’est pas encore une décision.
 
-Elle doit être collectée, préparée, analysée puis interprétée avant de pouvoir être utilisée dans un contexte agricole.
+Elle doit être **collectée, préparée, analysée puis interprétée** avant de pouvoir être utilisée dans un contexte agricole.
 :::
 
 ## Comment l’IA intervient en agriculture
 
-L’intelligence artificielle intervient au sein d’une chaîne plus large de traitement des données.
+L’intelligence artificielle intervient dans une chaîne plus large de traitement des données.
 
-Dans ce cours, cette chaîne est représentée en quatre grandes étapes :
+::: {.callout-important}
+## De la donnée à la décision
 
-1. **Collecter les données**
-2. **Explorer et préparer les données avec Python**
-3. **Analyser et modéliser**
-4. **Interpréter les résultats pour appuyer la décision**
+**1. Collecte des données**  
+Données Excel, météo, GPS, observations de terrain, images satellites, drones, sols et pratiques culturales.
 
-![](../images/workflow_donnees.png){fig-alt="Chaîne de traitement des données agricoles, de la collecte à la décision" width="100%"}
+**2. Préparation et exploration avec Python**  
+Nettoyage, exploration, visualisation, fusion de plusieurs sources et préparation pour l’analyse.
+
+**3. Analyses et modélisation**  
+Analyse statistique, machine learning et analyse géospatiale.
+
+**4. Décision et interprétation**  
+Recommandations, prévisions, alertes précoces, aide à la décision et suivi.
+:::
 
 ### 1. Collecte des données
 
@@ -72,7 +79,18 @@ Les données agricoles peuvent prendre des formes très différentes :
 - images satellites ou drones ;
 - informations sur les sols ou les pratiques culturales.
 
-Ces différentes sources permettent de construire une vision plus complète du système étudié.
+::: {.callout-tip}
+## Exemple
+
+Pour étudier le rendement d’une culture, on peut combiner :
+
+- le rendement observé ;
+- la pluviométrie ;
+- la température ;
+- le type de sol ;
+- la localisation des parcelles ;
+- les pratiques culturales.
+:::
 
 ### 2. Préparation et exploration avec Python
 
@@ -87,9 +105,17 @@ Python permet notamment de :
 - fusionner plusieurs sources de données ;
 - préparer les données pour l’analyse.
 
+::: {.callout-note}
+## Pourquoi cette étape est-elle importante ?
+
+Une mauvaise qualité de données peut conduire à des résultats peu fiables.
+
+La préparation des données est donc une étape essentielle avant toute analyse statistique ou tout modèle de machine learning.
+:::
+
 ### 3. Analyses et modélisation
 
-Plusieurs approches peuvent ensuite être mobilisées selon la question étudiée.
+Plusieurs approches peuvent être mobilisées selon la question étudiée.
 
 #### Analyse statistique
 
@@ -118,6 +144,14 @@ Les systèmes d’information géographique permettent de :
 - identifier des zones prioritaires ;
 - analyser la variabilité spatiale.
 
+::: {.callout-warning}
+## Important
+
+Le choix d’une méthode dépend toujours de la **question agricole étudiée**.
+
+Il ne s’agit pas d’utiliser l’IA systématiquement, mais de choisir l’outil le plus pertinent pour répondre au problème.
+:::
+
 ### 4. Décision et interprétation
 
 L’objectif final n’est pas seulement de produire un modèle ou une carte.
@@ -134,22 +168,25 @@ Il s’agit surtout de transformer les résultats en informations utiles, par ex
 
 Les applications de l’intelligence artificielle et de la science des données sont nombreuses.
 
-Elles peuvent intervenir avant, pendant et après une campagne agricole.
-
-![](../images/example_application.png){fig-alt="Exemples d’applications pratiques de l’intelligence artificielle en agriculture" width="100%"}
-
 ### Avant la campagne agricole
+
+::: {.callout-tip}
+## Exemple d’application
 
 Les données historiques et les prévisions climatiques peuvent contribuer à identifier une période optimale de plantation.
 
-L’analyse peut notamment servir à :
+Elles peuvent aider à :
 
 - comparer plusieurs années ;
 - tenir compte des conditions climatiques ;
 - adapter les recommandations à une zone donnée ;
 - compléter les calendriers agricoles existants.
+:::
 
 ### Pendant la campagne agricole
+
+::: {.callout-tip}
+## Exemple d’application
 
 Les prévisions météorologiques peuvent être transformées en conseils plus directement exploitables.
 
@@ -159,20 +196,28 @@ Par exemple :
 - à quel moment intervenir ?
 - quelle variété semble la plus adaptée ?
 - certaines conditions présentent-elles un risque particulier ?
+:::
 
 ### Surveillance des ravageurs et des maladies
 
-Un système peut combiner plusieurs informations :
+::: {.callout-important}
+## Exemple d’application
 
-- conditions météorologiques ;
-- type de culture ;
-- stade de développement ;
-- observations historiques de ravageurs ;
-- observations historiques de maladies.
+Un système peut combiner :
+
+- les conditions météorologiques ;
+- le type de culture ;
+- le stade de développement ;
+- les observations historiques de ravageurs ;
+- les observations historiques de maladies.
 
 L’objectif peut être d’identifier des périodes ou des zones à risque et de produire une **alerte précoce**.
+:::
 
 ### Images, drones et télédétection
+
+::: {.callout-note}
+## Exemple d’application
 
 Les images satellites ou acquises par drone peuvent contribuer à :
 
@@ -181,6 +226,7 @@ Les images satellites ou acquises par drone peuvent contribuer à :
 - identifier des signes de maladie ;
 - observer les différences au sein d’une parcelle ;
 - estimer l’état général des cultures.
+:::
 
 ## Quelques exemples de questions agricoles
 
@@ -196,10 +242,6 @@ La science des données peut contribuer à répondre à des questions telles que
 - Comment améliorer la planification agricole ?
 
 ## IA, statistiques et SIG : des outils complémentaires
-
-L’intelligence artificielle ne fonctionne pas seule.
-
-Dans une analyse agricole, plusieurs approches peuvent être combinées :
 
 | Outil | Rôle principal |
 |---|---|
