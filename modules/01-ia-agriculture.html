@@ -428,21 +428,33 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>Une donnée brute n’est pas encore une décision.</p>
-<p>Elle doit être collectée, préparée, analysée puis interprétée avant de pouvoir être utilisée dans un contexte agricole.</p>
+<p>Elle doit être <strong>collectée, préparée, analysée puis interprétée</strong> avant de pouvoir être utilisée dans un contexte agricole.</p>
 </div>
 </div>
 </section>
 <section id="comment-lia-intervient-en-agriculture" class="level2">
 <h2 class="anchored" data-anchor-id="comment-lia-intervient-en-agriculture">Comment l’IA intervient en agriculture</h2>
-<p>L’intelligence artificielle intervient au sein d’une chaîne plus large de traitement des données.</p>
-<p>Dans ce cours, cette chaîne est représentée en quatre grandes étapes :</p>
-<ol type="1">
-<li><strong>Collecter les données</strong></li>
-<li><strong>Explorer et préparer les données avec Python</strong></li>
-<li><strong>Analyser et modéliser</strong></li>
-<li><strong>Interpréter les résultats pour appuyer la décision</strong></li>
-</ol>
-<p><img src="../images/workflow_donnees.png" class="img-fluid" style="width:100.0%" alt="Chaîne de traitement des données agricoles, de la collecte à la décision"></p>
+<p>L’intelligence artificielle intervient dans une chaîne plus large de traitement des données.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>De la donnée à la décision
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Collecte des données</strong><br>
+Données Excel, météo, GPS, observations de terrain, images satellites, drones, sols et pratiques culturales.</p>
+<p><strong>2. Préparation et exploration avec Python</strong><br>
+Nettoyage, exploration, visualisation, fusion de plusieurs sources et préparation pour l’analyse.</p>
+<p><strong>3. Analyses et modélisation</strong><br>
+Analyse statistique, machine learning et analyse géospatiale.</p>
+<p><strong>4. Décision et interprétation</strong><br>
+Recommandations, prévisions, alertes précoces, aide à la décision et suivi.</p>
+</div>
+</div>
 <section id="collecte-des-données" class="level3">
 <h3 class="anchored" data-anchor-id="collecte-des-données">1. Collecte des données</h3>
 <p>Les données agricoles peuvent prendre des formes très différentes :</p>
@@ -455,7 +467,27 @@ ul.task-list li input[type="checkbox"] {
 <li>images satellites ou drones ;</li>
 <li>informations sur les sols ou les pratiques culturales.</li>
 </ul>
-<p>Ces différentes sources permettent de construire une vision plus complète du système étudié.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour étudier le rendement d’une culture, on peut combiner :</p>
+<ul>
+<li>le rendement observé ;</li>
+<li>la pluviométrie ;</li>
+<li>la température ;</li>
+<li>le type de sol ;</li>
+<li>la localisation des parcelles ;</li>
+<li>les pratiques culturales.</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="préparation-et-exploration-avec-python" class="level3">
 <h3 class="anchored" data-anchor-id="préparation-et-exploration-avec-python">2. Préparation et exploration avec Python</h3>
@@ -469,10 +501,24 @@ ul.task-list li input[type="checkbox"] {
 <li>fusionner plusieurs sources de données ;</li>
 <li>préparer les données pour l’analyse.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pourquoi cette étape est-elle importante ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une mauvaise qualité de données peut conduire à des résultats peu fiables.</p>
+<p>La préparation des données est donc une étape essentielle avant toute analyse statistique ou tout modèle de machine learning.</p>
+</div>
+</div>
 </section>
 <section id="analyses-et-modélisation" class="level3">
 <h3 class="anchored" data-anchor-id="analyses-et-modélisation">3. Analyses et modélisation</h3>
-<p>Plusieurs approches peuvent ensuite être mobilisées selon la question étudiée.</p>
+<p>Plusieurs approches peuvent être mobilisées selon la question étudiée.</p>
 <section id="analyse-statistique" class="level4">
 <h4 class="anchored" data-anchor-id="analyse-statistique">Analyse statistique</h4>
 <p>Elle permet par exemple de :</p>
@@ -502,6 +548,20 @@ ul.task-list li input[type="checkbox"] {
 <li>identifier des zones prioritaires ;</li>
 <li>analyser la variabilité spatiale.</li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le choix d’une méthode dépend toujours de la <strong>question agricole étudiée</strong>.</p>
+<p>Il ne s’agit pas d’utiliser l’IA systématiquement, mais de choisir l’outil le plus pertinent pour répondre au problème.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="décision-et-interprétation" class="level3">
@@ -520,21 +580,41 @@ ul.task-list li input[type="checkbox"] {
 <section id="applications-et-exemples-concrets" class="level2">
 <h2 class="anchored" data-anchor-id="applications-et-exemples-concrets">Applications et exemples concrets</h2>
 <p>Les applications de l’intelligence artificielle et de la science des données sont nombreuses.</p>
-<p>Elles peuvent intervenir avant, pendant et après une campagne agricole.</p>
-<p><img src="../images/example_application.png" class="img-fluid" style="width:100.0%" alt="Exemples d’applications pratiques de l’intelligence artificielle en agriculture"></p>
 <section id="avant-la-campagne-agricole" class="level3">
 <h3 class="anchored" data-anchor-id="avant-la-campagne-agricole">Avant la campagne agricole</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Exemple d’application
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Les données historiques et les prévisions climatiques peuvent contribuer à identifier une période optimale de plantation.</p>
-<p>L’analyse peut notamment servir à :</p>
+<p>Elles peuvent aider à :</p>
 <ul>
 <li>comparer plusieurs années ;</li>
 <li>tenir compte des conditions climatiques ;</li>
 <li>adapter les recommandations à une zone donnée ;</li>
 <li>compléter les calendriers agricoles existants.</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="pendant-la-campagne-agricole" class="level3">
 <h3 class="anchored" data-anchor-id="pendant-la-campagne-agricole">Pendant la campagne agricole</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Exemple d’application
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Les prévisions météorologiques peuvent être transformées en conseils plus directement exploitables.</p>
 <p>Par exemple :</p>
 <ul>
@@ -543,21 +623,45 @@ ul.task-list li input[type="checkbox"] {
 <li>quelle variété semble la plus adaptée ?</li>
 <li>certaines conditions présentent-elles un risque particulier ?</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="surveillance-des-ravageurs-et-des-maladies" class="level3">
 <h3 class="anchored" data-anchor-id="surveillance-des-ravageurs-et-des-maladies">Surveillance des ravageurs et des maladies</h3>
-<p>Un système peut combiner plusieurs informations :</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exemple d’application
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un système peut combiner :</p>
 <ul>
-<li>conditions météorologiques ;</li>
-<li>type de culture ;</li>
-<li>stade de développement ;</li>
-<li>observations historiques de ravageurs ;</li>
-<li>observations historiques de maladies.</li>
+<li>les conditions météorologiques ;</li>
+<li>le type de culture ;</li>
+<li>le stade de développement ;</li>
+<li>les observations historiques de ravageurs ;</li>
+<li>les observations historiques de maladies.</li>
 </ul>
 <p>L’objectif peut être d’identifier des périodes ou des zones à risque et de produire une <strong>alerte précoce</strong>.</p>
+</div>
+</div>
 </section>
 <section id="images-drones-et-télédétection" class="level3">
 <h3 class="anchored" data-anchor-id="images-drones-et-télédétection">Images, drones et télédétection</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exemple d’application
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Les images satellites ou acquises par drone peuvent contribuer à :</p>
 <ul>
 <li>suivre le développement des cultures ;</li>
@@ -566,6 +670,8 @@ ul.task-list li input[type="checkbox"] {
 <li>observer les différences au sein d’une parcelle ;</li>
 <li>estimer l’état général des cultures.</li>
 </ul>
+</div>
+</div>
 </section>
 </section>
 <section id="quelques-exemples-de-questions-agricoles" class="level2">
@@ -584,8 +690,6 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ia-statistiques-et-sig-des-outils-complémentaires" class="level2">
 <h2 class="anchored" data-anchor-id="ia-statistiques-et-sig-des-outils-complémentaires">IA, statistiques et SIG : des outils complémentaires</h2>
-<p>L’intelligence artificielle ne fonctionne pas seule.</p>
-<p>Dans une analyse agricole, plusieurs approches peuvent être combinées :</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
