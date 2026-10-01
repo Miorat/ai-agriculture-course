@@ -35,6 +35,47 @@ Informations utilisées pour entraîner, tester et appliquer ces modèles.
 
 ## Contexte et enjeux
 
+## Contexte et enjeux
+
+<div class="context-diagram">
+
+  <div class="context-box challenge-box">
+    <h3>Le secteur agricole doit répondre à plusieurs défis :</h3>
+    <ul>
+      <li>amélioration de la production et des rendements ;</li>
+      <li>adaptation aux changements climatiques ;</li>
+      <li>gestion des ressources naturelles ;</li>
+      <li>suivi des cultures et des exploitations ;</li>
+      <li>anticipation des risques agricoles ;</li>
+      <li>amélioration de la prise de décision.</li>
+    </ul>
+  </div>
+
+  <div class="context-arrow">➜</div>
+
+  <div class="context-box data-box">
+    <p>
+      Les <strong>données</strong> peuvent aider à mieux comprendre les problèmes
+      agricoles et à prendre des décisions plus éclairées.
+    </p>
+  </div>
+
+  <div class="context-arrow">➜</div>
+
+  <div class="context-box tools-box">
+    <h3>Outils d’aide à la décision</h3>
+    <h4>Intelligence Artificielle</h4>
+    <ul class="tools-list">
+      <li>Analyse statistique</li>
+      <li>Machine learning</li>
+      <li>SIG</li>
+      <li>Python</li>
+      <li>R</li>
+    </ul>
+  </div>
+
+</div>
+
 Le secteur agricole doit aujourd’hui répondre à plusieurs défis :
 
 - améliorer la production et les rendements ;

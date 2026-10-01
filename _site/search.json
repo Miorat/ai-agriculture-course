@@ -205,47 +205,91 @@
     "href": "index.html#à-propos-moi",
     "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
     "section": "À propos moi",
-    "text": "À propos moi\nJe suis Mioratina, Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions d’aide à la décision déployés à l’échelle internationale."
+    "text": "À propos moi\nJe suis Mioratina N. T., Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions technologiques d’aide à la décision déployés à l’échelle internationale."
   },
   {
     "objectID": "modules/01-ia-agriculture.html",
     "href": "modules/01-ia-agriculture.html",
-    "title": "01 · IA dans l’agriculture",
+    "title": "IA dans l’agriculture",
     "section": "",
-    "text": "À la fin de ce module, vous pourrez :\n\nexpliquer simplement ce qu’est l’intelligence artificielle ;\ndistinguer IA, machine learning et automatisation ;\nidentifier des applications agricoles pertinentes ;\nreconnaître les limites d’un modèle prédictif.",
+    "text": "L’intelligence artificielle (IA) regroupe un ensemble de méthodes informatiques permettant à une machine de réaliser certaines tâches d’analyse, de prédiction ou de classification à partir de données.\nDans ce cours, nous nous intéressons principalement aux approches basées sur les données, en particulier au Machine Learning.\nPar exemple, un système d’IA peut être utilisé pour :\n\nreconnaître des tendances dans des données agricoles ;\nclasser des observations ;\ndétecter des anomalies ;\nprédire un rendement ou un risque ;\nproduire des recommandations à partir de données disponibles.\n\nL’IA ne remplace pas l’expertise agronomique.\nElle fournit plutôt des outils permettant d’exploiter des données afin de mieux comprendre une situation et d’appuyer la prise de décision.\n\n\n\n\n\n\nNoteIA, Machine Learning et données\n\n\n\nIntelligence artificielle\nTerme général regroupant différentes méthodes permettant à une machine de réaliser des tâches d’analyse, de prédiction ou de décision.\nMachine Learning\nSous-domaine de l’IA dans lequel les modèles apprennent des relations à partir de données.\nDonnées\nInformations utilisées pour entraîner, tester et appliquer ces modèles.",
     "crumbs": [
       "Programme",
       "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/01-ia-agriculture.html#objectifs-du-module",
-    "href": "modules/01-ia-agriculture.html#objectifs-du-module",
-    "title": "01 · IA dans l’agriculture",
+    "objectID": "modules/01-ia-agriculture.html#quest-ce-que-lintelligence-artificielle",
+    "href": "modules/01-ia-agriculture.html#quest-ce-que-lintelligence-artificielle",
+    "title": "IA dans l’agriculture",
     "section": "",
-    "text": "À la fin de ce module, vous pourrez :\n\nexpliquer simplement ce qu’est l’intelligence artificielle ;\ndistinguer IA, machine learning et automatisation ;\nidentifier des applications agricoles pertinentes ;\nreconnaître les limites d’un modèle prédictif.",
+    "text": "L’intelligence artificielle (IA) regroupe un ensemble de méthodes informatiques permettant à une machine de réaliser certaines tâches d’analyse, de prédiction ou de classification à partir de données.\nDans ce cours, nous nous intéressons principalement aux approches basées sur les données, en particulier au Machine Learning.\nPar exemple, un système d’IA peut être utilisé pour :\n\nreconnaître des tendances dans des données agricoles ;\nclasser des observations ;\ndétecter des anomalies ;\nprédire un rendement ou un risque ;\nproduire des recommandations à partir de données disponibles.\n\nL’IA ne remplace pas l’expertise agronomique.\nElle fournit plutôt des outils permettant d’exploiter des données afin de mieux comprendre une situation et d’appuyer la prise de décision.\n\n\n\n\n\n\nNoteIA, Machine Learning et données\n\n\n\nIntelligence artificielle\nTerme général regroupant différentes méthodes permettant à une machine de réaliser des tâches d’analyse, de prédiction ou de décision.\nMachine Learning\nSous-domaine de l’IA dans lequel les modèles apprennent des relations à partir de données.\nDonnées\nInformations utilisées pour entraîner, tester et appliquer ces modèles.",
     "crumbs": [
       "Programme",
       "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/01-ia-agriculture.html#pourquoi-utiliser-lia-en-agriculture",
-    "href": "modules/01-ia-agriculture.html#pourquoi-utiliser-lia-en-agriculture",
-    "title": "01 · IA dans l’agriculture",
-    "section": "Pourquoi utiliser l’IA en agriculture ?",
-    "text": "Pourquoi utiliser l’IA en agriculture ?\nL’agriculture génère aujourd’hui de nombreuses données : observations climatiques, données de sol, historiques de cultures, rendements, maladies, images satellites et informations géographiques.\nL’intelligence artificielle peut aider à exploiter ces données pour appuyer certaines décisions.",
+    "objectID": "modules/01-ia-agriculture.html#contexte-et-enjeux",
+    "href": "modules/01-ia-agriculture.html#contexte-et-enjeux",
+    "title": "IA dans l’agriculture",
+    "section": "Contexte et enjeux",
+    "text": "Contexte et enjeux\nLe secteur agricole doit aujourd’hui répondre à plusieurs défis :\n\naméliorer la production et les rendements ;\ns’adapter aux changements climatiques ;\ngérer durablement les ressources naturelles ;\nsuivre l’état des cultures et des exploitations ;\nanticiper les risques agricoles ;\naméliorer la prise de décision.\n\nDans ce contexte, les données occupent une place de plus en plus importante.\nElles peuvent provenir de différentes sources :\n\nobservations de terrain ;\ndonnées météorologiques et climatiques ;\ndonnées sur les sols ;\ndonnées historiques de production ;\nfichiers Excel ;\ncoordonnées GPS ;\nimages satellites ;\nimages acquises par drone ;\nobservations sur les ravageurs et les maladies.\n\nL’objectif n’est pas seulement de collecter ces données, mais surtout de les transformer en informations utiles pour comprendre une situation et appuyer une décision.\n\n\n\n\n\n\nNoteIdée clé\n\n\n\nUne donnée brute n’est pas encore une décision.\nElle doit être collectée, préparée, analysée puis interprétée avant de pouvoir être utilisée dans un contexte agricole.",
     "crumbs": [
       "Programme",
       "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/01-ia-agriculture.html#exemples-dapplication",
-    "href": "modules/01-ia-agriculture.html#exemples-dapplication",
-    "title": "01 · IA dans l’agriculture",
-    "section": "Exemples d’application",
-    "text": "Exemples d’application\n\nestimation des rendements ;\ndiagnostic ou classification de maladies ;\ndétection de stress hydrique ;\nclassification des cultures ;\nanalyse d’images ;\nidentification de facteurs de risque.\n\n\n\n\n\n\n\nImportant\n\n\n\nUn modèle performant n’est pas automatiquement un bon outil de décision. La qualité des données, la validation scientifique et le contexte d’utilisation restent essentiels.\n\n\n\n← Programme Bases de Python →",
+    "objectID": "modules/01-ia-agriculture.html#comment-lia-intervient-en-agriculture",
+    "href": "modules/01-ia-agriculture.html#comment-lia-intervient-en-agriculture",
+    "title": "IA dans l’agriculture",
+    "section": "Comment l’IA intervient en agriculture",
+    "text": "Comment l’IA intervient en agriculture\nL’intelligence artificielle intervient au sein d’une chaîne plus large de traitement des données.\n\n\n\n\n\n\nImportantDe la donnée à la décision\n\n\n\n1. Collecte des données\nDonnées Excel, météo, GPS, observations de terrain, images satellites, drones, sols et pratiques culturales.\n2. Préparation et exploration\nNettoyage, visualisation et combinaison des données, notamment avec Python.\n3. Analyses et modélisation\nAnalyse statistique, Machine Learning et analyse géospatiale.\n4. Décision et interprétation\nPrévisions, recommandations, alertes précoces, cartes et aide à la décision.\n\n\n\nCollecte et préparation des données\nAvant de construire un modèle, les données doivent généralement être préparées.\nAvec Python, il est possible de :\n\nnettoyer les données ;\nidentifier les valeurs manquantes ;\nexplorer les variables ;\nproduire des graphiques ;\nfusionner plusieurs sources de données ;\npréparer un jeu de données pour la modélisation.\n\n\n\nAnalyse statistique\nL’analyse statistique permet notamment de :\n\ncomprendre les tendances ;\nidentifier les facteurs associés à un phénomène ;\ncomparer des groupes ;\ntester des hypothèses.\n\n\n\nMachine Learning\nLe Machine Learning est utilisé lorsque l’on souhaite construire un modèle capable d’apprendre à partir de données historiques.\nLe modèle peut ensuite être utilisé pour :\n\nfaire une prédiction ;\nclasser une observation ;\ndétecter une situation particulière ;\nproduire une probabilité de risque.\n\n\n\nSIG\nLes systèmes d’information géographique permettent d’ajouter la dimension spatiale à l’analyse.\nIls permettent notamment de :\n\nproduire des cartes ;\nidentifier des zones prioritaires ;\ncroiser plusieurs couches d’information ;\nanalyser la variabilité spatiale.",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#du-problème-agricole-au-résultat",
+    "href": "modules/01-ia-agriculture.html#du-problème-agricole-au-résultat",
+    "title": "IA dans l’agriculture",
+    "section": "Du problème agricole au résultat",
+    "text": "Du problème agricole au résultat\nUne application de l’IA peut être résumée simplement comme une chaîne :\n\n\nProblème agricole Prévoir le rendement\n\n\n→\n\n\nDonnées Pluie, température,sol, variété\n\n\n→\n\n\nOutil IA / données Modèle de régression\n\n\n→\n\n\nRésultat attendu Rendement prédit\n\n\nCette logique peut être réutilisée pour de nombreux problèmes agricoles :\nproblème → données → méthode → résultat",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#applications-concrètes-en-agriculture",
+    "href": "modules/01-ia-agriculture.html#applications-concrètes-en-agriculture",
+    "title": "IA dans l’agriculture",
+    "section": "Applications concrètes en agriculture",
+    "text": "Applications concrètes en agriculture\n\nPrévision des rendements\nSupposons que nous disposions de données historiques contenant :\n\nla pluviométrie ;\nla température ;\nle type de sol ;\nla variété cultivée ;\nles pratiques culturales ;\nle rendement observé.\n\n\n\nProblème Prévoir le rendement\n\n\n→\n\n\nDonnées Climat, sol, variété,pratiques culturales\n\n\n→\n\n\nOutil Modèle de régression\n\n\n→\n\n\nRésultat Rendement estimé\n\n\n\n\n\n\n\n\nAstuceOutil utilisé : modèle de Machine Learning\n\n\n\nOn peut construire un modèle de régression à partir de données historiques.\nLe modèle apprend la relation entre les caractéristiques de la parcelle et le rendement observé.\nIl peut ensuite être utilisé pour estimer le rendement attendu d’une nouvelle parcelle.\n\n\nExemples de modèles :\n\nrégression linéaire ;\nRandom Forest ;\nGradient Boosting.\n\n\n\nPrévision du risque de maladie\nLes maladies des plantes peuvent dépendre de plusieurs facteurs :\n\ntempérature ;\nhumidité ;\npluie ;\ntype de culture ;\nstade de développement ;\nobservations historiques de maladies.\n\n\n\nProblème Identifier un risque de maladie\n\n\n→\n\n\nDonnées Météo, culture,historique des maladies\n\n\n→\n\n\nOutil Modèle de classification\n\n\n→\n\n\nRésultat Niveau de risque\n\n\n\n\n\n\n\n\nAstuceOutil utilisé : modèle de classification\n\n\n\nOn peut construire un modèle de classification qui estime si les conditions observées correspondent à un niveau de risque faible ou élevé.\nLe résultat peut ensuite contribuer à produire une alerte précoce.\n\n\nExemples de modèles :\n\nrégression logistique ;\narbre de décision ;\nRandom Forest.\n\n\n\nRecommandation pour l’irrigation\nLes besoins en irrigation dépendent notamment :\n\ndes précipitations ;\nde la température ;\nde l’humidité du sol ;\ndu type de culture ;\ndu stade de développement.\n\n\n\nProblème Décider s’il faut irriguer\n\n\n→\n\n\nDonnées Météo, humidité du sol,culture\n\n\n→\n\n\nOutil Modèle prédictif\n\n\n→\n\n\nRésultat Recommandation d’irrigation\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : données météo + modèle prédictif\n\n\n\nÀ partir de données historiques, un modèle peut apprendre dans quelles conditions une irrigation est généralement nécessaire.\nLe système peut ensuite produire une recommandation telle que :\nirriguer / ne pas irriguer\nou estimer un besoin en eau.\n\n\n\n\nChoix d’une période de plantation\nLes données climatiques historiques peuvent être utilisées pour étudier les périodes les plus favorables à la plantation.\n\n\nProblème Choisir une période de plantation\n\n\n→\n\n\nDonnées Historique climatique,pluie, température\n\n\n→\n\n\nOutil Analyse statistique+ modèle prédictif\n\n\n→\n\n\nRésultat Période recommandée\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : analyse statistique + modèle prédictif\n\n\n\nOn peut :\n\nanalyser les tendances historiques ;\ncomparer plusieurs périodes de plantation ;\nintégrer les prévisions météorologiques ;\nconstruire un modèle pour estimer les conditions les plus favorables.\n\nLe résultat peut compléter un calendrier agricole avec des recommandations plus localisées.\n\n\n\n\nDétection du stress des cultures\nLes images satellites ou prises par drone permettent d’observer de grandes surfaces agricoles.\n\n\nProblème Détecter le stress des cultures\n\n\n→\n\n\nDonnées Images satelliteou drone\n\n\n→\n\n\nOutil Télédétection+ Machine Learning\n\n\n→\n\n\nRésultat Zones affectées\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : télédétection + Machine Learning\n\n\n\nÀ partir d’images, il est possible de construire un modèle capable de distinguer :\n\nune végétation en bon état ;\nune zone de faible croissance ;\nune zone présentant un stress ;\ncertaines anomalies visibles.\n\nLes résultats peuvent ensuite être cartographiés dans un SIG.\n\n\n\n\nCartographie des zones vulnérables\nOn peut également combiner plusieurs sources d’information :\n\nclimat ;\nsols ;\nrelief ;\nrendement ;\naccès à l’eau ;\nlocalisation des exploitations.\n\n\n\nProblème Identifier les zones vulnérables\n\n\n→\n\n\nDonnées Climat, sol, relief,rendement\n\n\n→\n\n\nOutil SIG + analyseou Machine Learning\n\n\n→\n\n\nRésultat Carte de vulnérabilité\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : SIG + analyse statistique ou Machine Learning\n\n\n\nLes variables peuvent être combinées afin d’identifier et de cartographier les zones présentant certaines caractéristiques ou un niveau de vulnérabilité plus élevé.",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#des-outils-complémentaires",
+    "href": "modules/01-ia-agriculture.html#des-outils-complémentaires",
+    "title": "IA dans l’agriculture",
+    "section": "Des outils complémentaires",
+    "text": "Des outils complémentaires\n\n\n\n\n\n\n\nOutil\nUtilisation\n\n\n\n\nPython\npréparation, exploration et analyse des données\n\n\nAnalyse statistique\ncomprendre les relations et tester des hypothèses\n\n\nMachine Learning\nconstruire des modèles de prédiction ou de classification\n\n\nSIG\nanalyser et cartographier les phénomènes dans l’espace\n\n\nTélédétection\nobserver les cultures à partir d’images satellites ou drones\n\n\n\nLe choix de l’outil dépend toujours de la question agricole, des données disponibles et du résultat recherché.",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#points-à-retenir",
+    "href": "modules/01-ia-agriculture.html#points-à-retenir",
+    "title": "IA dans l’agriculture",
+    "section": "Points à retenir",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nL’IA utilise des données pour apprendre des relations et produire des prédictions ou des classifications.\nLe Machine Learning est une des principales approches de l’IA utilisées dans ce cours.\nAvant de construire un modèle, les données doivent être nettoyées, explorées et préparées.\nLes modèles peuvent être utilisés pour estimer des rendements, identifier des risques ou produire des recommandations.\nLes SIG et la télédétection permettent d’ajouter la dimension spatiale à l’analyse.\nL’objectif final est d’appuyer une décision agricole, et non simplement de produire un modèle.",
     "crumbs": [
       "Programme",
       "1. IA dans l’agriculture"
