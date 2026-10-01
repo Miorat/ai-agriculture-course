@@ -234,7 +234,18 @@
     "href": "modules/01-ia-agriculture.html#contexte-et-enjeux",
     "title": "IA dans l’agriculture",
     "section": "Contexte et enjeux",
-    "text": "Contexte et enjeux\nLe secteur agricole doit aujourd’hui répondre à plusieurs défis :\n\naméliorer la production et les rendements ;\ns’adapter aux changements climatiques ;\ngérer durablement les ressources naturelles ;\nsuivre l’état des cultures et des exploitations ;\nanticiper les risques agricoles ;\naméliorer la prise de décision.\n\nDans ce contexte, les données occupent une place de plus en plus importante.\nElles peuvent provenir de différentes sources :\n\nobservations de terrain ;\ndonnées météorologiques et climatiques ;\ndonnées sur les sols ;\ndonnées historiques de production ;\nfichiers Excel ;\ncoordonnées GPS ;\nimages satellites ;\nimages acquises par drone ;\nobservations sur les ravageurs et les maladies.\n\nL’objectif n’est pas seulement de collecter ces données, mais surtout de les transformer en informations utiles pour comprendre une situation et appuyer une décision.\n\n\n\n\n\n\nNoteIdée clé\n\n\n\nUne donnée brute n’est pas encore une décision.\nElle doit être collectée, préparée, analysée puis interprétée avant de pouvoir être utilisée dans un contexte agricole.",
+    "text": "Contexte et enjeux",
+    "crumbs": [
+      "Programme",
+      "1. IA dans l’agriculture"
+    ]
+  },
+  {
+    "objectID": "modules/01-ia-agriculture.html#contexte-et-enjeux-1",
+    "href": "modules/01-ia-agriculture.html#contexte-et-enjeux-1",
+    "title": "IA dans l’agriculture",
+    "section": "Contexte et enjeux",
+    "text": "Contexte et enjeux\n\n\n&lt;h3&gt;Le secteur agricole doit répondre à plusieurs défis :&lt;/h3&gt;\n&lt;ul&gt;\n  &lt;li&gt;amélioration de la production et des rendements ;&lt;/li&gt;\n  &lt;li&gt;adaptation aux changements climatiques ;&lt;/li&gt;\n  &lt;li&gt;gestion des ressources naturelles ;&lt;/li&gt;\n  &lt;li&gt;suivi des cultures et des exploitations ;&lt;/li&gt;\n  &lt;li&gt;anticipation des risques agricoles ;&lt;/li&gt;\n  &lt;li&gt;amélioration de la prise de décision.&lt;/li&gt;\n&lt;/ul&gt;\n\n\n➜\n\n\n&lt;p&gt;\n  Les &lt;strong&gt;données&lt;/strong&gt; peuvent aider à mieux comprendre les problèmes\n  agricoles et à prendre des décisions plus éclairées.\n&lt;/p&gt;\n\n\n➜\n\n\n&lt;h3&gt;Outils d’aide à la décision&lt;/h3&gt;\n&lt;h4&gt;Intelligence Artificielle&lt;/h4&gt;\n&lt;ul class=\"tools-list\"&gt;\n  &lt;li&gt;Analyse statistique&lt;/li&gt;\n  &lt;li&gt;Machine learning&lt;/li&gt;\n  &lt;li&gt;SIG&lt;/li&gt;\n  &lt;li&gt;Python&lt;/li&gt;\n  &lt;li&gt;R&lt;/li&gt;\n&lt;/ul&gt;\n\n\nLe secteur agricole doit aujourd’hui répondre à plusieurs défis :\n\naméliorer la production et les rendements ;\ns’adapter aux changements climatiques ;\ngérer durablement les ressources naturelles ;\nsuivre l’état des cultures et des exploitations ;\nanticiper les risques agricoles ;\naméliorer la prise de décision.\n\nDans ce contexte, les données occupent une place de plus en plus importante.\nElles peuvent provenir de différentes sources :\n\nobservations de terrain ;\ndonnées météorologiques et climatiques ;\ndonnées sur les sols ;\ndonnées historiques de production ;\nfichiers Excel ;\ncoordonnées GPS ;\nimages satellites ;\nimages acquises par drone ;\nobservations sur les ravageurs et les maladies.\n\nL’objectif n’est pas seulement de collecter ces données, mais surtout de les transformer en informations utiles pour comprendre une situation et appuyer une décision.\n\n\n\n\n\n\nNoteIdée clé\n\n\n\nUne donnée brute n’est pas encore une décision.\nElle doit être collectée, préparée, analysée puis interprétée avant de pouvoir être utilisée dans un contexte agricole.",
     "crumbs": [
       "Programme",
       "1. IA dans l’agriculture"
