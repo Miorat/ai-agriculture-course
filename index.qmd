@@ -50,7 +50,7 @@ L’objectif est de proposer un parcours progressif, pratique et directement exp
 
 Je suis **Mioratina, Data Scientist**, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.
 
-Je possède **11 années d’expérience internationale** dans le développement de systèmes analytiques et de solutions d’aide à la décision déployés à l’échelle internationale.
+Je possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions d’aide à la décision déployés à l’échelle internationale.
 
 
 :::
