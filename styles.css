@@ -831,3 +831,54 @@ body.quarto-dark .quarto-title-block {
     width: calc(100% - 2rem) !important;
   }
 }
+
+.ai-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 1.8rem 0 2.2rem 0;
+  flex-wrap: wrap;
+}
+
+.ai-step {
+  flex: 1 1 170px;
+  max-width: 230px;
+  background: #f3f8f5;
+  border: 1px solid #d8e7df;
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.ai-step strong {
+  display: block;
+  color: #2f6f62;
+  margin-bottom: 0.25rem;
+}
+
+.ai-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #2f6f62;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .ai-flow {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ai-step {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .ai-arrow {
+    transform: rotate(90deg);
+  }
+}
