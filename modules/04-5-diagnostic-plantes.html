@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cas pratique — Diagnostic des plantes – Introduction à l’IA pour l’agriculture</title>
+<title>Cas pratique — Diagnostic des plantes avec Random Forest – Introduction à l’IA pour l’agriculture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -372,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../programme.html">Programme</a></li><li class="breadcrumb-item"><a href="../modules/04-machine-learning.html">4. Machine Learning</a></li><li class="breadcrumb-item"><a href="../modules/04-5-diagnostic-plantes.html">Diagnostic des plantes</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Cas pratique — Diagnostic des plantes</h1>
+<h1 class="title">Cas pratique — Diagnostic des plantes avec Random Forest</h1>
 </div>
 
 
@@ -389,113 +389,360 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="objectif" class="level2">
-<h2 class="anchored" data-anchor-id="objectif">Objectif</h2>
-<p>Cette page reprend l’exemple de classification du notebook d’introduction afin d’illustrer le cheminement d’un problème de diagnostic :</p>
-<pre class="text"><code>Observations
-    ↓
+<section id="objectif-du-cas-pratique" class="level2">
+<h2 class="anchored" data-anchor-id="objectif-du-cas-pratique">Objectif du cas pratique</h2>
+<p>Dans ce cas pratique, nous utilisons des <strong>images de feuilles de pomme de terre</strong> pour illustrer un problème de classification en Machine Learning.</p>
+<p>L’objectif est de construire un modèle capable de distinguer plusieurs états de la feuille à partir d’informations extraites des images.</p>
+<p>Les trois classes utilisées dans le notebook sont :</p>
+<ul>
+<li><code>Healthy</code> : feuille saine ;</li>
+<li><code>Early_blight</code> : mildiou précoce ;</li>
+<li><code>Late_blight</code> : mildiou tardif.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Source du jeu de données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les images utilisées pour constituer le jeu de données proviennent du <strong>PlantVillage Dataset</strong>.</p>
+<p><a href="https://github.com/spmohanty/plantvillage-dataset" target="_blank" rel="noopener">Consulter et télécharger le PlantVillage Dataset sur GitHub</a></p>
+<p>Le dépôt contient une collection d’images de feuilles saines et malades utilisées dans de nombreux travaux pédagogiques et expérimentaux sur la reconnaissance des maladies des plantes.</p>
+</div>
+</div>
+</section>
+<section id="comprendre-le-problème" class="level2">
+<h2 class="anchored" data-anchor-id="comprendre-le-problème">Comprendre le problème</h2>
+<p>Le principe général est le suivant :</p>
+<pre class="text"><code>Images de feuilles
+        ↓
+Préparation des images
+        ↓
+Extraction de caractéristiques
+        ↓
 Variables X
-    ↓
-Classe cible y
-    ↓
-Entraînement
-    ↓
+        ↓
+Classe y
+        ↓
+Entraînement du Random Forest
+        ↓
 Prédiction
-    ↓
+        ↓
 Évaluation</code></pre>
+<p>L’objectif n’est donc pas simplement d’afficher une image, mais de transformer chaque image en informations numériques pouvant être utilisées par un algorithme de Machine Learning.</p>
+</section>
+<section id="exemples-visuels" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-visuels">Exemples visuels</h2>
+<section id="feuille-saine" class="level3">
+<h3 class="anchored" data-anchor-id="feuille-saine">Feuille saine</h3>
+<p><img src="../images/machine-learning/plant-diagnostic/healthy-leaf-example.jpg" class="img-fluid" alt="Exemple de feuille saine utilisée pour illustrer la classe Healthy"></p>
+<p>Une feuille saine présente une coloration relativement homogène et ne montre pas de lésions importantes visibles.</p>
+</section>
+<section id="feuille-présentant-des-symptômes" class="level3">
+<h3 class="anchored" data-anchor-id="feuille-présentant-des-symptômes">Feuille présentant des symptômes</h3>
+<p><img src="../images/machine-learning/plant-diagnostic/diseased-leaf-example.jpg" class="img-fluid" alt="Exemple de feuille présentant des lésions foliaires"></p>
+<p>Les feuilles malades peuvent présenter des taches brunes, des zones nécrotiques, un jaunissement ou d’autres modifications de couleur et de texture.</p>
+</section>
+<section id="autre-exemple-de-feuille" class="level3">
+<h3 class="anchored" data-anchor-id="autre-exemple-de-feuille">Autre exemple de feuille</h3>
+<p><img src="../images/machine-learning/plant-diagnostic/yellowing-leaf-example.webp" class="img-fluid" alt="Exemple de feuille présentant un jaunissement"></p>
+<p>Ces variations visuelles constituent des informations que l’on peut tenter de représenter par des variables numériques.</p>
+</section>
+</section>
+<section id="vue-densemble-du-type-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="vue-densemble-du-type-de-données">Vue d’ensemble du type de données</h2>
+<p><img src="../images/machine-learning/plant-diagnostic/plantvillage-overview.jpg" class="img-fluid" alt="Exemples de feuilles saines et malades issues de différentes classes"></p>
+<p>Un jeu d’images peut contenir une grande diversité de formes, de couleurs et de symptômes. Le modèle doit apprendre à distinguer les classes à partir des exemples fournis pendant l’entraînement.</p>
+<hr>
+</section>
+<section id="exemples-de-diversité-dans-le-jeu-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-de-diversité-dans-le-jeu-de-données">Exemples de diversité dans le jeu de données</h2>
+<p>L’image ci-dessous illustre la diversité des feuilles et des symptômes pouvant apparaître dans un jeu de données de diagnostic végétal.</p>
+<p><img src="../images/machine-learning/plant-diagnostic/plantvillage-overview-expanded.jpg" class="img-fluid" data-fig-cap="Exemples de feuilles présentant différents états sanitaires et symptômes visuels." alt="Mosaïque de feuilles saines et malades illustrant la diversité des classes du jeu de données PlantVillage"></p>
+<p>Cette diversité visuelle montre pourquoi un modèle doit apprendre à distinguer plusieurs combinaisons de couleur, texture, forme et lésions foliaires plutôt que de se baser sur un seul symptôme.</p>
+</section>
+<section id="organiser-les-images" class="level2">
+<h2 class="anchored" data-anchor-id="organiser-les-images">1. Organiser les images</h2>
+<p>Dans le notebook, les images sont organisées par classe.</p>
+<p>Une structure typique peut être :</p>
+<pre class="text"><code>dataset/
+├── Healthy/
+├── Early_blight/
+└── Late_blight/</code></pre>
+<p>Chaque dossier contient des images correspondant à une classe.</p>
+<hr>
+</section>
+<section id="charger-et-préparer-une-image" class="level2">
+<h2 class="anchored" data-anchor-id="charger-et-préparer-une-image">2. Charger et préparer une image</h2>
+<p>Avant d’utiliser une image dans le modèle, on doit la lire et la transformer en un format cohérent.</p>
+<p>Exemple :</p>
+<div id="538dda3b" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">"chemin/vers/image.jpg"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> image.convert(<span class="st">"RGB"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> image.resize((<span class="dv">256</span>, <span class="dv">256</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>image_array <span class="op">=</span> np.array(image)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La conversion en <code>RGB</code> garantit que chaque image possède trois canaux de couleur :</p>
+<ul>
+<li>rouge ;</li>
+<li>vert ;</li>
+<li>bleu.</li>
+</ul>
+<hr>
+</section>
+<section id="extraire-des-caractéristiques" class="level2">
+<h2 class="anchored" data-anchor-id="extraire-des-caractéristiques">3. Extraire des caractéristiques</h2>
+<p>Un Random Forest ne traite pas directement l’image comme un réseau de neurones convolutionnel.</p>
+<p>Il faut d’abord transformer l’image en variables numériques.</p>
+<p>Par exemple, on peut calculer des caractéristiques basées sur les valeurs des canaux RGB :</p>
+<div id="3ef3cefc" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>moyenne_rouge <span class="op">=</span> image_array[:, :, <span class="dv">0</span>].mean()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>moyenne_vert <span class="op">=</span> image_array[:, :, <span class="dv">1</span>].mean()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>moyenne_bleu <span class="op">=</span> image_array[:, :, <span class="dv">2</span>].mean()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Ces variables résument une partie de l’information contenue dans l’image.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Principe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’image est transformée en une ligne de données :</p>
+<pre class="text"><code>Image → caractéristiques numériques → modèle</code></pre>
+<p>C’est cette représentation numérique qui est utilisée par le Random Forest.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="construire-les-variables-x-et-y" class="level2">
+<h2 class="anchored" data-anchor-id="construire-les-variables-x-et-y">4. Construire les variables <code>X</code> et <code>y</code></h2>
+<p><code>X</code> contient les caractéristiques extraites des images.</p>
+<p><code>y</code> contient la classe de chaque feuille.</p>
+<div id="1c2983ea" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> donnees_caracteristiques</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> classes</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Exemple :</p>
+<pre class="text"><code>Healthy       → 0
+Early_blight  → 1
+Late_blight   → 2</code></pre>
+<hr>
+</section>
+<section id="séparer-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="séparer-les-données">5. Séparer les données</h2>
+<p>Il est important de ne pas évaluer le modèle uniquement sur les images utilisées pour l’entraînement.</p>
+<div id="568221d1" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    X,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    y,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    test_size<span class="op">=</span><span class="fl">0.25</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    stratify<span class="op">=</span>y</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On obtient alors :</p>
+<ul>
+<li>un jeu d’entraînement ;</li>
+<li>un jeu de test.</li>
+</ul>
+<hr>
+</section>
+<section id="entraîner-le-random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="entraîner-le-random-forest">6. Entraîner le Random Forest</h2>
+<div id="712d29e6" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>modele <span class="op">=</span> RandomForestClassifier(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    n_estimators<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>modele.fit(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    X_train,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    y_train</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Le modèle apprend à associer les caractéristiques numériques des images aux différentes classes.</p>
+<hr>
+</section>
+<section id="faire-des-prédictions" class="level2">
+<h2 class="anchored" data-anchor-id="faire-des-prédictions">7. Faire des prédictions</h2>
+<div id="066604ea" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> modele.predict(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    X_test</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Chaque image du jeu de test reçoit alors une classe prédite.</p>
+<hr>
+</section>
+<section id="évaluer-le-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="évaluer-le-modèle">8. Évaluer le modèle</h2>
+<section id="accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="accuracy">Accuracy</h3>
+<div id="759d8ef6" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    y_test,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    predictions</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy :"</span>, accuracy)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Dans le notebook de cours, un exemple d’exécution obtient environ <strong>86,7 % d’accuracy</strong>, soit <strong>65 images correctement classées sur 75</strong>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Avertissement</span>Limite de l’exemple
+<span class="screen-reader-only">Avertissement</span>Interprétation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les données utilisées ici sont synthétiques. Ce cas pratique sert uniquement à comprendre la logique d’un modèle de classification. Il ne constitue pas un outil réel de diagnostic des maladies des plantes.</p>
+<p>Cette valeur dépend du jeu de données, de la séparation train/test, des caractéristiques extraites et des paramètres du modèle.</p>
+<p>Une bonne accuracy ne signifie pas nécessairement que toutes les classes sont aussi bien reconnues.</p>
 </div>
 </div>
 </section>
-<section id="définir-la-cible" class="level2">
-<h2 class="anchored" data-anchor-id="définir-la-cible">1. Définir la cible</h2>
-<p>Dans cet exemple :</p>
-<pre class="text"><code>0 = plante saine
-1 = plante malade</code></pre>
-</section>
-<section id="séparer-entraînement-et-test" class="level2">
-<h2 class="anchored" data-anchor-id="séparer-entraînement-et-test">2. Séparer entraînement et test</h2>
-<div id="06950b35" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    X,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    y,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    test_size<span class="op">=</span><span class="fl">0.25</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    stratify<span class="op">=</span>y</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="rapport-de-classification" class="level3">
+<h3 class="anchored" data-anchor-id="rapport-de-classification">Rapport de classification</h3>
+<div id="01fe1657" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    classification_report(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        y_test,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        predictions</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Le rapport permet d’examiner les performances par classe.</p>
+<p>Dans l’exemple du notebook, la classe <code>Late_blight</code> est la plus difficile à distinguer.</p>
+<hr>
 </section>
-<section id="entraîner-la-régression-logistique" class="level2">
-<h2 class="anchored" data-anchor-id="entraîner-la-régression-logistique">3. Entraîner la régression logistique</h2>
-<div id="5d1bc6a0" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>modele <span class="op">=</span> LogisticRegression()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>modele.fit(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    X_train,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    y_train</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
-<section id="produire-les-prédictions" class="level2">
-<h2 class="anchored" data-anchor-id="produire-les-prédictions">4. Produire les prédictions</h2>
-<div id="8b9b44a5" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> modele.predict(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    X_test</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="matrice-de-confusion" class="level2">
+<h2 class="anchored" data-anchor-id="matrice-de-confusion">9. Matrice de confusion</h2>
+<div id="6890a50b" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>matrice <span class="op">=</span> confusion_matrix(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    y_test,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    predictions</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(matrice)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="évaluer-avec-une-matrice-de-confusion" class="level2">
-<h2 class="anchored" data-anchor-id="évaluer-avec-une-matrice-de-confusion">5. Évaluer avec une matrice de confusion</h2>
-<div id="4487a4b8" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>matrice <span class="op">=</span> confusion_matrix(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    y_test,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    predictions</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(matrice)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><img src="../images/machine-learning/diagnostic-matrice-confusion.png" class="img-fluid" alt="Matrice de confusion du modèle de classification pédagogique"></p>
-<p>La matrice de confusion permet de distinguer :</p>
+<p>La matrice de confusion permet d’identifier :</p>
 <ul>
-<li>les plantes saines correctement classées ;</li>
-<li>les plantes malades correctement classées ;</li>
-<li>les erreurs de classification.</li>
+<li>les images correctement classées ;</li>
+<li>les confusions entre <code>Healthy</code>, <code>Early_blight</code> et <code>Late_blight</code> ;</li>
+<li>les classes pour lesquelles le modèle rencontre le plus de difficultés.</li>
 </ul>
+<hr>
 </section>
-<section id="pour-aller-vers-un-diagnostic-réel" class="level2">
-<h2 class="anchored" data-anchor-id="pour-aller-vers-un-diagnostic-réel">Pour aller vers un diagnostic réel</h2>
-<p>Le notebook fourni ne contient pas de jeu de données phytosanitaire réel. Pour transformer cet exemple en application scientifique, il faudrait notamment disposer de données étiquetées et validées, puis construire un protocole de validation adapté.</p>
+<section id="importance-des-variables" class="level2">
+<h2 class="anchored" data-anchor-id="importance-des-variables">10. Importance des variables</h2>
+<p>Le Random Forest permet également d’examiner l’importance des caractéristiques utilisées.</p>
+<div id="9756b57b" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> modele.feature_importances_</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(importances)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Cela permet d’identifier quelles caractéristiques numériques contribuent le plus aux décisions du modèle.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’importance d’une variable indique son utilité dans le modèle. Elle ne prouve pas qu’elle est biologiquement responsable de la maladie.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="tester-une-nouvelle-feuille" class="level2">
+<h2 class="anchored" data-anchor-id="tester-une-nouvelle-feuille">11. Tester une nouvelle feuille</h2>
+<p>Une fois le modèle entraîné, on peut préparer une nouvelle image avec exactement la même procédure.</p>
+<p><img src="../images/machine-learning/plant-diagnostic/new-leaf-example.jpg" class="img-fluid" alt="Nouvelle feuille pouvant être utilisée pour tester le modèle"></p>
+<p>Le workflow devient :</p>
+<pre class="text"><code>Nouvelle image
+      ↓
+Redimensionnement
+      ↓
+Extraction des mêmes caractéristiques
+      ↓
+Random Forest
+      ↓
+Classe prédite</code></pre>
+<p>Exemple :</p>
+<div id="32adb23a" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nouvelle_prediction <span class="op">=</span> modele.predict(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    caracteristiques_nouvelle_image</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nouvelle_prediction)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="limites-et-bonnes-pratiques" class="level2">
+<h2 class="anchored" data-anchor-id="limites-et-bonnes-pratiques">Limites et bonnes pratiques</h2>
+<p>Ce cas pratique montre comment construire une première chaîne de classification d’images avec un Random Forest.</p>
+<p>Pour une application scientifique ou opérationnelle, il faudrait notamment :</p>
+<ul>
+<li>disposer d’un jeu de données représentatif des conditions locales ;</li>
+<li>vérifier la qualité des étiquettes ;</li>
+<li>utiliser suffisamment d’images pour chaque classe ;</li>
+<li>tester le modèle sur des données indépendantes ;</li>
+<li>analyser les erreurs de classification ;</li>
+<li>faire valider l’interprétation par des spécialistes du domaine.</li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Astuce</span>À retenir
+<span class="screen-reader-only">Astuce</span>Points à retenir
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un modèle de classification ne doit pas être évalué uniquement sur les données utilisées pour l’entraînement. La validation sur des observations séparées est essentielle.</p>
+<ul>
+<li>Une image doit être transformée en informations numériques pour être utilisée par un Random Forest.</li>
+<li>Le jeu de données contient plusieurs classes de feuilles.</li>
+<li>Les données doivent être séparées entre entraînement et test.</li>
+<li>La matrice de confusion permet d’identifier les types d’erreurs.</li>
+<li>Une accuracy globale doit toujours être complétée par une analyse des performances par classe.</li>
+<li>Les résultats du modèle doivent être interprétés avec prudence dans un contexte agronomique réel.</li>
+</ul>
 </div>
 </div>
+</section>
+<section id="ressource" class="level2">
+<h2 class="anchored" data-anchor-id="ressource">Ressource</h2>
+<p><a href="https://github.com/spmohanty/plantvillage-dataset" target="_blank" rel="noopener">PlantVillage Dataset — GitHub</a></p>
 <div class="chapter-nav">
-<p><a href="../modules/04-4-random-forest.html" class="chapter-prev">← Random Forest</a> <a href="../modules/05-1-qgis.html" class="chapter-next">Analyse géospatiale →</a></p>
+<p><a href="../modules/04-4-random-forest.html" class="chapter-prev">← Random Forest</a></p>
+<p><a href="../modules/05-1-qgis.html" class="chapter-next">Analyse géospatiale →</a></p>
 </div>
 
 

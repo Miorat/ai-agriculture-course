@@ -93,9 +93,9 @@
   {
     "objectID": "modules/04-5-diagnostic-plantes.html",
     "href": "modules/04-5-diagnostic-plantes.html",
-    "title": "Cas pratique — Diagnostic des plantes",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
     "section": "",
-    "text": "Cette page reprend l’exemple de classification du notebook d’introduction afin d’illustrer le cheminement d’un problème de diagnostic :\nObservations\n    ↓\nVariables X\n    ↓\nClasse cible y\n    ↓\nEntraînement\n    ↓\nPrédiction\n    ↓\nÉvaluation\n\n\n\n\n\n\nAvertissementLimite de l’exemple\n\n\n\nLes données utilisées ici sont synthétiques. Ce cas pratique sert uniquement à comprendre la logique d’un modèle de classification. Il ne constitue pas un outil réel de diagnostic des maladies des plantes.",
+    "text": "Dans ce cas pratique, nous utilisons des images de feuilles de pomme de terre pour illustrer un problème de classification en Machine Learning.\nL’objectif est de construire un modèle capable de distinguer plusieurs états de la feuille à partir d’informations extraites des images.\nLes trois classes utilisées dans le notebook sont :\n\nHealthy : feuille saine ;\nEarly_blight : mildiou précoce ;\nLate_blight : mildiou tardif.\n\n\n\n\n\n\n\nNoteSource du jeu de données\n\n\n\nLes images utilisées pour constituer le jeu de données proviennent du PlantVillage Dataset.\nConsulter et télécharger le PlantVillage Dataset sur GitHub\nLe dépôt contient une collection d’images de feuilles saines et malades utilisées dans de nombreux travaux pédagogiques et expérimentaux sur la reconnaissance des maladies des plantes.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -103,11 +103,11 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#objectif",
-    "href": "modules/04-5-diagnostic-plantes.html#objectif",
-    "title": "Cas pratique — Diagnostic des plantes",
+    "objectID": "modules/04-5-diagnostic-plantes.html#objectif-du-cas-pratique",
+    "href": "modules/04-5-diagnostic-plantes.html#objectif-du-cas-pratique",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
     "section": "",
-    "text": "Cette page reprend l’exemple de classification du notebook d’introduction afin d’illustrer le cheminement d’un problème de diagnostic :\nObservations\n    ↓\nVariables X\n    ↓\nClasse cible y\n    ↓\nEntraînement\n    ↓\nPrédiction\n    ↓\nÉvaluation\n\n\n\n\n\n\nAvertissementLimite de l’exemple\n\n\n\nLes données utilisées ici sont synthétiques. Ce cas pratique sert uniquement à comprendre la logique d’un modèle de classification. Il ne constitue pas un outil réel de diagnostic des maladies des plantes.",
+    "text": "Dans ce cas pratique, nous utilisons des images de feuilles de pomme de terre pour illustrer un problème de classification en Machine Learning.\nL’objectif est de construire un modèle capable de distinguer plusieurs états de la feuille à partir d’informations extraites des images.\nLes trois classes utilisées dans le notebook sont :\n\nHealthy : feuille saine ;\nEarly_blight : mildiou précoce ;\nLate_blight : mildiou tardif.\n\n\n\n\n\n\n\nNoteSource du jeu de données\n\n\n\nLes images utilisées pour constituer le jeu de données proviennent du PlantVillage Dataset.\nConsulter et télécharger le PlantVillage Dataset sur GitHub\nLe dépôt contient une collection d’images de feuilles saines et malades utilisées dans de nombreux travaux pédagogiques et expérimentaux sur la reconnaissance des maladies des plantes.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -115,11 +115,11 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#définir-la-cible",
-    "href": "modules/04-5-diagnostic-plantes.html#définir-la-cible",
-    "title": "Cas pratique — Diagnostic des plantes",
-    "section": "1. Définir la cible",
-    "text": "1. Définir la cible\nDans cet exemple :\n0 = plante saine\n1 = plante malade",
+    "objectID": "modules/04-5-diagnostic-plantes.html#comprendre-le-problème",
+    "href": "modules/04-5-diagnostic-plantes.html#comprendre-le-problème",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "Comprendre le problème",
+    "text": "Comprendre le problème\nLe principe général est le suivant :\nImages de feuilles\n        ↓\nPréparation des images\n        ↓\nExtraction de caractéristiques\n        ↓\nVariables X\n        ↓\nClasse y\n        ↓\nEntraînement du Random Forest\n        ↓\nPrédiction\n        ↓\nÉvaluation\nL’objectif n’est donc pas simplement d’afficher une image, mais de transformer chaque image en informations numériques pouvant être utilisées par un algorithme de Machine Learning.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -127,11 +127,11 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#séparer-entraînement-et-test",
-    "href": "modules/04-5-diagnostic-plantes.html#séparer-entraînement-et-test",
-    "title": "Cas pratique — Diagnostic des plantes",
-    "section": "2. Séparer entraînement et test",
-    "text": "2. Séparer entraînement et test\n\nfrom sklearn.model_selection import train_test_split\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X,\n    y,\n    test_size=0.25,\n    random_state=42,\n    stratify=y\n)",
+    "objectID": "modules/04-5-diagnostic-plantes.html#exemples-visuels",
+    "href": "modules/04-5-diagnostic-plantes.html#exemples-visuels",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "Exemples visuels",
+    "text": "Exemples visuels\n\nFeuille saine\n\nUne feuille saine présente une coloration relativement homogène et ne montre pas de lésions importantes visibles.\n\n\nFeuille présentant des symptômes\n\nLes feuilles malades peuvent présenter des taches brunes, des zones nécrotiques, un jaunissement ou d’autres modifications de couleur et de texture.\n\n\nAutre exemple de feuille\n\nCes variations visuelles constituent des informations que l’on peut tenter de représenter par des variables numériques.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -139,11 +139,11 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#entraîner-la-régression-logistique",
-    "href": "modules/04-5-diagnostic-plantes.html#entraîner-la-régression-logistique",
-    "title": "Cas pratique — Diagnostic des plantes",
-    "section": "3. Entraîner la régression logistique",
-    "text": "3. Entraîner la régression logistique\n\nfrom sklearn.linear_model import LogisticRegression\n\nmodele = LogisticRegression()\n\nmodele.fit(\n    X_train,\n    y_train\n)",
+    "objectID": "modules/04-5-diagnostic-plantes.html#vue-densemble-du-type-de-données",
+    "href": "modules/04-5-diagnostic-plantes.html#vue-densemble-du-type-de-données",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "Vue d’ensemble du type de données",
+    "text": "Vue d’ensemble du type de données\n\nUn jeu d’images peut contenir une grande diversité de formes, de couleurs et de symptômes. Le modèle doit apprendre à distinguer les classes à partir des exemples fournis pendant l’entraînement.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -151,11 +151,11 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#produire-les-prédictions",
-    "href": "modules/04-5-diagnostic-plantes.html#produire-les-prédictions",
-    "title": "Cas pratique — Diagnostic des plantes",
-    "section": "4. Produire les prédictions",
-    "text": "4. Produire les prédictions\n\npredictions = modele.predict(\n    X_test\n)",
+    "objectID": "modules/04-5-diagnostic-plantes.html#exemples-de-diversité-dans-le-jeu-de-données",
+    "href": "modules/04-5-diagnostic-plantes.html#exemples-de-diversité-dans-le-jeu-de-données",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "Exemples de diversité dans le jeu de données",
+    "text": "Exemples de diversité dans le jeu de données\nL’image ci-dessous illustre la diversité des feuilles et des symptômes pouvant apparaître dans un jeu de données de diagnostic végétal.\n\nCette diversité visuelle montre pourquoi un modèle doit apprendre à distinguer plusieurs combinaisons de couleur, texture, forme et lésions foliaires plutôt que de se baser sur un seul symptôme.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -163,11 +163,11 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#évaluer-avec-une-matrice-de-confusion",
-    "href": "modules/04-5-diagnostic-plantes.html#évaluer-avec-une-matrice-de-confusion",
-    "title": "Cas pratique — Diagnostic des plantes",
-    "section": "5. Évaluer avec une matrice de confusion",
-    "text": "5. Évaluer avec une matrice de confusion\n\nfrom sklearn.metrics import confusion_matrix\n\nmatrice = confusion_matrix(\n    y_test,\n    predictions\n)\n\nprint(matrice)\n\n\nLa matrice de confusion permet de distinguer :\n\nles plantes saines correctement classées ;\nles plantes malades correctement classées ;\nles erreurs de classification.",
+    "objectID": "modules/04-5-diagnostic-plantes.html#organiser-les-images",
+    "href": "modules/04-5-diagnostic-plantes.html#organiser-les-images",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "1. Organiser les images",
+    "text": "1. Organiser les images\nDans le notebook, les images sont organisées par classe.\nUne structure typique peut être :\ndataset/\n├── Healthy/\n├── Early_blight/\n└── Late_blight/\nChaque dossier contient des images correspondant à une classe.",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -175,11 +175,143 @@
     ]
   },
   {
-    "objectID": "modules/04-5-diagnostic-plantes.html#pour-aller-vers-un-diagnostic-réel",
-    "href": "modules/04-5-diagnostic-plantes.html#pour-aller-vers-un-diagnostic-réel",
-    "title": "Cas pratique — Diagnostic des plantes",
-    "section": "Pour aller vers un diagnostic réel",
-    "text": "Pour aller vers un diagnostic réel\nLe notebook fourni ne contient pas de jeu de données phytosanitaire réel. Pour transformer cet exemple en application scientifique, il faudrait notamment disposer de données étiquetées et validées, puis construire un protocole de validation adapté.\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\nUn modèle de classification ne doit pas être évalué uniquement sur les données utilisées pour l’entraînement. La validation sur des observations séparées est essentielle.\n\n\n\n← Random Forest Analyse géospatiale →",
+    "objectID": "modules/04-5-diagnostic-plantes.html#charger-et-préparer-une-image",
+    "href": "modules/04-5-diagnostic-plantes.html#charger-et-préparer-une-image",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "2. Charger et préparer une image",
+    "text": "2. Charger et préparer une image\nAvant d’utiliser une image dans le modèle, on doit la lire et la transformer en un format cohérent.\nExemple :\n\nfrom PIL import Image\nimport numpy as np\n\nimage = Image.open(\"chemin/vers/image.jpg\")\nimage = image.convert(\"RGB\")\nimage = image.resize((256, 256))\n\nimage_array = np.array(image)\n\nLa conversion en RGB garantit que chaque image possède trois canaux de couleur :\n\nrouge ;\nvert ;\nbleu.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#extraire-des-caractéristiques",
+    "href": "modules/04-5-diagnostic-plantes.html#extraire-des-caractéristiques",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "3. Extraire des caractéristiques",
+    "text": "3. Extraire des caractéristiques\nUn Random Forest ne traite pas directement l’image comme un réseau de neurones convolutionnel.\nIl faut d’abord transformer l’image en variables numériques.\nPar exemple, on peut calculer des caractéristiques basées sur les valeurs des canaux RGB :\n\nmoyenne_rouge = image_array[:, :, 0].mean()\nmoyenne_vert = image_array[:, :, 1].mean()\nmoyenne_bleu = image_array[:, :, 2].mean()\n\nCes variables résument une partie de l’information contenue dans l’image.\n\n\n\n\n\n\nNotePrincipe\n\n\n\nL’image est transformée en une ligne de données :\nImage → caractéristiques numériques → modèle\nC’est cette représentation numérique qui est utilisée par le Random Forest.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#construire-les-variables-x-et-y",
+    "href": "modules/04-5-diagnostic-plantes.html#construire-les-variables-x-et-y",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "4. Construire les variables X et y",
+    "text": "4. Construire les variables X et y\nX contient les caractéristiques extraites des images.\ny contient la classe de chaque feuille.\n\nX = donnees_caracteristiques\ny = classes\n\nExemple :\nHealthy       → 0\nEarly_blight  → 1\nLate_blight   → 2",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#séparer-les-données",
+    "href": "modules/04-5-diagnostic-plantes.html#séparer-les-données",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "5. Séparer les données",
+    "text": "5. Séparer les données\nIl est important de ne pas évaluer le modèle uniquement sur les images utilisées pour l’entraînement.\n\nfrom sklearn.model_selection import train_test_split\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X,\n    y,\n    test_size=0.25,\n    random_state=42,\n    stratify=y\n)\n\nOn obtient alors :\n\nun jeu d’entraînement ;\nun jeu de test.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#entraîner-le-random-forest",
+    "href": "modules/04-5-diagnostic-plantes.html#entraîner-le-random-forest",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "6. Entraîner le Random Forest",
+    "text": "6. Entraîner le Random Forest\n\nfrom sklearn.ensemble import RandomForestClassifier\n\nmodele = RandomForestClassifier(\n    n_estimators=200,\n    random_state=42\n)\n\nmodele.fit(\n    X_train,\n    y_train\n)\n\nLe modèle apprend à associer les caractéristiques numériques des images aux différentes classes.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#faire-des-prédictions",
+    "href": "modules/04-5-diagnostic-plantes.html#faire-des-prédictions",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "7. Faire des prédictions",
+    "text": "7. Faire des prédictions\n\npredictions = modele.predict(\n    X_test\n)\n\nChaque image du jeu de test reçoit alors une classe prédite.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#évaluer-le-modèle",
+    "href": "modules/04-5-diagnostic-plantes.html#évaluer-le-modèle",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "8. Évaluer le modèle",
+    "text": "8. Évaluer le modèle\n\nAccuracy\n\nfrom sklearn.metrics import accuracy_score\n\naccuracy = accuracy_score(\n    y_test,\n    predictions\n)\n\nprint(\"Accuracy :\", accuracy)\n\nDans le notebook de cours, un exemple d’exécution obtient environ 86,7 % d’accuracy, soit 65 images correctement classées sur 75.\n\n\n\n\n\n\nAvertissementInterprétation\n\n\n\nCette valeur dépend du jeu de données, de la séparation train/test, des caractéristiques extraites et des paramètres du modèle.\nUne bonne accuracy ne signifie pas nécessairement que toutes les classes sont aussi bien reconnues.\n\n\n\n\nRapport de classification\n\nfrom sklearn.metrics import classification_report\n\nprint(\n    classification_report(\n        y_test,\n        predictions\n    )\n)\n\nLe rapport permet d’examiner les performances par classe.\nDans l’exemple du notebook, la classe Late_blight est la plus difficile à distinguer.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#matrice-de-confusion",
+    "href": "modules/04-5-diagnostic-plantes.html#matrice-de-confusion",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "9. Matrice de confusion",
+    "text": "9. Matrice de confusion\n\nfrom sklearn.metrics import confusion_matrix\n\nmatrice = confusion_matrix(\n    y_test,\n    predictions\n)\n\nprint(matrice)\n\nLa matrice de confusion permet d’identifier :\n\nles images correctement classées ;\nles confusions entre Healthy, Early_blight et Late_blight ;\nles classes pour lesquelles le modèle rencontre le plus de difficultés.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#importance-des-variables",
+    "href": "modules/04-5-diagnostic-plantes.html#importance-des-variables",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "10. Importance des variables",
+    "text": "10. Importance des variables\nLe Random Forest permet également d’examiner l’importance des caractéristiques utilisées.\n\nimportances = modele.feature_importances_\n\nprint(importances)\n\nCela permet d’identifier quelles caractéristiques numériques contribuent le plus aux décisions du modèle.\n\n\n\n\n\n\nNoteAttention\n\n\n\nL’importance d’une variable indique son utilité dans le modèle. Elle ne prouve pas qu’elle est biologiquement responsable de la maladie.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#tester-une-nouvelle-feuille",
+    "href": "modules/04-5-diagnostic-plantes.html#tester-une-nouvelle-feuille",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "11. Tester une nouvelle feuille",
+    "text": "11. Tester une nouvelle feuille\nUne fois le modèle entraîné, on peut préparer une nouvelle image avec exactement la même procédure.\n\nLe workflow devient :\nNouvelle image\n      ↓\nRedimensionnement\n      ↓\nExtraction des mêmes caractéristiques\n      ↓\nRandom Forest\n      ↓\nClasse prédite\nExemple :\n\nnouvelle_prediction = modele.predict(\n    caracteristiques_nouvelle_image\n)\n\nprint(nouvelle_prediction)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#limites-et-bonnes-pratiques",
+    "href": "modules/04-5-diagnostic-plantes.html#limites-et-bonnes-pratiques",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "Limites et bonnes pratiques",
+    "text": "Limites et bonnes pratiques\nCe cas pratique montre comment construire une première chaîne de classification d’images avec un Random Forest.\nPour une application scientifique ou opérationnelle, il faudrait notamment :\n\ndisposer d’un jeu de données représentatif des conditions locales ;\nvérifier la qualité des étiquettes ;\nutiliser suffisamment d’images pour chaque classe ;\ntester le modèle sur des données indépendantes ;\nanalyser les erreurs de classification ;\nfaire valider l’interprétation par des spécialistes du domaine.\n\n\n\n\n\n\n\nAstucePoints à retenir\n\n\n\n\nUne image doit être transformée en informations numériques pour être utilisée par un Random Forest.\nLe jeu de données contient plusieurs classes de feuilles.\nLes données doivent être séparées entre entraînement et test.\nLa matrice de confusion permet d’identifier les types d’erreurs.\nUne accuracy globale doit toujours être complétée par une analyse des performances par classe.\nLes résultats du modèle doivent être interprétés avec prudence dans un contexte agronomique réel.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#ressource",
+    "href": "modules/04-5-diagnostic-plantes.html#ressource",
+    "title": "Cas pratique — Diagnostic des plantes avec Random Forest",
+    "section": "Ressource",
+    "text": "Ressource\nPlantVillage Dataset — GitHub\n\n← Random Forest\nAnalyse géospatiale →",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
