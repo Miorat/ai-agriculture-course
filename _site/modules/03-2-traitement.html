@@ -392,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="personnaliser-les-graphiques-avec-matplotlib" class="level2">
 <h2 class="anchored" data-anchor-id="personnaliser-les-graphiques-avec-matplotlib">Personnaliser les graphiques avec Matplotlib</h2>
 <p>Nous utiliserons une petite palette cohérente avec le site :</p>
-<div id="b3da5c61" class="cell" data-execution_count="1">
+<div id="c1bb58dc" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>GREEN <span class="op">=</span> <span class="st">"#2F6F62"</span></span>
@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>INK <span class="op">=</span> <span class="st">"#183B33"</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>GRID <span class="op">=</span> <span class="st">"#D9E3DE"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><a href="https://matplotlib.org/stable/">Documentation officielle de Matplotlib</a></p>
+<p><a href="https://matplotlib.org/stable/" target="_blank" rel="noopener">Documentation officielle de Matplotlib</a></p>
 </section>
 <section id="rendement-moyen-par-culture" class="level2">
 <h2 class="anchored" data-anchor-id="rendement-moyen-par-culture">Rendement moyen par culture</h2>
@@ -415,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>supprimer les bordures supérieures et droites ;</li>
 <li>utiliser une couleur cohérente avec le site.</li>
 </ul>
-<div id="be066aa4" class="cell" data-execution_count="2">
+<div id="ff8474e9" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rendement_moyen <span class="op">=</span> (</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    table_rendement</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"Culture"</span>)[<span class="st">"Valeur"</span>]</span>
@@ -469,11 +469,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="../images/data-analysis/rendement-moyen-culture.png" class="img-fluid" alt="Rendement moyen par culture à Madagascar"></p>
-<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html">Documentation Matplotlib — graphiques en barres</a></p>
+<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html" target="_blank" rel="noopener">Documentation Matplotlib — graphiques en barres</a></p>
 </section>
 <section id="évolution-du-rendement-du-riz" class="level2">
 <h2 class="anchored" data-anchor-id="évolution-du-rendement-du-riz">Évolution du rendement du riz</h2>
-<div id="02d44b98" class="cell" data-execution_count="3">
+<div id="ddd720b9" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>riz <span class="op">=</span> table_rendement[</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    table_rendement[<span class="st">"Culture"</span>] <span class="op">==</span> <span class="st">"Rice"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>].sort_values(<span class="st">"Annee"</span>)</span>
@@ -516,11 +516,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="../images/data-analysis/tendance-rendement-riz.png" class="img-fluid" alt="Évolution du rendement du riz à Madagascar"></p>
-<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">Documentation Matplotlib — courbes</a></p>
+<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html" target="_blank" rel="noopener">Documentation Matplotlib — courbes</a></p>
 </section>
 <section id="histogramme" class="level2">
 <h2 class="anchored" data-anchor-id="histogramme">Histogramme</h2>
-<div id="756c5819" class="cell" data-execution_count="4">
+<div id="85174930" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax.hist(</span>
@@ -557,11 +557,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="../images/data-analysis/distribution-rendement-riz.png" class="img-fluid" alt="Distribution du rendement du riz"></p>
-<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">Documentation Matplotlib — histogrammes</a></p>
+<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html" target="_blank" rel="noopener">Documentation Matplotlib — histogrammes</a></p>
 </section>
 <section id="boxplot" class="level2">
 <h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
-<div id="620b6dba" class="cell" data-execution_count="5">
+<div id="238930fc" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>donnees_boxplot <span class="op">=</span> [</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    groupe[<span class="st">"Valeur"</span>].values</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _, groupe <span class="kw">in</span> table_rendement.groupby(<span class="st">"Culture"</span>)</span>
@@ -603,11 +603,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="../images/data-analysis/boxplot-rendement-culture.png" class="img-fluid" alt="Distribution des rendements par culture"></p>
-<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html">Documentation Matplotlib — boxplots</a></p>
+<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html" target="_blank" rel="noopener">Documentation Matplotlib — boxplots</a></p>
 </section>
 <section id="sauvegarder-un-graphique" class="level2">
 <h2 class="anchored" data-anchor-id="sauvegarder-un-graphique">Sauvegarder un graphique</h2>
-<div id="2f7bf469" class="cell" data-execution_count="6">
+<div id="c9be7553" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.savefig(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"../images/data-analysis/mon-graphique.png"</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    dpi<span class="op">=</span><span class="dv">190</span>,</span>

@@ -1,13 +1,131 @@
 ---
 title: "Introduction au Machine Learning"
+toc: false
 ---
 
-# Introduction au Machine Learning
+## Objectifs
 
-Cette section introduira les concepts de base du machine learning et la logique d’un pipeline de modélisation.
+Cette partie introduit le **Machine Learning**, ses principales familles et le workflow général utilisé dans les exercices du cours.
 
+À la fin de cette partie, vous serez capables de :
 
-::: {.chapter-nav}
-<a class="chapter-prev" href="04-machine-learning.qmd">← Machine Learning</a>
-<a class="chapter-next" href="04-2-algorithmes.qmd">Types d’algorithmes →</a>
+- expliquer le principe général du Machine Learning ;
+- distinguer apprentissage supervisé et non supervisé ;
+- identifier une variable cible `y` et des variables explicatives `X` ;
+- comprendre la séparation entre données d'entraînement et données de test ;
+- distinguer régression, classification et clustering ;
+- comprendre le rôle de l'évaluation d'un modèle.
+
+## Qu'est-ce que le Machine Learning ?
+
+Le **Machine Learning** permet de construire des modèles capables d'apprendre à partir de données afin de produire une prédiction ou de classer une observation.
+
+En agriculture, il peut notamment être utilisé pour :
+
+- prédire un rendement ;
+- estimer des besoins en eau ;
+- classer une plante comme saine ou malade ;
+- identifier des groupes d'exploitations similaires ;
+- aider à la décision à partir de données agricoles et climatiques.
+
+## Les grandes familles
+
+### Apprentissage supervisé
+
+On dispose d'une variable cible connue.
+
+- cible numérique → **régression**
+- cible catégorielle → **classification**
+
+### Apprentissage non supervisé
+
+Aucune variable cible n'est fournie. L'algorithme cherche des structures ou des groupes dans les données.
+
+Exemple : **clustering** d'exploitations présentant des profils similaires.
+
+### Apprentissage par renforcement
+
+Cette famille est mentionnée dans le notebook d'introduction, mais elle n'est pas développée dans les exercices pratiques de ce cours.
+
+## Workflow général
+
+```text
+Données agricoles
+       ↓
+Exploration des données
+       ↓
+Définir X et y
+       ↓
+Séparer Train / Test
+       ↓
+Choisir un modèle
+       ↓
+Entraîner le modèle
+       ↓
+Faire des prédictions
+       ↓
+Évaluer les performances
+       ↓
+Interpréter les résultats
+```
+
+::: {.callout-note}
+## X et y
+
+`X` contient les variables utilisées pour prédire.
+
+`y` correspond à la variable que l'on cherche à prédire.
 :::
+
+## Syntaxe générale avec scikit-learn
+
+```{python}
+#| eval: false
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+
+modele = LinearRegression()
+modele.fit(X_train, y_train)
+
+predictions = modele.predict(X_test)
+```
+
+## Évaluer un modèle de régression
+
+Deux indicateurs sont utilisés dans les exercices.
+
+### MAE — Mean Absolute Error
+
+Le MAE mesure l'écart absolu moyen entre les valeurs observées et les prédictions.
+
+\[
+MAE = \frac{1}{n}\sum_{i=1}^{n}|y_i-\hat{y}_i|
+\]
+
+Plus le MAE est faible, plus les prédictions sont proches des observations.
+
+### R²
+
+Le coefficient R² mesure la part de variabilité expliquée par le modèle.
+
+- proche de `1` : forte capacité explicative ;
+- proche de `0` : faible capacité explicative ;
+- négatif : performances inférieures à une prédiction basée sur la moyenne.
+
+::: {.callout-tip}
+## À retenir
+
+Le Machine Learning ne commence pas par le choix d'un algorithme. Il commence par une question, des données, une variable cible bien définie et une méthode d'évaluation adaptée.
+:::
+
+<div class="chapter-nav">
+[Types d'algorithmes →](04-2-algorithmes.qmd){.chapter-next}
+</div>
