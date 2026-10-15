@@ -1,13 +1,674 @@
 ---
-title: "Variables"
+title: "Variables et types de données"
+toc: false
 ---
 
-# Variables
+## Objectifs
 
-Cette section couvrira les principaux types de variables et structures de données en Python.
+À la fin de cette partie, vous serez capables de :
 
+- créer et utiliser une variable en Python ;
+- reconnaître les principaux types de données ;
+- afficher et vérifier la valeur d’une variable ;
+- utiliser des variables dans des calculs simples ;
+- manipuler des listes ;
+- organiser des informations à l’aide de dictionnaires ;
+- représenter des données agricoles simples avec Python.
 
-::: {.chapter-nav}
-<a class="chapter-prev" href="02-1-installation.qmd">← Installation et environnement</a>
-<a class="chapter-next" href="02-3-calculs.qmd">Calculs numériques →</a>
+---
+
+## Les variables
+
+Une **variable** permet de stocker une information dans un programme.
+
+Elle possède :
+
+- un **nom** ;
+- une **valeur** ;
+- un **type de données**.
+
+Par exemple :
+
+```{python}
+#| eval: false
+
+surface = 8
+```
+
+Ici :
+
+- `surface` est le nom de la variable ;
+- `8` est sa valeur ;
+- la valeur est un nombre entier.
+
+Pour afficher la valeur :
+
+```{python}
+#| eval: false
+
+print(surface)
+```
+
+Résultat :
+
+```text
+8
+```
+
+---
+
+## Les principaux types de données
+
+Python permet de manipuler différents types d’informations.
+
+| Type | Python | Exemple |
+|---|---|---|
+| Texte | `str` | `"Vakinankaratra"` |
+| Nombre entier | `int` | `8` |
+| Nombre décimal | `float` | `8.0` |
+| Vrai / Faux | `bool` | `True` |
+| Liste | `list` | `[24, 26, 29]` |
+| Dictionnaire | `dict` | `{"culture": "riz"}` |
+
+---
+
+## Chaîne de caractères — `str`
+
+Une chaîne de caractères permet de stocker du **texte**.
+
+```{python}
+#| eval: false
+
+nom_region = "Vakinankaratra"
+```
+
+Pour afficher la valeur :
+
+```{python}
+#| eval: false
+
+print(nom_region)
+```
+
+Résultat :
+
+```text
+Vakinankaratra
+```
+
+On peut vérifier le type avec `type()` :
+
+```{python}
+#| eval: false
+
+type(nom_region)
+```
+
+Résultat :
+
+```text
+str
+```
+
+---
+
+## Nombre entier — `int`
+
+Un entier est un nombre sans partie décimale.
+
+```{python}
+#| eval: false
+
+nombre_parcelles = 5
+surface = 8
+```
+
+```{python}
+#| eval: false
+
+type(surface)
+```
+
+Résultat :
+
+```text
+int
+```
+
+---
+
+## Nombre décimal — `float`
+
+Un nombre décimal possède une partie décimale.
+
+```{python}
+#| eval: false
+
+surface_decimale = 8.0
+```
+
+```{python}
+#| eval: false
+
+type(surface_decimale)
+```
+
+Résultat :
+
+```text
+float
+```
+
+Les valeurs décimales sont très fréquentes dans les données agricoles :
+
+```{python}
+#| eval: false
+
+ph_sol = 6.8
+precipitations = 12.5
+rendement = 3.2
+```
+
+---
+
+## Valeur booléenne — `bool`
+
+Une variable booléenne possède seulement deux valeurs possibles :
+
+```text
+True
+False
+```
+
+Par exemple :
+
+```{python}
+#| eval: false
+
+irrigation_active = True
+maladie_detectee = False
+```
+
+Ces variables peuvent servir à représenter l’état d’une parcelle ou d’un système.
+
+---
+
+## Déclarer des variables agricoles
+
+On peut utiliser plusieurs variables pour décrire une situation agricole.
+
+```{python}
+#| eval: false
+
+nom_region = "Itasy"
+ph_sol = 6.8
+precipitations = 12.5
+rendement = 3.2
+```
+
+Chaque variable représente une information différente.
+
+---
+
+## Afficher des informations avec `print()`
+
+La fonction `print()` permet d’afficher une information.
+
+```{python}
+#| eval: false
+
+surface = 17
+print(surface)
+```
+
+On peut également combiner du texte et des variables :
+
+```{python}
+#| eval: false
+
+nom_region = "Vakinankaratra"
+surface = 17
+
+print("Région étudiée :", nom_region)
+print("Surface :", surface)
+```
+
+---
+
+## Déclarer plusieurs variables en une ligne
+
+Python permet de créer plusieurs variables simultanément.
+
+```{python}
+#| eval: false
+
+region, annee, production = "Alaotra", 2025, 25
+```
+
+Puis :
+
+```{python}
+#| eval: false
+
+print("Région :", region)
+print("Année :", annee)
+print("Production totale :", production)
+```
+
+---
+
+## Utiliser les variables dans un calcul
+
+Les variables peuvent être utilisées dans des opérations mathématiques.
+
+### Exemple : calcul du rendement
+
+Supposons :
+
+```{python}
+#| eval: false
+
+production = 1000
+surface = 500
+```
+
+Le rendement est calculé par :
+
+\[
+Rendement = \frac{Production}{Surface}
+\]
+
+En Python :
+
+```{python}
+#| eval: false
+
+rendement = production / surface
+print(rendement)
+```
+
+Résultat :
+
+```text
+2.0
+```
+
+---
+
+## Exemple : production de plusieurs parcelles
+
+```{python}
+#| eval: false
+
+production_parcelle_a = 650
+production_parcelle_b = 850
+production_parcelle_c = 1050
+
+production_totale = (
+    production_parcelle_a
+    + production_parcelle_b
+    + production_parcelle_c
+)
+
+print(production_totale)
+```
+
+Résultat :
+
+```text
+2550
+```
+
+On peut produire un affichage plus explicite :
+
+```{python}
+#| eval: false
+
+nom_region = "Vakinankaratra"
+
+print(
+    "Production totale dans la région",
+    nom_region,
+    ":",
+    production_totale,
+    "tonnes"
+)
+```
+
+---
+
+## Les commentaires
+
+Les commentaires permettent d’expliquer le code.
+
+Ils commencent par le symbole `#`.
+
+```{python}
+#| eval: false
+
+# Type de culture
+type_culture = "Vivrière"
+
+# Surface de l'exploitation
+surface_exploitation = 10
+```
+
+Un commentaire peut également être ajouté à la fin d’une ligne :
+
+```{python}
+#| eval: false
+
+surface_exploitation = 10  # unité : are
+```
+
+::: {.callout-note}
+## Pourquoi commenter le code ?
+
+Les commentaires permettent de rendre un programme plus facile à comprendre, à vérifier et à réutiliser.
 :::
+
+---
+
+# Les listes
+
+Une **liste** permet de regrouper plusieurs valeurs dans une même variable.
+
+```{python}
+#| eval: false
+
+temperatures = [24, 26, 29, 31]
+```
+
+Chaque élément possède une position appelée **indice**.
+
+En Python, le premier élément correspond à l’indice `0`.
+
+```text
+Valeur       24   26   29   31
+Indice        0    1    2    3
+```
+
+Pour accéder au premier élément :
+
+```{python}
+#| eval: false
+
+print(temperatures[0])
+```
+
+Pour accéder au quatrième élément :
+
+```{python}
+#| eval: false
+
+print(temperatures[3])
+```
+
+---
+
+## Exemple : liste de cultures
+
+```{python}
+#| eval: false
+
+cultures = ["Maïs", "Riz", "Haricot"]
+
+print(cultures[0])
+print(cultures[1])
+```
+
+---
+
+## Calculer un rendement moyen
+
+```{python}
+#| eval: false
+
+rendements = [3.2, 2.8, 4.1, 3.6, 2.9]
+
+rendement_moyen = sum(rendements) / len(rendements)
+
+print(rendement_moyen)
+```
+
+Le résultat est environ :
+
+```text
+3.32
+```
+
+---
+
+# Les dictionnaires
+
+Un **dictionnaire** permet d'organiser plusieurs informations sous forme de paires **clé → valeur**.
+
+Il est particulièrement utile pour décrire :
+
+- une parcelle ;
+- une exploitation ;
+- une culture ;
+- une observation météorologique ;
+- une observation de terrain.
+
+---
+
+## Exemple : représenter une parcelle
+
+```{python}
+#| eval: false
+
+parcelle = {
+    "nom": "Ankadikely",
+    "culture": "Maïs",
+    "surface": 5,
+    "rendement": 3.4
+}
+```
+
+Pour accéder à une information :
+
+```{python}
+#| eval: false
+
+print(parcelle["culture"])
+print(parcelle["surface"])
+```
+
+---
+
+## Exemple avec davantage d’informations
+
+```{python}
+#| eval: false
+
+parcelle = {
+    "culture": "riz",
+    "surface_ha": 2.5,
+    "rendement_t_ha": 3.2,
+    "region": "Alaotra-Mangoro",
+    "temperature": 28,
+    "ph": 3.5
+}
+```
+
+```{python}
+#| eval: false
+
+print(parcelle["culture"])
+print(parcelle["rendement_t_ha"])
+```
+
+---
+
+## Exemple : observation climatique
+
+```{python}
+#| eval: false
+
+observation_climatique = {
+    "date": "2026-08-07",
+    "temperature": 28.5,
+    "precipitations": 12,
+    "humidite": 75
+}
+```
+
+```{python}
+#| eval: false
+
+print(observation_climatique["temperature"])
+print(observation_climatique["precipitations"])
+```
+
+---
+
+## Combiner listes et dictionnaires
+
+```{python}
+#| eval: false
+
+observations_climatiques = [
+    {
+        "date": "2026-08-01",
+        "temperature": 27.5,
+        "precipitations": 5,
+        "humidite": 70
+    },
+    {
+        "date": "2026-08-02",
+        "temperature": 28.0,
+        "precipitations": 0,
+        "humidite": 68
+    },
+    {
+        "date": "2026-08-03",
+        "temperature": 29.2,
+        "precipitations": 2,
+        "humidite": 65
+    }
+]
+```
+
+Pour afficher la première observation :
+
+```{python}
+#| eval: false
+
+print(observations_climatiques[0])
+```
+
+Pour afficher sa température :
+
+```{python}
+#| eval: false
+
+print(observations_climatiques[0]["temperature"])
+```
+
+---
+
+# Exercices
+
+## Exercice 1 — Décrire une exploitation
+
+Créer les variables suivantes :
+
+- `culture`
+- `surface`
+- `rendement`
+- `region`
+- `irrigation_active`
+
+Choisissez vous-même les valeurs et affichez-les.
+
+---
+
+## Exercice 2 — Calculer une production
+
+\[
+Production = Surface \times Rendement
+\]
+
+Avec :
+
+```text
+surface = 5 hectares
+rendement = 3.2 tonnes/hectare
+```
+
+Complétez :
+
+```{python}
+#| eval: false
+
+surface = 5
+rendement = 3.2
+
+production = ...
+
+print(...)
+```
+
+---
+
+## Exercice 3 — Quantité d’engrais
+
+Une parcelle possède une superficie de **5 hectares** et la dose recommandée est de **50 kg/ha**.
+
+\[
+Quantité = Surface \times Dose
+\]
+
+```{python}
+#| eval: false
+
+surface = 5
+dose_par_hectare = 50
+
+quantite_engrais = ...
+
+print(...)
+```
+
+---
+
+## Exercice 4 — Créer un dictionnaire
+
+Créer un dictionnaire `parcelle` contenant :
+
+- la culture ;
+- la région ;
+- la superficie ;
+- le rendement ;
+- le pH du sol.
+
+Puis afficher la culture, le rendement et le pH.
+
+---
+
+## Points à retenir
+
+::: {.callout-tip}
+## À retenir
+
+- Une **variable** permet de stocker une information.
+- `str` correspond au texte.
+- `int` correspond aux nombres entiers.
+- `float` correspond aux nombres décimaux.
+- `bool` représente une valeur vraie ou fausse.
+- Une **liste** permet de stocker plusieurs valeurs.
+- L’indice du premier élément d’une liste est `0`.
+- Un **dictionnaire** organise les informations sous forme de paires clé-valeur.
+- Les listes et dictionnaires permettent de représenter des données agricoles structurées.
+:::
+
+---
+
+<div class="chapter-nav">
+
+[← Installation et environnement de travail](02-1-installation.qmd){.chapter-prev}
+
+[Calculs numériques →](02-3-calculs.qmd){.chapter-next}
+
+</div>
