@@ -129,9 +129,33 @@
   {
     "objectID": "modules/03-3-statistiques.html",
     "href": "modules/03-3-statistiques.html",
-    "title": "Tests statistiques",
+    "title": "Tests statistiques et analyse multivariée",
     "section": "",
-    "text": "Tests statistiques\nCette section couvrira la normalité, la corrélation, l’ANOVA, l’ANCOVA, l’ACP et l’ACM.\n\n← Traitement des données Machine Learning →",
+    "text": "Cette partie utilise :\ndata/donnees_parcelles_simulees_tests_stats.xlsx\n\nimport pandas as pd\nimport scipy.stats as stats\nimport matplotlib.pyplot as plt\n\ndf_sim = pd.read_excel(\n    \"../data/donnees_parcelles_simulees_tests_stats.xlsx\"\n)\n\n\n\n\n\n\n\nAvertissementDonnées simulées\n\n\n\nLes résultats statistiques de cette section sont utilisés à des fins pédagogiques. Ils ne doivent pas être interprétés comme des résultats agronomiques observés sur le terrain.\n\n\n\n\n\n\n\n\nNoteVisualisation\n\n\n\nTous les graphiques de cette page sont affichés avec Matplotlib.\nDocumentation officielle de Matplotlib",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Tests statistiques"
+    ]
+  },
+  {
+    "objectID": "modules/03-3-statistiques.html#jeu-de-données",
+    "href": "modules/03-3-statistiques.html#jeu-de-données",
+    "title": "Tests statistiques et analyse multivariée",
+    "section": "",
+    "text": "Cette partie utilise :\ndata/donnees_parcelles_simulees_tests_stats.xlsx\n\nimport pandas as pd\nimport scipy.stats as stats\nimport matplotlib.pyplot as plt\n\ndf_sim = pd.read_excel(\n    \"../data/donnees_parcelles_simulees_tests_stats.xlsx\"\n)\n\n\n\n\n\n\n\nAvertissementDonnées simulées\n\n\n\nLes résultats statistiques de cette section sont utilisés à des fins pédagogiques. Ils ne doivent pas être interprétés comme des résultats agronomiques observés sur le terrain.\n\n\n\n\n\n\n\n\nNoteVisualisation\n\n\n\nTous les graphiques de cette page sont affichés avec Matplotlib.\nDocumentation officielle de Matplotlib",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Tests statistiques"
+    ]
+  },
+  {
+    "objectID": "modules/03-3-statistiques.html#choisir-un-test-statistique",
+    "href": "modules/03-3-statistiques.html#choisir-un-test-statistique",
+    "title": "Tests statistiques et analyse multivariée",
+    "section": "Choisir un test statistique",
+    "text": "Choisir un test statistique\n\n\n\n\n\n\n\n\nQuestion\nExemple\nMéthode\n\n\n\n\nLa variable est-elle normale ?\nrendement\nShapiro-Wilk\n\n\nDeux variables numériques sont-elles associées ?\npluie et rendement\nCorrélation de Pearson\n\n\nDeux groupes ont-ils des moyennes différentes ?\nfertilisé / non fertilisé\nTest t\n\n\nPlus de deux groupes diffèrent-ils ?\ntypes de sol\nANOVA\n\n\nComparer des groupes en contrôlant une variable\nsol + pluie\nANCOVA\n\n\nRésumer plusieurs variables quantitatives\npropriétés des parcelles\nACP\n\n\nExplorer plusieurs variables qualitatives\nrégion, culture, sol\nACM\n\n\n\n\n← Traitement et visualisation Machine Learning →",
     "crumbs": [
       "Programme",
       "3. Analyse de données agricoles",
@@ -141,9 +165,9 @@
   {
     "objectID": "modules/03-1-pandas.html",
     "href": "modules/03-1-pandas.html",
-    "title": "Pandas",
+    "title": "Pandas et exploration des données",
     "section": "",
-    "text": "Pandas\nCette section couvrira l’importation, l’exploration et la manipulation de données agricoles avec pandas.\n\n← Analyse de données agricoles Traitement des données →",
+    "text": "À la fin de cette partie, vous serez capables de :\n\nimporter un fichier Excel ;\nafficher les premières lignes d’un DataFrame ;\ninspecter les types de variables ;\nidentifier les valeurs manquantes et les doublons ;\nsélectionner, filtrer et trier des données ;\nutiliser groupby() pour produire des statistiques par groupe.",
     "crumbs": [
       "Programme",
       "3. Analyse de données agricoles",
@@ -151,451 +175,363 @@
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html",
-    "href": "modules/02-5-fonctions.html",
-    "title": "Fonctions",
+    "objectID": "modules/03-1-pandas.html#objectifs",
+    "href": "modules/03-1-pandas.html#objectifs",
+    "title": "Pandas et exploration des données",
     "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\ndéfinir une fonction avec def ;\nutiliser des paramètres ;\nretourner un résultat avec return ;\nréutiliser une fonction avec différentes valeurs ;\ncombiner fonctions, conditions et boucles ;\nappliquer les fonctions à des exemples agricoles.",
+    "text": "À la fin de cette partie, vous serez capables de :\n\nimporter un fichier Excel ;\nafficher les premières lignes d’un DataFrame ;\ninspecter les types de variables ;\nidentifier les valeurs manquantes et les doublons ;\nsélectionner, filtrer et trier des données ;\nutiliser groupby() pour produire des statistiques par groupe.",
     "crumbs": [
       "Programme",
-      "2. Bases de Python",
-      "Fonctions"
+      "3. Analyse de données agricoles",
+      "Pandas"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#objectifs",
-    "href": "modules/02-5-fonctions.html#objectifs",
-    "title": "Fonctions",
+    "objectID": "modules/03-1-pandas.html#importer-pandas",
+    "href": "modules/03-1-pandas.html#importer-pandas",
+    "title": "Pandas et exploration des données",
+    "section": "Importer Pandas",
+    "text": "Importer Pandas\n\nimport pandas as pd",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#charger-les-données-faostat",
+    "href": "modules/03-1-pandas.html#charger-les-données-faostat",
+    "title": "Pandas et exploration des données",
+    "section": "Charger les données FAOSTAT",
+    "text": "Charger les données FAOSTAT\n\ndf = pd.read_excel(\"../data/FAOSTAT_data_MDG.xlsx\")\ndf.head()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#explorer-le-dataframe",
+    "href": "modules/03-1-pandas.html#explorer-le-dataframe",
+    "title": "Pandas et exploration des données",
+    "section": "Explorer le DataFrame",
+    "text": "Explorer le DataFrame\n\ndf.shape\ndf.columns\ndf.info()\n\n\nVérifier la qualité des données\n\ndf.isna().sum()\ndf.duplicated().sum()\n\n\n\nExaminer les valeurs disponibles\n\ndf[\"Item\"].unique()\ndf[\"Element\"].unique()\ndf[\"Year\"].min()\ndf[\"Year\"].max()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#filtrer-les-rendements",
+    "href": "modules/03-1-pandas.html#filtrer-les-rendements",
+    "title": "Pandas et exploration des données",
+    "section": "Filtrer les rendements",
+    "text": "Filtrer les rendements\n\ntable_rendement = df[df[\"Element\"] == \"Yield\"]\ntable_rendement.head()\n\n\nFiltrer une culture\n\nmais = table_rendement[\n    table_rendement[\"Item\"] == \"Maize (corn)\"\n]\n\nmais.head()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#trier-les-données",
+    "href": "modules/03-1-pandas.html#trier-les-données",
+    "title": "Pandas et exploration des données",
+    "section": "Trier les données",
+    "text": "Trier les données\n\ntable_rendement.sort_values(\n    \"Value\",\n    ascending=False\n).head()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#renommer-les-colonnes",
+    "href": "modules/03-1-pandas.html#renommer-les-colonnes",
+    "title": "Pandas et exploration des données",
+    "section": "Renommer les colonnes",
+    "text": "Renommer les colonnes\n\ndf = df.rename(columns={\n    \"Area\": \"Pays\",\n    \"Item\": \"Culture\",\n    \"Element\": \"Indicateur\",\n    \"Year\": \"Annee\",\n    \"Unit\": \"Unite\",\n    \"Value\": \"Valeur\"\n})",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#agrégation-avec-groupby",
+    "href": "modules/03-1-pandas.html#agrégation-avec-groupby",
+    "title": "Pandas et exploration des données",
+    "section": "Agrégation avec groupby()",
+    "text": "Agrégation avec groupby()\n\ntable_rendement = df[df[\"Indicateur\"] == \"Yield\"]\n\ntable_rendement.groupby(\n    \"Culture\"\n)[\"Valeur\"].describe()",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/03-1-pandas.html#statistiques-descriptives",
+    "href": "modules/03-1-pandas.html#statistiques-descriptives",
+    "title": "Pandas et exploration des données",
+    "section": "Statistiques descriptives",
+    "text": "Statistiques descriptives\n\n\n\nFonction\nUtilité\n\n\n\n\nmean()\nmoyenne\n\n\nmin()\nminimum\n\n\nmax()\nmaximum\n\n\nvar()\nvariance\n\n\nstd()\nécart-type\n\n\nquantile()\nquartiles\n\n\ndescribe()\nrésumé statistique\n\n\n\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\nAvant de produire un graphique ou un test statistique, il faut d’abord comprendre la structure du jeu de données, vérifier sa qualité et identifier clairement les variables à analyser.\n\n\n\n← Analyse de données agricoles Traitement et visualisation →",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Pandas"
+    ]
+  },
+  {
+    "objectID": "modules/02-bases-python.html",
+    "href": "modules/02-bases-python.html",
+    "title": "Vue d’ensemble",
     "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\ndéfinir une fonction avec def ;\nutiliser des paramètres ;\nretourner un résultat avec return ;\nréutiliser une fonction avec différentes valeurs ;\ncombiner fonctions, conditions et boucles ;\nappliquer les fonctions à des exemples agricoles.",
+    "text": "Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.\nL’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Vue d’ensemble"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#structure-générale",
-    "href": "modules/02-5-fonctions.html#structure-générale",
-    "title": "Fonctions",
-    "section": "Structure générale",
-    "text": "Structure générale\n\ndef nom_de_la_fonction(parametre1, parametre2):\n    # bloc de code\n    resultat = ...\n    return resultat\n\nUne fonction est créée avec le mot-clé def.",
+    "objectID": "modules/02-bases-python.html#objectif-du-module",
+    "href": "modules/02-bases-python.html#objectif-du-module",
+    "title": "Vue d’ensemble",
+    "section": "",
+    "text": "Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.\nL’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Vue d’ensemble"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#exemple-pour-plusieurs-exploitations",
-    "href": "modules/02-5-fonctions.html#exemple-pour-plusieurs-exploitations",
-    "title": "Fonctions",
-    "section": "Exemple pour plusieurs exploitations",
-    "text": "Exemple pour plusieurs exploitations\n\nproduction_a, revenu_a = calculer_revenu(5, 3.2, 2_000_000)\nproduction_b, revenu_b = calculer_revenu(8, 4.0, 3_000_000)\nproduction_c, revenu_c = calculer_revenu(3, 2.5, 1_750_000)\n\nprint(\"Exploitation A :\", production_a, \"tonnes -\", revenu_a, \"Ar\")\nprint(\"Exploitation B :\", production_b, \"tonnes -\", revenu_b, \"Ar\")\nprint(\"Exploitation C :\", production_c, \"tonnes -\", revenu_c, \"Ar\")",
+    "objectID": "modules/02-bases-python.html#ce-que-vous-allez-apprendre",
+    "href": "modules/02-bases-python.html#ce-que-vous-allez-apprendre",
+    "title": "Vue d’ensemble",
+    "section": "Ce que vous allez apprendre",
+    "text": "Ce que vous allez apprendre\nAu cours de ce module, vous apprendrez à :\n\ninstaller et lancer l’environnement de travail ;\ncréer et utiliser des variables ;\nmanipuler différents types de données ;\neffectuer des calculs numériques ;\nutiliser les conditions if, elif et else ;\nutiliser les boucles for ;\ncréer des fonctions simples ;\nappliquer ces notions à des exemples agricoles.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Vue d’ensemble"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#exemple-besoin-dirrigation",
-    "href": "modules/02-5-fonctions.html#exemple-besoin-dirrigation",
-    "title": "Fonctions",
-    "section": "Exemple : besoin d’irrigation",
-    "text": "Exemple : besoin d’irrigation\n\ndef calculer_besoin_irrigation(besoin_eau, precipitation):\n\n    besoin_irrigation = besoin_eau - precipitation\n\n    if besoin_irrigation &lt; 0:\n        besoin_irrigation = 0\n\n    return besoin_irrigation\n\nUtilisation :\n\nirrigation_mais = calculer_besoin_irrigation(500, 350)\nirrigation_riz = calculer_besoin_irrigation(800, 600)\nirrigation_haricot = calculer_besoin_irrigation(400, 450)\n\nprint(\"Besoin d'irrigation du maïs :\", irrigation_mais, \"mm\")\nprint(\"Besoin d'irrigation du riz :\", irrigation_riz, \"mm\")\nprint(\"Besoin d'irrigation du haricot :\", irrigation_haricot, \"mm\")\n\nRésultat :\nBesoin d'irrigation du maïs : 150 mm\nBesoin d'irrigation du riz : 200 mm\nBesoin d'irrigation du haricot : 0 mm",
+    "objectID": "modules/02-bases-python.html#exemples-dapplications",
+    "href": "modules/02-bases-python.html#exemples-dapplications",
+    "title": "Vue d’ensemble",
+    "section": "Exemples d’applications",
+    "text": "Exemples d’applications\nLes exemples utilisés dans ce module portent notamment sur :\n\nle calcul du rendement agricole ;\nla production totale d’une parcelle ;\nla quantité d’engrais nécessaire ;\nl’analyse des précipitations ;\nla classification du pH du sol ;\nle niveau d’infestation par des ravageurs ;\nle calcul des besoins en irrigation.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Vue d’ensemble"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#exercice-1-calcul-de-la-production-agricole",
-    "href": "modules/02-5-fonctions.html#exercice-1-calcul-de-la-production-agricole",
-    "title": "Fonctions",
-    "section": "Exercice 1 — Calcul de la production agricole",
-    "text": "Exercice 1 — Calcul de la production agricole\nCréer une fonction calculer_production.\nLa fonction doit :\n\nrecevoir surface et rendement ;\ncalculer la production ;\nretourner le résultat avec return ;\nêtre appelée pour trois parcelles.\n\n\ndef calculer_production(surface, rendement):\n\n    production = ...\n\n    return ...\n\n\nproduction_1 = calculer_production(5, 3.2)\nproduction_2 = calculer_production(8, 4.0)\nproduction_3 = calculer_production(3, 2.5)",
+    "objectID": "modules/02-bases-python.html#parcours-du-module",
+    "href": "modules/02-bases-python.html#parcours-du-module",
+    "title": "Vue d’ensemble",
+    "section": "Parcours du module",
+    "text": "Parcours du module\n\nInstallation et environnement de travail\n\nVariables et types de données\n\nCalculs numériques\n\nConditions et boucles\n\nFonctions\n\n\n\n\n\n\n\nNotePourquoi Python ?\n\n\n\nPython est largement utilisé en analyse de données, en intelligence artificielle et en Machine Learning. Dans la suite du cours, il sera utilisé pour manipuler des données agricoles, construire des modèles prédictifs et analyser des résultats.\n\n\n\nInstallation et environnement de travail →",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Vue d’ensemble"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#exercice-2-classification-du-niveau-dinfestation",
-    "href": "modules/02-5-fonctions.html#exercice-2-classification-du-niveau-dinfestation",
-    "title": "Fonctions",
-    "section": "Exercice 2 — Classification du niveau d’infestation",
-    "text": "Exercice 2 — Classification du niveau d’infestation\nCréer une fonction :\nclasser_infestation(nombre_ravageurs)\nRègles :\n\n0 ravageur : Aucun ravageur ;\n1 à 10 : Faible infestation ;\n11 à 20 : Infestation moyenne ;\nplus de 20 : Forte infestation.\n\nTester avec :\n0, 8, 16, 25",
+    "objectID": "modules/02-4-boucles.html",
+    "href": "modules/02-4-boucles.html",
+    "title": "Conditions et boucles",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les conditions if, elif et else ;\nutiliser les opérateurs de comparaison ;\nparcourir une liste avec une boucle for ;\ncombiner une boucle et une condition ;\nappliquer ces notions à des exemples agricoles.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Conditions et boucles"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#exercice-3-classification-du-ph-du-sol",
-    "href": "modules/02-5-fonctions.html#exercice-3-classification-du-ph-du-sol",
-    "title": "Fonctions",
-    "section": "Exercice 3 — Classification du pH du sol",
-    "text": "Exercice 3 — Classification du pH du sol\nCréer une fonction classer_ph(ph).\nRègles :\n\npH inférieur à 6.5 : sol acide ;\npH compris entre 6.5 et 7.5 : sol neutre ;\npH supérieur à 7.5 : sol basique.\n\nTester avec :\n5.8, 7.0, 8.2",
+    "objectID": "modules/02-4-boucles.html#objectifs",
+    "href": "modules/02-4-boucles.html#objectifs",
+    "title": "Conditions et boucles",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les conditions if, elif et else ;\nutiliser les opérateurs de comparaison ;\nparcourir une liste avec une boucle for ;\ncombiner une boucle et une condition ;\nappliquer ces notions à des exemples agricoles.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Conditions et boucles"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#exercice-4-température-moyenne",
-    "href": "modules/02-5-fonctions.html#exercice-4-température-moyenne",
-    "title": "Fonctions",
-    "section": "Exercice 4 — Température moyenne",
-    "text": "Exercice 4 — Température moyenne\nCréer une fonction :\ncalculer_temperature_moyenne(temperatures)\nLa fonction doit :\n\nrecevoir une liste de températures ;\nutiliser une boucle for pour additionner les valeurs ;\ncalculer la moyenne ;\nretourner le résultat.\n\nTester avec :\n[26.5, 28.0, 27.5, 29.0, 25.5]\nAfficher le résultat avec deux chiffres après la virgule.",
+    "objectID": "modules/02-4-boucles.html#les-opérateurs-de-comparaison",
+    "href": "modules/02-4-boucles.html#les-opérateurs-de-comparaison",
+    "title": "Conditions et boucles",
+    "section": "Les opérateurs de comparaison",
+    "text": "Les opérateurs de comparaison\nLes opérateurs de comparaison permettent de tester une condition.\n\n\n\nOpérateur\nSignification\n\n\n\n\n==\négal à\n\n\n!=\ndifférent de\n\n\n&lt;\ninférieur à\n\n\n&gt;\nsupérieur à\n\n\n&lt;=\ninférieur ou égal à\n\n\n&gt;=\nsupérieur ou égal à",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
+      "Conditions et boucles"
     ]
   },
   {
-    "objectID": "modules/02-5-fonctions.html#points-à-retenir",
-    "href": "modules/02-5-fonctions.html#points-à-retenir",
-    "title": "Fonctions",
+    "objectID": "modules/02-4-boucles.html#exemple-classification-du-ph-du-sol",
+    "href": "modules/02-4-boucles.html#exemple-classification-du-ph-du-sol",
+    "title": "Conditions et boucles",
+    "section": "Exemple : classification du pH du sol",
+    "text": "Exemple : classification du pH du sol\n\nph_terrain = 9\n\nif ph_terrain &lt; 6.5:\n    print(\"Sol acide\")\nelif ph_terrain &lt;= 7.5:\n    print(\"Sol neutre\")\nelse:\n    print(\"Sol basique\")\n\nRésultat :\nSol basique",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-niveau-dinfestation",
+    "href": "modules/02-4-boucles.html#exemple-niveau-dinfestation",
+    "title": "Conditions et boucles",
+    "section": "Exemple : niveau d’infestation",
+    "text": "Exemple : niveau d’infestation\nOn souhaite classer une parcelle selon le nombre de ravageurs observés.\n\nnombre_ravageurs = 5\n\nif nombre_ravageurs == 0:\n    print(\"Aucun ravageur observé\")\nelif nombre_ravageurs &lt;= 10:\n    print(\"Faible infestation\")\nelif nombre_ravageurs &lt;= 20:\n    print(\"Infestation moyenne\")\nelse:\n    print(\"Forte infestation : intervention recommandée\")\n\nRésultat :\nFaible infestation",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-simple",
+    "href": "modules/02-4-boucles.html#exemple-simple",
+    "title": "Conditions et boucles",
+    "section": "Exemple simple",
+    "text": "Exemple simple\n\nfor element in [10, 20, 30]:\n    print(element)\n\nRésultat :\n10\n20\n30",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#parcourir-une-liste",
+    "href": "modules/02-4-boucles.html#parcourir-une-liste",
+    "title": "Conditions et boucles",
+    "section": "Parcourir une liste",
+    "text": "Parcourir une liste\n\nma_liste = [5, 20, 30, 86, 96, 78, 2, 5, 6, 86, 98]\n\nfor element in ma_liste:\n    nouvelle_valeur = element * 2\n    print(nouvelle_valeur)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-agricole-nombre-de-ravageurs",
+    "href": "modules/02-4-boucles.html#exemple-agricole-nombre-de-ravageurs",
+    "title": "Conditions et boucles",
+    "section": "Exemple agricole : nombre de ravageurs",
+    "text": "Exemple agricole : nombre de ravageurs\n\nnombre_ravageurs = [3, 8, 15, 22, 55, 66, 89]\n\nfor nombre in nombre_ravageurs:\n    print(\"Nombre de ravageurs :\", nombre)\n\nLa boucle affiche chaque observation, une par une.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-agricole-précipitations",
+    "href": "modules/02-4-boucles.html#exemple-agricole-précipitations",
+    "title": "Conditions et boucles",
+    "section": "Exemple agricole : précipitations",
+    "text": "Exemple agricole : précipitations\n\nprecipitations = [5, 0, 12, 8, 3]\n\nfor pluie in precipitations:\n    print(\"Précipitations :\", pluie, \"mm\")",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-analyser-les-précipitations",
+    "href": "modules/02-4-boucles.html#exemple-analyser-les-précipitations",
+    "title": "Conditions et boucles",
+    "section": "Exemple : analyser les précipitations",
+    "text": "Exemple : analyser les précipitations\n\nprecipitations = [5, 0, 12, 8, 20]\n\nfor pluie in precipitations:\n\n    if pluie == 0:\n        print(pluie, \"mm : Journée sèche\")\n\n    elif pluie &gt;= 15:\n        print(pluie, \"mm : Pluie importante\")\n\n    else:\n        print(pluie, \"mm : Pluie modérée\")",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-comparer-les-rendements",
+    "href": "modules/02-4-boucles.html#exemple-comparer-les-rendements",
+    "title": "Conditions et boucles",
+    "section": "Exemple : comparer les rendements",
+    "text": "Exemple : comparer les rendements\n\nrendements = [2.5, 3.8, 4.2, 2.9]\n\nfor rendement in rendements:\n\n    if rendement &lt; 3:\n        print(rendement, \"t/ha : rendement faible\")\n\n    elif rendement &lt;= 4:\n        print(rendement, \"t/ha : rendement moyen\")\n\n    else:\n        print(rendement, \"t/ha : rendement élevé\")",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exemple-parcourir-des-observations-climatiques",
+    "href": "modules/02-4-boucles.html#exemple-parcourir-des-observations-climatiques",
+    "title": "Conditions et boucles",
+    "section": "Exemple : parcourir des observations climatiques",
+    "text": "Exemple : parcourir des observations climatiques\nOn peut aussi parcourir une liste de dictionnaires.\n\nobservations_climatiques = [\n    {\n        \"date\": \"2026-08-01\",\n        \"temperature\": 27.5,\n        \"precipitations\": 5,\n        \"humidite\": 70\n    },\n    {\n        \"date\": \"2026-08-02\",\n        \"temperature\": 28.0,\n        \"precipitations\": 0,\n        \"humidite\": 68\n    },\n    {\n        \"date\": \"2026-08-03\",\n        \"temperature\": 29.2,\n        \"precipitations\": 2,\n        \"humidite\": 65\n    }\n]\n\nAfficher l’humidité de chaque observation :\n\nfor observation in observations_climatiques:\n    print(observation[\"humidite\"])",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exercice-1-analyse-des-précipitations",
+    "href": "modules/02-4-boucles.html#exercice-1-analyse-des-précipitations",
+    "title": "Conditions et boucles",
+    "section": "Exercice 1 — Analyse des précipitations",
+    "text": "Exercice 1 — Analyse des précipitations\nLes précipitations enregistrées pendant cinq jours sont :\n[5, 0, 12, 8, 20]\n\nTravail demandé\n\ncréer une liste appelée precipitations ;\nutiliser une boucle for ;\nafficher Journée sèche lorsque les précipitations sont égales à 0 ;\nafficher Pluie importante lorsque les précipitations sont supérieures ou égales à 15 mm ;\nafficher Pluie modérée dans les autres cas.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exercice-2-comparaison-des-rendements",
+    "href": "modules/02-4-boucles.html#exercice-2-comparaison-des-rendements",
+    "title": "Conditions et boucles",
+    "section": "Exercice 2 — Comparaison des rendements",
+    "text": "Exercice 2 — Comparaison des rendements\nCréer une liste de rendements et afficher :\n\nRendement faible si le rendement est inférieur à 3 t/ha ;\nRendement moyen s’il est compris entre 3 et 4 t/ha ;\nRendement élevé s’il est supérieur à 4 t/ha.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#exercice-3-niveau-dinfestation",
+    "href": "modules/02-4-boucles.html#exercice-3-niveau-dinfestation",
+    "title": "Conditions et boucles",
+    "section": "Exercice 3 — Niveau d’infestation",
+    "text": "Exercice 3 — Niveau d’infestation\nTester plusieurs valeurs du nombre de ravageurs :\n0, 8, 16, 25\nUtiliser if, elif et else pour afficher le niveau d’infestation correspondant.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Conditions et boucles"
+    ]
+  },
+  {
+    "objectID": "modules/02-4-boucles.html#points-à-retenir",
+    "href": "modules/02-4-boucles.html#points-à-retenir",
+    "title": "Conditions et boucles",
     "section": "Points à retenir",
-    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nUne fonction est définie avec def.\nLes paramètres permettent de fournir des valeurs à la fonction.\nreturn permet de renvoyer un résultat.\nUne même fonction peut être utilisée plusieurs fois avec différentes valeurs.\nUne fonction peut contenir des conditions et des boucles.\nLes fonctions facilitent la réutilisation et l’organisation du code.\n\n\n\n\n\n← Conditions et boucles\nAnalyse de données agricoles →",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nif permet de tester une condition.\nelif permet de tester une condition supplémentaire.\nelse traite les autres cas.\nLes opérateurs ==, &lt;, &gt;, &lt;= et &gt;= permettent de comparer des valeurs.\nUne boucle for permet de parcourir une séquence.\nfor et if peuvent être combinés pour analyser plusieurs observations automatiquement.\n\n\n\n\n\n← Calculs numériques\nFonctions →",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Fonctions"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html",
-    "href": "modules/02-3-calculs.html",
-    "title": "Calculs numériques",
-    "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les principales opérations mathématiques en Python ;\neffectuer des calculs à partir de variables ;\ncalculer un rendement et une production totale ;\nutiliser des données agricoles dans des expressions numériques ;\nformater les résultats pour améliorer leur lisibilité.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#objectifs",
-    "href": "modules/02-3-calculs.html#objectifs",
-    "title": "Calculs numériques",
-    "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les principales opérations mathématiques en Python ;\neffectuer des calculs à partir de variables ;\ncalculer un rendement et une production totale ;\nutiliser des données agricoles dans des expressions numériques ;\nformater les résultats pour améliorer leur lisibilité.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#les-opérations-de-base",
-    "href": "modules/02-3-calculs.html#les-opérations-de-base",
-    "title": "Calculs numériques",
-    "section": "Les opérations de base",
-    "text": "Les opérations de base\nPython permet d’effectuer directement des calculs numériques.\n\n\n\nOpération\nSymbole\nExemple\n\n\n\n\nAddition\n+\n2 + 3\n\n\nSoustraction\n-\n10 - 4\n\n\nMultiplication\n*\n5 * 3\n\n\nDivision\n/\n10 / 2\n\n\nPuissance\n**\n2 ** 3\n\n\n\n\naddition = 2 + 3\nsoustraction = 10 - 4\nmultiplication = 5 * 3\ndivision = 10 / 2\npuissance = 2 ** 3\n\nprint(addition)\nprint(soustraction)\nprint(multiplication)\nprint(division)\nprint(puissance)",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#calculer-avec-des-variables",
-    "href": "modules/02-3-calculs.html#calculer-avec-des-variables",
-    "title": "Calculs numériques",
-    "section": "Calculer avec des variables",
-    "text": "Calculer avec des variables\nLes variables permettent de rendre les calculs plus clairs et réutilisables.\n\nproduction = 1000\nsurface = 500\n\nrendement = production / surface\n\nprint(rendement)\n\nRésultat :\n2.0\nDans cet exemple :\n[ Rendement = ]",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exemple-agricole-calcul-du-rendement",
-    "href": "modules/02-3-calculs.html#exemple-agricole-calcul-du-rendement",
-    "title": "Calculs numériques",
-    "section": "Exemple agricole : calcul du rendement",
-    "text": "Exemple agricole : calcul du rendement\nSupposons qu’une exploitation ait produit 1 000 tonnes sur une surface de 500 hectares.\n\nproduction = 1000\nsurface = 500\n\nrendement = production / surface\n\nprint(\"Rendement :\", rendement, \"t/ha\")\n\nRésultat :\nRendement : 2.0 t/ha",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exemple-agricole-production-totale",
-    "href": "modules/02-3-calculs.html#exemple-agricole-production-totale",
-    "title": "Calculs numériques",
-    "section": "Exemple agricole : production totale",
-    "text": "Exemple agricole : production totale\nOn dispose de la production de trois parcelles :\n\nproduction_parcelle_a = 650\nproduction_parcelle_b = 850\nproduction_parcelle_c = 1050\n\nLa production totale est :\n\nproduction_totale = (\n    production_parcelle_a\n    + production_parcelle_b\n    + production_parcelle_c\n)\n\nprint(production_totale)\n\nRésultat :\n2550\nOn peut ensuite construire un message plus lisible :\n\nnom_region = \"Vakinankaratra\"\n\nprint(\n    \"Production totale dans la région\",\n    nom_region,\n    \"est de\",\n    production_totale,\n    \"tonnes\"\n)",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exemple-agricole-quantité-dengrais",
-    "href": "modules/02-3-calculs.html#exemple-agricole-quantité-dengrais",
-    "title": "Calculs numériques",
-    "section": "Exemple agricole : quantité d’engrais",
-    "text": "Exemple agricole : quantité d’engrais\nLa quantité totale d’engrais peut être calculée à partir de la surface et de la dose recommandée par hectare.\n[ Quantité d’engrais = Surface Dose ]\n\nsurface = 5\ndose_par_hectare = 50\n\nquantite_engrais = surface * dose_par_hectare\n\nprint(\"Quantité totale :\", quantite_engrais, \"kg\")\n\nRésultat :\nQuantité totale : 250 kg",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exemple-agricole-calcul-dune-moyenne",
-    "href": "modules/02-3-calculs.html#exemple-agricole-calcul-dune-moyenne",
-    "title": "Calculs numériques",
-    "section": "Exemple agricole : calcul d’une moyenne",
-    "text": "Exemple agricole : calcul d’une moyenne\nOn souhaite calculer le rendement moyen de plusieurs parcelles.\n\nrendements = [3.2, 2.8, 4.1, 3.6, 2.9]\n\nrendement_moyen = sum(rendements) / len(rendements)\n\nprint(rendement_moyen)\n\nLe résultat est environ :\n3.32\nIci :\n\nsum() calcule la somme des valeurs ;\nlen() donne le nombre de valeurs.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#formatage-des-nombres",
-    "href": "modules/02-3-calculs.html#formatage-des-nombres",
-    "title": "Calculs numériques",
-    "section": "Formatage des nombres",
-    "text": "Formatage des nombres\nLe formatage permet d’afficher les résultats de manière plus lisible.\n\nAfficher deux décimales\n\nrendement = 3.3200000000000003\n\nprint(f\"{rendement:.2f}\")\n\nRésultat :\n3.32",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#séparateur-de-milliers",
-    "href": "modules/02-3-calculs.html#séparateur-de-milliers",
-    "title": "Calculs numériques",
-    "section": "Séparateur de milliers",
-    "text": "Séparateur de milliers\nPour les grandes valeurs, on peut ajouter un séparateur de milliers.\n\nrevenu = 24_000_000.5\n\nrevenu_formate = f\"{revenu:,.2f}\"\n\nprint(revenu_formate)\n\nPour adapter l’affichage au format français :\n\nrevenu = 24_000_000.5\n\nrevenu_formate = (\n    f\"{revenu:,.2f}\"\n    .replace(\",\", \" \")\n    .replace(\".\", \",\")\n)\n\nprint(f\"Revenu brut : {revenu_formate} Ar\")\n\nRésultat :\nRevenu brut : 24 000 000,50 Ar",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exercice-1-calcul-du-rendement",
-    "href": "modules/02-3-calculs.html#exercice-1-calcul-du-rendement",
-    "title": "Calculs numériques",
-    "section": "Exercice 1 — Calcul du rendement",
-    "text": "Exercice 1 — Calcul du rendement\nUne exploitation produit 3 600 tonnes de riz sur une surface de 1 200 hectares.\n\nCréer les variables production et surface.\nCalculer le rendement.\nAfficher le résultat en t/ha.\n\n\nproduction = 3600\nsurface = 1200\n\nrendement = ...\n\nprint(...)",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exercice-2-quantité-dengrais",
-    "href": "modules/02-3-calculs.html#exercice-2-quantité-dengrais",
-    "title": "Calculs numériques",
-    "section": "Exercice 2 — Quantité d’engrais",
-    "text": "Exercice 2 — Quantité d’engrais\nUne parcelle de 8 hectares reçoit une dose recommandée de 40 kg/ha.\nCalculer la quantité totale d’engrais nécessaire.\n\nsurface = 8\ndose_par_hectare = 40\n\nquantite_totale = ...\n\nprint(...)",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#exercice-3-production-de-plusieurs-parcelles",
-    "href": "modules/02-3-calculs.html#exercice-3-production-de-plusieurs-parcelles",
-    "title": "Calculs numériques",
-    "section": "Exercice 3 — Production de plusieurs parcelles",
-    "text": "Exercice 3 — Production de plusieurs parcelles\nLes productions sont :\nParcelle A : 650 tonnes\nParcelle B : 850 tonnes\nParcelle C : 1 050 tonnes\nCalculer la production totale et afficher le résultat.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-3-calculs.html#points-à-retenir",
-    "href": "modules/02-3-calculs.html#points-à-retenir",
-    "title": "Calculs numériques",
-    "section": "Points à retenir",
-    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nPython peut effectuer directement les principales opérations mathématiques.\nLes variables permettent d’intégrer les données agricoles dans les calculs.\nLe rendement peut être calculé avec production / surface.\nsum() et len() permettent de calculer simplement une moyenne.\nLe formatage avec les chaînes f\"...\" améliore la présentation des résultats.\n\n\n\n\n\n← Variables et types de données\nConditions et boucles →",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Calculs numériques"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html",
-    "href": "modules/02-1-installation.html",
-    "title": "Installation et environnement de travail",
-    "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\ninstaller Miniconda ;\nouvrir Anaconda Prompt ;\ninstaller Jupyter Notebook et les bibliothèques nécessaires ;\nlancer un notebook Python ;\ncréer un nouveau fichier Jupyter Notebook ;\nvérifier que l’environnement de travail fonctionne correctement.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html#objectifs",
-    "href": "modules/02-1-installation.html#objectifs",
-    "title": "Installation et environnement de travail",
-    "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\ninstaller Miniconda ;\nouvrir Anaconda Prompt ;\ninstaller Jupyter Notebook et les bibliothèques nécessaires ;\nlancer un notebook Python ;\ncréer un nouveau fichier Jupyter Notebook ;\nvérifier que l’environnement de travail fonctionne correctement.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html#étapes-de-linstallation",
-    "href": "modules/02-1-installation.html#étapes-de-linstallation",
-    "title": "Installation et environnement de travail",
-    "section": "Étapes de l’installation",
-    "text": "Étapes de l’installation\nL’installation se déroule en sept étapes :\n\nTélécharger Miniconda ;\nInstaller Miniconda ;\nOuvrir Anaconda Prompt ;\nInstaller Jupyter Notebook ;\nInstaller les bibliothèques nécessaires ;\nLancer Jupyter Notebook ;\nVérifier que l’installation fonctionne.\n\n\n\n\n\n\n\nNoteEnvironnement utilisé dans ce cours\n\n\n\nLe cours utilise Python, Jupyter Notebook et plusieurs bibliothèques scientifiques pour l’analyse de données et le Machine Learning.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html#créer-un-nouveau-notebook",
-    "href": "modules/02-1-installation.html#créer-un-nouveau-notebook",
-    "title": "Installation et environnement de travail",
-    "section": "Créer un nouveau notebook",
-    "text": "Créer un nouveau notebook\nDans l’interface Jupyter Notebook :\n\ncliquer sur New ;\nchoisir le kernel Python 3 ;\nrenommer le fichier, par exemple Exercice_installation.ipynb.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html#vérifier-python",
-    "href": "modules/02-1-installation.html#vérifier-python",
-    "title": "Installation et environnement de travail",
-    "section": "Vérifier Python",
-    "text": "Vérifier Python\nDans une cellule du notebook, saisir :\n\nprint(\"Bonjour, la formation peut commencer !\")\n\nCliquer sur Run ou exécuter la cellule.\nLe résultat attendu est :\nBonjour, la formation peut commencer !\nSi le message s’affiche, Python fonctionne correctement.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html#vérifier-les-bibliothèques",
-    "href": "modules/02-1-installation.html#vérifier-les-bibliothèques",
-    "title": "Installation et environnement de travail",
-    "section": "Vérifier les bibliothèques",
-    "text": "Vérifier les bibliothèques\nDans une nouvelle cellule, saisir :\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport sklearn\nimport openpyxl\nimport scipy\n\nprint(\"Toutes les bibliothèques principales sont installées.\")\n\nLe résultat attendu est :\nToutes les bibliothèques principales sont installées.\n\n\n\n\n\n\n\nAstuceInstallation réussie\n\n\n\nSi les deux tests s’exécutent sans erreur, votre environnement de travail est prêt pour la suite du cours.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "modules/02-1-installation.html#points-à-retenir",
-    "href": "modules/02-1-installation.html#points-à-retenir",
-    "title": "Installation et environnement de travail",
-    "section": "Points à retenir",
-    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nMiniconda permet de gérer l’environnement Python et les paquets nécessaires.\nAnaconda Prompt permet d’exécuter les commandes d’installation.\nJupyter Notebook permet d’écrire et d’exécuter du code Python de manière interactive.\nLes bibliothèques pandas, numpy, matplotlib, scikit-learn et openpyxl seront utilisées dans les modules suivants.\nIl est important de vérifier l’installation avant de commencer les exercices.\n\n\n\n\n\n← IA dans l’agriculture\nVariables et types de données →",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Installation et environnement"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
-    "section": "",
-    "text": "FORMATION · AGRICULTURE NUMÉRIQUE\n\n\n\nUne formation pratique destinée aux étudiants de la Mention Agriculture Tropicale et Développement Durable (AT2D) de l’Ecole Supérieure de Sciences Agronomiques de l’Université d’Antananarivo, conçue dans le cadre du projet TADY et Expert’Izy.\nLe cours introduit les fondamentaux de la programmation Python, l’analyse de données agricoles, le machine learning et l’analyse géospatiale.\nDécouvrir le programme"
-  },
-  {
-    "objectID": "index.html#à-propos-de-la-formation",
-    "href": "index.html#à-propos-de-la-formation",
-    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
-    "section": "À propos de la formation",
-    "text": "À propos de la formation\nCe cours a été conçu pour accompagner l’apprentissage des méthodes numériques appliquées à l’agriculture, depuis les bases de Python jusqu’au machine learning et aux systèmes d’information géographique.\nL’objectif est de proposer un parcours progressif, pratique et directement exploitable à partir de données agricoles, climatiques et géospatiales."
-  },
-  {
-    "objectID": "index.html#à-propos-moi",
-    "href": "index.html#à-propos-moi",
-    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
-    "section": "À propos moi",
-    "text": "À propos moi\nJe suis Mioratina N. T., Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions technologiques d’aide à la décision déployés à l’échelle internationale."
-  },
-  {
-    "objectID": "modules/01-ia-agriculture.html",
-    "href": "modules/01-ia-agriculture.html",
-    "title": "IA dans l’agriculture",
-    "section": "",
-    "text": "L’intelligence artificielle (IA) regroupe un ensemble de méthodes informatiques permettant à une machine de réaliser certaines tâches d’analyse, de prédiction ou de classification à partir de données.\nDans ce cours, nous nous intéressons principalement aux approches basées sur les données, en particulier au Machine Learning.\nPar exemple, un système d’IA peut être utilisé pour :\n\nreconnaître des tendances dans des données agricoles ;\nclasser des observations ;\ndétecter des anomalies ;\nprédire un rendement ou un risque ;\nproduire des recommandations à partir de données disponibles.\n\nL’IA ne remplace pas l’expertise agronomique.\nElle fournit plutôt des outils permettant d’exploiter des données afin de mieux comprendre une situation et d’appuyer la prise de décision.\n\n\n\n\n\n\nNoteIA, Machine Learning et données\n\n\n\nIntelligence artificielle\nTerme général regroupant différentes méthodes permettant à une machine de réaliser des tâches d’analyse, de prédiction ou de décision.\nMachine Learning\nSous-domaine de l’IA dans lequel les modèles apprennent des relations à partir de données.\nDonnées\nInformations utilisées pour entraîner, tester et appliquer ces modèles.",
-    "crumbs": [
-      "Programme",
-      "1. IA dans l’agriculture"
-    ]
-  },
-  {
-    "objectID": "modules/01-ia-agriculture.html#quest-ce-que-lintelligence-artificielle",
-    "href": "modules/01-ia-agriculture.html#quest-ce-que-lintelligence-artificielle",
-    "title": "IA dans l’agriculture",
-    "section": "",
-    "text": "L’intelligence artificielle (IA) regroupe un ensemble de méthodes informatiques permettant à une machine de réaliser certaines tâches d’analyse, de prédiction ou de classification à partir de données.\nDans ce cours, nous nous intéressons principalement aux approches basées sur les données, en particulier au Machine Learning.\nPar exemple, un système d’IA peut être utilisé pour :\n\nreconnaître des tendances dans des données agricoles ;\nclasser des observations ;\ndétecter des anomalies ;\nprédire un rendement ou un risque ;\nproduire des recommandations à partir de données disponibles.\n\nL’IA ne remplace pas l’expertise agronomique.\nElle fournit plutôt des outils permettant d’exploiter des données afin de mieux comprendre une situation et d’appuyer la prise de décision.\n\n\n\n\n\n\nNoteIA, Machine Learning et données\n\n\n\nIntelligence artificielle\nTerme général regroupant différentes méthodes permettant à une machine de réaliser des tâches d’analyse, de prédiction ou de décision.\nMachine Learning\nSous-domaine de l’IA dans lequel les modèles apprennent des relations à partir de données.\nDonnées\nInformations utilisées pour entraîner, tester et appliquer ces modèles.",
-    "crumbs": [
-      "Programme",
-      "1. IA dans l’agriculture"
-    ]
-  },
-  {
-    "objectID": "modules/01-ia-agriculture.html#contexte-et-enjeux",
-    "href": "modules/01-ia-agriculture.html#contexte-et-enjeux",
-    "title": "IA dans l’agriculture",
-    "section": "Contexte et enjeux",
-    "text": "Contexte et enjeux\n\n\nLe secteur agricole doit répondre à plusieurs défis\n\namélioration de la production et des rendements ;\nadaptation aux changements climatiques ;\ngestion des ressources naturelles ;\nsuivi des cultures et des exploitations ;\nanticipation des risques agricoles ;\namélioration de la prise de décision.\n\n\n\n→\n\n\nLes données\nLes données peuvent aider à mieux comprendre les problèmes agricoles et à prendre des décisions plus éclairées.\n\n\n→\n\n\nOutils d’aide à la décision\nIntelligence artificielle & science des données\n\nAnalyse statistique\nMachine learning\nSIG\nPython\nR\n\n\n\n\n\n\n\n\n\nAstuceOutil utilisé : modèle de Machine Learning\n\n\n\nOn peut construire un modèle de régression à partir de données historiques.\nLe modèle apprend la relation entre les caractéristiques de la parcelle et le rendement observé.\nIl peut ensuite être utilisé pour estimer le rendement attendu d’une nouvelle parcelle.\n\n\nExemples de modèles :\n\nrégression linéaire ;\nRandom Forest ;\nGradient Boosting.\n\n\nPrévision du risque de maladie\nLes maladies des plantes peuvent dépendre de plusieurs facteurs :\n\ntempérature ;\nhumidité ;\npluie ;\ntype de culture ;\nstade de développement ;\nobservations historiques de maladies.\n\n\n\nProblème Identifier un risque de maladie\n\n\n→\n\n\nDonnées Météo, culture,historique des maladies\n\n\n→\n\n\nOutil Modèle de classification\n\n\n→\n\n\nRésultat Niveau de risque\n\n\n\n\n\n\n\n\nAstuceOutil utilisé : modèle de classification\n\n\n\nOn peut construire un modèle de classification qui estime si les conditions observées correspondent à un niveau de risque faible ou élevé.\nLe résultat peut ensuite contribuer à produire une alerte précoce.\n\n\nExemples de modèles :\n\nrégression logistique ;\narbre de décision ;\nRandom Forest.\n\n\n\nRecommandation pour l’irrigation\nLes besoins en irrigation dépendent notamment :\n\ndes précipitations ;\nde la température ;\nde l’humidité du sol ;\ndu type de culture ;\ndu stade de développement.\n\n\n\nProblème Décider s’il faut irriguer\n\n\n→\n\n\nDonnées Météo, humidité du sol,culture\n\n\n→\n\n\nOutil Modèle prédictif\n\n\n→\n\n\nRésultat Recommandation d’irrigation\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : données météo + modèle prédictif\n\n\n\nÀ partir de données historiques, un modèle peut apprendre dans quelles conditions une irrigation est généralement nécessaire.\nLe système peut ensuite produire une recommandation telle que :\nirriguer / ne pas irriguer\nou estimer un besoin en eau.\n\n\n\n\nChoix d’une période de plantation\nLes données climatiques historiques peuvent être utilisées pour étudier les périodes les plus favorables à la plantation.\n\n\nProblème Choisir une période de plantation\n\n\n→\n\n\nDonnées Historique climatique,pluie, température\n\n\n→\n\n\nOutil Analyse statistique+ modèle prédictif\n\n\n→\n\n\nRésultat Période recommandée\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : analyse statistique + modèle prédictif\n\n\n\nOn peut :\n\nanalyser les tendances historiques ;\ncomparer plusieurs périodes de plantation ;\nintégrer les prévisions météorologiques ;\nconstruire un modèle pour estimer les conditions les plus favorables.\n\nLe résultat peut compléter un calendrier agricole avec des recommandations plus localisées.\n\n\n\n\nDétection du stress des cultures\nLes images satellites ou prises par drone permettent d’observer de grandes surfaces agricoles.\n\n\nProblème Détecter le stress des cultures\n\n\n→\n\n\nDonnées Images satelliteou drone\n\n\n→\n\n\nOutil Télédétection+ Machine Learning\n\n\n→\n\n\nRésultat Zones affectées\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : télédétection + Machine Learning\n\n\n\nÀ partir d’images, il est possible de construire un modèle capable de distinguer :\n\nune végétation en bon état ;\nune zone de faible croissance ;\nune zone présentant un stress ;\ncertaines anomalies visibles.\n\nLes résultats peuvent ensuite être cartographiés dans un SIG.\n\n\n\n\nCartographie des zones vulnérables\nOn peut également combiner plusieurs sources d’information :\n\nclimat ;\nsols ;\nrelief ;\nrendement ;\naccès à l’eau ;\nlocalisation des exploitations.\n\n\n\nProblème Identifier les zones vulnérables\n\n\n→\n\n\nDonnées Climat, sol, relief,rendement\n\n\n→\n\n\nOutil SIG + analyseou Machine Learning\n\n\n→\n\n\nRésultat Carte de vulnérabilité\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : SIG + analyse statistique ou Machine Learning\n\n\n\nLes variables peuvent être combinées afin d’identifier et de cartographier les zones présentant certaines caractéristiques ou un niveau de vulnérabilité plus élevé.",
-    "crumbs": [
-      "Programme",
-      "1. IA dans l’agriculture"
-    ]
-  },
-  {
-    "objectID": "modules/01-ia-agriculture.html#des-outils-complémentaires",
-    "href": "modules/01-ia-agriculture.html#des-outils-complémentaires",
-    "title": "IA dans l’agriculture",
-    "section": "Des outils complémentaires",
-    "text": "Des outils complémentaires\n\n\n\n\n\n\n\nOutil\nUtilisation\n\n\n\n\nPython\npréparation, exploration et analyse des données\n\n\nAnalyse statistique\ncomprendre les relations et tester des hypothèses\n\n\nMachine Learning\nconstruire des modèles de prédiction ou de classification\n\n\nSIG\nanalyser et cartographier les phénomènes dans l’espace\n\n\nTélédétection\nobserver les cultures à partir d’images satellites ou drones\n\n\n\nLe choix de l’outil dépend toujours de la question agricole, des données disponibles et du résultat recherché.",
-    "crumbs": [
-      "Programme",
-      "1. IA dans l’agriculture"
-    ]
-  },
-  {
-    "objectID": "modules/01-ia-agriculture.html#points-à-retenir",
-    "href": "modules/01-ia-agriculture.html#points-à-retenir",
-    "title": "IA dans l’agriculture",
-    "section": "Points à retenir",
-    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nL’IA utilise des données pour apprendre des relations et produire des prédictions ou des classifications.\nLe Machine Learning est une des principales approches de l’IA utilisées dans ce cours.\nAvant de construire un modèle, les données doivent être nettoyées, explorées et préparées.\nLes modèles peuvent être utilisés pour estimer des rendements, identifier des risques ou produire des recommandations.\nLes SIG et la télédétection permettent d’ajouter la dimension spatiale à l’analyse.\nL’objectif final est d’appuyer une décision agricole, et non simplement de produire un modèle.",
-    "crumbs": [
-      "Programme",
-      "1. IA dans l’agriculture"
+      "Conditions et boucles"
     ]
   },
   {
@@ -899,263 +835,559 @@
     ]
   },
   {
-    "objectID": "modules/02-4-boucles.html",
-    "href": "modules/02-4-boucles.html",
-    "title": "Conditions et boucles",
+    "objectID": "modules/01-ia-agriculture.html",
+    "href": "modules/01-ia-agriculture.html",
+    "title": "IA dans l’agriculture",
     "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les conditions if, elif et else ;\nutiliser les opérateurs de comparaison ;\nparcourir une liste avec une boucle for ;\ncombiner une boucle et une condition ;\nappliquer ces notions à des exemples agricoles.",
+    "text": "L’intelligence artificielle (IA) regroupe un ensemble de méthodes informatiques permettant à une machine de réaliser certaines tâches d’analyse, de prédiction ou de classification à partir de données.\nDans ce cours, nous nous intéressons principalement aux approches basées sur les données, en particulier au Machine Learning.\nPar exemple, un système d’IA peut être utilisé pour :\n\nreconnaître des tendances dans des données agricoles ;\nclasser des observations ;\ndétecter des anomalies ;\nprédire un rendement ou un risque ;\nproduire des recommandations à partir de données disponibles.\n\nL’IA ne remplace pas l’expertise agronomique.\nElle fournit plutôt des outils permettant d’exploiter des données afin de mieux comprendre une situation et d’appuyer la prise de décision.\n\n\n\n\n\n\nNoteIA, Machine Learning et données\n\n\n\nIntelligence artificielle\nTerme général regroupant différentes méthodes permettant à une machine de réaliser des tâches d’analyse, de prédiction ou de décision.\nMachine Learning\nSous-domaine de l’IA dans lequel les modèles apprennent des relations à partir de données.\nDonnées\nInformations utilisées pour entraîner, tester et appliquer ces modèles.",
     "crumbs": [
       "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
+      "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/02-4-boucles.html#objectifs",
-    "href": "modules/02-4-boucles.html#objectifs",
-    "title": "Conditions et boucles",
+    "objectID": "modules/01-ia-agriculture.html#quest-ce-que-lintelligence-artificielle",
+    "href": "modules/01-ia-agriculture.html#quest-ce-que-lintelligence-artificielle",
+    "title": "IA dans l’agriculture",
     "section": "",
-    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les conditions if, elif et else ;\nutiliser les opérateurs de comparaison ;\nparcourir une liste avec une boucle for ;\ncombiner une boucle et une condition ;\nappliquer ces notions à des exemples agricoles.",
+    "text": "L’intelligence artificielle (IA) regroupe un ensemble de méthodes informatiques permettant à une machine de réaliser certaines tâches d’analyse, de prédiction ou de classification à partir de données.\nDans ce cours, nous nous intéressons principalement aux approches basées sur les données, en particulier au Machine Learning.\nPar exemple, un système d’IA peut être utilisé pour :\n\nreconnaître des tendances dans des données agricoles ;\nclasser des observations ;\ndétecter des anomalies ;\nprédire un rendement ou un risque ;\nproduire des recommandations à partir de données disponibles.\n\nL’IA ne remplace pas l’expertise agronomique.\nElle fournit plutôt des outils permettant d’exploiter des données afin de mieux comprendre une situation et d’appuyer la prise de décision.\n\n\n\n\n\n\nNoteIA, Machine Learning et données\n\n\n\nIntelligence artificielle\nTerme général regroupant différentes méthodes permettant à une machine de réaliser des tâches d’analyse, de prédiction ou de décision.\nMachine Learning\nSous-domaine de l’IA dans lequel les modèles apprennent des relations à partir de données.\nDonnées\nInformations utilisées pour entraîner, tester et appliquer ces modèles.",
     "crumbs": [
       "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
+      "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/02-4-boucles.html#les-opérateurs-de-comparaison",
-    "href": "modules/02-4-boucles.html#les-opérateurs-de-comparaison",
-    "title": "Conditions et boucles",
-    "section": "Les opérateurs de comparaison",
-    "text": "Les opérateurs de comparaison\nLes opérateurs de comparaison permettent de tester une condition.\n\n\n\nOpérateur\nSignification\n\n\n\n\n==\négal à\n\n\n!=\ndifférent de\n\n\n&lt;\ninférieur à\n\n\n&gt;\nsupérieur à\n\n\n&lt;=\ninférieur ou égal à\n\n\n&gt;=\nsupérieur ou égal à",
+    "objectID": "modules/01-ia-agriculture.html#contexte-et-enjeux",
+    "href": "modules/01-ia-agriculture.html#contexte-et-enjeux",
+    "title": "IA dans l’agriculture",
+    "section": "Contexte et enjeux",
+    "text": "Contexte et enjeux\n\n\nLe secteur agricole doit répondre à plusieurs défis\n\namélioration de la production et des rendements ;\nadaptation aux changements climatiques ;\ngestion des ressources naturelles ;\nsuivi des cultures et des exploitations ;\nanticipation des risques agricoles ;\namélioration de la prise de décision.\n\n\n\n→\n\n\nLes données\nLes données peuvent aider à mieux comprendre les problèmes agricoles et à prendre des décisions plus éclairées.\n\n\n→\n\n\nOutils d’aide à la décision\nIntelligence artificielle & science des données\n\nAnalyse statistique\nMachine learning\nSIG\nPython\nR\n\n\n\n\n\n\n\n\n\nAstuceOutil utilisé : modèle de Machine Learning\n\n\n\nOn peut construire un modèle de régression à partir de données historiques.\nLe modèle apprend la relation entre les caractéristiques de la parcelle et le rendement observé.\nIl peut ensuite être utilisé pour estimer le rendement attendu d’une nouvelle parcelle.\n\n\nExemples de modèles :\n\nrégression linéaire ;\nRandom Forest ;\nGradient Boosting.\n\n\nPrévision du risque de maladie\nLes maladies des plantes peuvent dépendre de plusieurs facteurs :\n\ntempérature ;\nhumidité ;\npluie ;\ntype de culture ;\nstade de développement ;\nobservations historiques de maladies.\n\n\n\nProblème Identifier un risque de maladie\n\n\n→\n\n\nDonnées Météo, culture,historique des maladies\n\n\n→\n\n\nOutil Modèle de classification\n\n\n→\n\n\nRésultat Niveau de risque\n\n\n\n\n\n\n\n\nAstuceOutil utilisé : modèle de classification\n\n\n\nOn peut construire un modèle de classification qui estime si les conditions observées correspondent à un niveau de risque faible ou élevé.\nLe résultat peut ensuite contribuer à produire une alerte précoce.\n\n\nExemples de modèles :\n\nrégression logistique ;\narbre de décision ;\nRandom Forest.\n\n\n\nRecommandation pour l’irrigation\nLes besoins en irrigation dépendent notamment :\n\ndes précipitations ;\nde la température ;\nde l’humidité du sol ;\ndu type de culture ;\ndu stade de développement.\n\n\n\nProblème Décider s’il faut irriguer\n\n\n→\n\n\nDonnées Météo, humidité du sol,culture\n\n\n→\n\n\nOutil Modèle prédictif\n\n\n→\n\n\nRésultat Recommandation d’irrigation\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : données météo + modèle prédictif\n\n\n\nÀ partir de données historiques, un modèle peut apprendre dans quelles conditions une irrigation est généralement nécessaire.\nLe système peut ensuite produire une recommandation telle que :\nirriguer / ne pas irriguer\nou estimer un besoin en eau.\n\n\n\n\nChoix d’une période de plantation\nLes données climatiques historiques peuvent être utilisées pour étudier les périodes les plus favorables à la plantation.\n\n\nProblème Choisir une période de plantation\n\n\n→\n\n\nDonnées Historique climatique,pluie, température\n\n\n→\n\n\nOutil Analyse statistique+ modèle prédictif\n\n\n→\n\n\nRésultat Période recommandée\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : analyse statistique + modèle prédictif\n\n\n\nOn peut :\n\nanalyser les tendances historiques ;\ncomparer plusieurs périodes de plantation ;\nintégrer les prévisions météorologiques ;\nconstruire un modèle pour estimer les conditions les plus favorables.\n\nLe résultat peut compléter un calendrier agricole avec des recommandations plus localisées.\n\n\n\n\nDétection du stress des cultures\nLes images satellites ou prises par drone permettent d’observer de grandes surfaces agricoles.\n\n\nProblème Détecter le stress des cultures\n\n\n→\n\n\nDonnées Images satelliteou drone\n\n\n→\n\n\nOutil Télédétection+ Machine Learning\n\n\n→\n\n\nRésultat Zones affectées\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : télédétection + Machine Learning\n\n\n\nÀ partir d’images, il est possible de construire un modèle capable de distinguer :\n\nune végétation en bon état ;\nune zone de faible croissance ;\nune zone présentant un stress ;\ncertaines anomalies visibles.\n\nLes résultats peuvent ensuite être cartographiés dans un SIG.\n\n\n\n\nCartographie des zones vulnérables\nOn peut également combiner plusieurs sources d’information :\n\nclimat ;\nsols ;\nrelief ;\nrendement ;\naccès à l’eau ;\nlocalisation des exploitations.\n\n\n\nProblème Identifier les zones vulnérables\n\n\n→\n\n\nDonnées Climat, sol, relief,rendement\n\n\n→\n\n\nOutil SIG + analyseou Machine Learning\n\n\n→\n\n\nRésultat Carte de vulnérabilité\n\n\n\n\n\n\n\n\nAstuceOutils utilisés : SIG + analyse statistique ou Machine Learning\n\n\n\nLes variables peuvent être combinées afin d’identifier et de cartographier les zones présentant certaines caractéristiques ou un niveau de vulnérabilité plus élevé.",
     "crumbs": [
       "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
+      "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/02-4-boucles.html#exemple-classification-du-ph-du-sol",
-    "href": "modules/02-4-boucles.html#exemple-classification-du-ph-du-sol",
-    "title": "Conditions et boucles",
-    "section": "Exemple : classification du pH du sol",
-    "text": "Exemple : classification du pH du sol\n\nph_terrain = 9\n\nif ph_terrain &lt; 6.5:\n    print(\"Sol acide\")\nelif ph_terrain &lt;= 7.5:\n    print(\"Sol neutre\")\nelse:\n    print(\"Sol basique\")\n\nRésultat :\nSol basique",
+    "objectID": "modules/01-ia-agriculture.html#des-outils-complémentaires",
+    "href": "modules/01-ia-agriculture.html#des-outils-complémentaires",
+    "title": "IA dans l’agriculture",
+    "section": "Des outils complémentaires",
+    "text": "Des outils complémentaires\n\n\n\n\n\n\n\nOutil\nUtilisation\n\n\n\n\nPython\npréparation, exploration et analyse des données\n\n\nAnalyse statistique\ncomprendre les relations et tester des hypothèses\n\n\nMachine Learning\nconstruire des modèles de prédiction ou de classification\n\n\nSIG\nanalyser et cartographier les phénomènes dans l’espace\n\n\nTélédétection\nobserver les cultures à partir d’images satellites ou drones\n\n\n\nLe choix de l’outil dépend toujours de la question agricole, des données disponibles et du résultat recherché.",
     "crumbs": [
       "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
+      "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/02-4-boucles.html#exemple-niveau-dinfestation",
-    "href": "modules/02-4-boucles.html#exemple-niveau-dinfestation",
-    "title": "Conditions et boucles",
-    "section": "Exemple : niveau d’infestation",
-    "text": "Exemple : niveau d’infestation\nOn souhaite classer une parcelle selon le nombre de ravageurs observés.\n\nnombre_ravageurs = 5\n\nif nombre_ravageurs == 0:\n    print(\"Aucun ravageur observé\")\nelif nombre_ravageurs &lt;= 10:\n    print(\"Faible infestation\")\nelif nombre_ravageurs &lt;= 20:\n    print(\"Infestation moyenne\")\nelse:\n    print(\"Forte infestation : intervention recommandée\")\n\nRésultat :\nFaible infestation",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exemple-simple",
-    "href": "modules/02-4-boucles.html#exemple-simple",
-    "title": "Conditions et boucles",
-    "section": "Exemple simple",
-    "text": "Exemple simple\n\nfor element in [10, 20, 30]:\n    print(element)\n\nRésultat :\n10\n20\n30",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#parcourir-une-liste",
-    "href": "modules/02-4-boucles.html#parcourir-une-liste",
-    "title": "Conditions et boucles",
-    "section": "Parcourir une liste",
-    "text": "Parcourir une liste\n\nma_liste = [5, 20, 30, 86, 96, 78, 2, 5, 6, 86, 98]\n\nfor element in ma_liste:\n    nouvelle_valeur = element * 2\n    print(nouvelle_valeur)",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exemple-agricole-nombre-de-ravageurs",
-    "href": "modules/02-4-boucles.html#exemple-agricole-nombre-de-ravageurs",
-    "title": "Conditions et boucles",
-    "section": "Exemple agricole : nombre de ravageurs",
-    "text": "Exemple agricole : nombre de ravageurs\n\nnombre_ravageurs = [3, 8, 15, 22, 55, 66, 89]\n\nfor nombre in nombre_ravageurs:\n    print(\"Nombre de ravageurs :\", nombre)\n\nLa boucle affiche chaque observation, une par une.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exemple-agricole-précipitations",
-    "href": "modules/02-4-boucles.html#exemple-agricole-précipitations",
-    "title": "Conditions et boucles",
-    "section": "Exemple agricole : précipitations",
-    "text": "Exemple agricole : précipitations\n\nprecipitations = [5, 0, 12, 8, 3]\n\nfor pluie in precipitations:\n    print(\"Précipitations :\", pluie, \"mm\")",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exemple-analyser-les-précipitations",
-    "href": "modules/02-4-boucles.html#exemple-analyser-les-précipitations",
-    "title": "Conditions et boucles",
-    "section": "Exemple : analyser les précipitations",
-    "text": "Exemple : analyser les précipitations\n\nprecipitations = [5, 0, 12, 8, 20]\n\nfor pluie in precipitations:\n\n    if pluie == 0:\n        print(pluie, \"mm : Journée sèche\")\n\n    elif pluie &gt;= 15:\n        print(pluie, \"mm : Pluie importante\")\n\n    else:\n        print(pluie, \"mm : Pluie modérée\")",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exemple-comparer-les-rendements",
-    "href": "modules/02-4-boucles.html#exemple-comparer-les-rendements",
-    "title": "Conditions et boucles",
-    "section": "Exemple : comparer les rendements",
-    "text": "Exemple : comparer les rendements\n\nrendements = [2.5, 3.8, 4.2, 2.9]\n\nfor rendement in rendements:\n\n    if rendement &lt; 3:\n        print(rendement, \"t/ha : rendement faible\")\n\n    elif rendement &lt;= 4:\n        print(rendement, \"t/ha : rendement moyen\")\n\n    else:\n        print(rendement, \"t/ha : rendement élevé\")",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exemple-parcourir-des-observations-climatiques",
-    "href": "modules/02-4-boucles.html#exemple-parcourir-des-observations-climatiques",
-    "title": "Conditions et boucles",
-    "section": "Exemple : parcourir des observations climatiques",
-    "text": "Exemple : parcourir des observations climatiques\nOn peut aussi parcourir une liste de dictionnaires.\n\nobservations_climatiques = [\n    {\n        \"date\": \"2026-08-01\",\n        \"temperature\": 27.5,\n        \"precipitations\": 5,\n        \"humidite\": 70\n    },\n    {\n        \"date\": \"2026-08-02\",\n        \"temperature\": 28.0,\n        \"precipitations\": 0,\n        \"humidite\": 68\n    },\n    {\n        \"date\": \"2026-08-03\",\n        \"temperature\": 29.2,\n        \"precipitations\": 2,\n        \"humidite\": 65\n    }\n]\n\nAfficher l’humidité de chaque observation :\n\nfor observation in observations_climatiques:\n    print(observation[\"humidite\"])",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exercice-1-analyse-des-précipitations",
-    "href": "modules/02-4-boucles.html#exercice-1-analyse-des-précipitations",
-    "title": "Conditions et boucles",
-    "section": "Exercice 1 — Analyse des précipitations",
-    "text": "Exercice 1 — Analyse des précipitations\nLes précipitations enregistrées pendant cinq jours sont :\n[5, 0, 12, 8, 20]\n\nTravail demandé\n\ncréer une liste appelée precipitations ;\nutiliser une boucle for ;\nafficher Journée sèche lorsque les précipitations sont égales à 0 ;\nafficher Pluie importante lorsque les précipitations sont supérieures ou égales à 15 mm ;\nafficher Pluie modérée dans les autres cas.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exercice-2-comparaison-des-rendements",
-    "href": "modules/02-4-boucles.html#exercice-2-comparaison-des-rendements",
-    "title": "Conditions et boucles",
-    "section": "Exercice 2 — Comparaison des rendements",
-    "text": "Exercice 2 — Comparaison des rendements\nCréer une liste de rendements et afficher :\n\nRendement faible si le rendement est inférieur à 3 t/ha ;\nRendement moyen s’il est compris entre 3 et 4 t/ha ;\nRendement élevé s’il est supérieur à 4 t/ha.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#exercice-3-niveau-dinfestation",
-    "href": "modules/02-4-boucles.html#exercice-3-niveau-dinfestation",
-    "title": "Conditions et boucles",
-    "section": "Exercice 3 — Niveau d’infestation",
-    "text": "Exercice 3 — Niveau d’infestation\nTester plusieurs valeurs du nombre de ravageurs :\n0, 8, 16, 25\nUtiliser if, elif et else pour afficher le niveau d’infestation correspondant.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
-    ]
-  },
-  {
-    "objectID": "modules/02-4-boucles.html#points-à-retenir",
-    "href": "modules/02-4-boucles.html#points-à-retenir",
-    "title": "Conditions et boucles",
+    "objectID": "modules/01-ia-agriculture.html#points-à-retenir",
+    "href": "modules/01-ia-agriculture.html#points-à-retenir",
+    "title": "IA dans l’agriculture",
     "section": "Points à retenir",
-    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nif permet de tester une condition.\nelif permet de tester une condition supplémentaire.\nelse traite les autres cas.\nLes opérateurs ==, &lt;, &gt;, &lt;= et &gt;= permettent de comparer des valeurs.\nUne boucle for permet de parcourir une séquence.\nfor et if peuvent être combinés pour analyser plusieurs observations automatiquement.\n\n\n\n\n\n← Calculs numériques\nFonctions →",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nL’IA utilise des données pour apprendre des relations et produire des prédictions ou des classifications.\nLe Machine Learning est une des principales approches de l’IA utilisées dans ce cours.\nAvant de construire un modèle, les données doivent être nettoyées, explorées et préparées.\nLes modèles peuvent être utilisés pour estimer des rendements, identifier des risques ou produire des recommandations.\nLes SIG et la télédétection permettent d’ajouter la dimension spatiale à l’analyse.\nL’objectif final est d’appuyer une décision agricole, et non simplement de produire un modèle.",
     "crumbs": [
       "Programme",
-      "2. Bases de Python",
-      "Conditions et boucles"
+      "1. IA dans l’agriculture"
     ]
   },
   {
-    "objectID": "modules/02-bases-python.html",
-    "href": "modules/02-bases-python.html",
-    "title": "Vue d’ensemble",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
     "section": "",
-    "text": "Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.\nL’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Vue d’ensemble"
-    ]
+    "text": "FORMATION · AGRICULTURE NUMÉRIQUE\n\n\n\nUne formation pratique destinée aux étudiants de la Mention Agriculture Tropicale et Développement Durable (AT2D) de l’Ecole Supérieure de Sciences Agronomiques de l’Université d’Antananarivo, conçue dans le cadre du projet TADY et Expert’Izy.\nLe cours introduit les fondamentaux de la programmation Python, l’analyse de données agricoles, le machine learning et l’analyse géospatiale.\nDécouvrir le programme"
   },
   {
-    "objectID": "modules/02-bases-python.html#objectif-du-module",
-    "href": "modules/02-bases-python.html#objectif-du-module",
-    "title": "Vue d’ensemble",
+    "objectID": "index.html#à-propos-de-la-formation",
+    "href": "index.html#à-propos-de-la-formation",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "À propos de la formation",
+    "text": "À propos de la formation\nCe cours a été conçu pour accompagner l’apprentissage des méthodes numériques appliquées à l’agriculture, depuis les bases de Python jusqu’au machine learning et aux systèmes d’information géographique.\nL’objectif est de proposer un parcours progressif, pratique et directement exploitable à partir de données agricoles, climatiques et géospatiales."
+  },
+  {
+    "objectID": "index.html#à-propos-moi",
+    "href": "index.html#à-propos-moi",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "À propos moi",
+    "text": "À propos moi\nJe suis Mioratina N. T., Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions technologiques d’aide à la décision déployés à l’échelle internationale."
+  },
+  {
+    "objectID": "modules/02-1-installation.html",
+    "href": "modules/02-1-installation.html",
+    "title": "Installation et environnement de travail",
     "section": "",
-    "text": "Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.\nL’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning.",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ninstaller Miniconda ;\nouvrir Anaconda Prompt ;\ninstaller Jupyter Notebook et les bibliothèques nécessaires ;\nlancer un notebook Python ;\ncréer un nouveau fichier Jupyter Notebook ;\nvérifier que l’environnement de travail fonctionne correctement.",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
-      "Vue d’ensemble"
+      "Installation et environnement"
     ]
   },
   {
-    "objectID": "modules/02-bases-python.html#ce-que-vous-allez-apprendre",
-    "href": "modules/02-bases-python.html#ce-que-vous-allez-apprendre",
-    "title": "Vue d’ensemble",
+    "objectID": "modules/02-1-installation.html#objectifs",
+    "href": "modules/02-1-installation.html#objectifs",
+    "title": "Installation et environnement de travail",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ninstaller Miniconda ;\nouvrir Anaconda Prompt ;\ninstaller Jupyter Notebook et les bibliothèques nécessaires ;\nlancer un notebook Python ;\ncréer un nouveau fichier Jupyter Notebook ;\nvérifier que l’environnement de travail fonctionne correctement.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#étapes-de-linstallation",
+    "href": "modules/02-1-installation.html#étapes-de-linstallation",
+    "title": "Installation et environnement de travail",
+    "section": "Étapes de l’installation",
+    "text": "Étapes de l’installation\nL’installation se déroule en sept étapes :\n\nTélécharger Miniconda ;\nInstaller Miniconda ;\nOuvrir Anaconda Prompt ;\nInstaller Jupyter Notebook ;\nInstaller les bibliothèques nécessaires ;\nLancer Jupyter Notebook ;\nVérifier que l’installation fonctionne.\n\n\n\n\n\n\n\nNoteEnvironnement utilisé dans ce cours\n\n\n\nLe cours utilise Python, Jupyter Notebook et plusieurs bibliothèques scientifiques pour l’analyse de données et le Machine Learning.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#créer-un-nouveau-notebook",
+    "href": "modules/02-1-installation.html#créer-un-nouveau-notebook",
+    "title": "Installation et environnement de travail",
+    "section": "Créer un nouveau notebook",
+    "text": "Créer un nouveau notebook\nDans l’interface Jupyter Notebook :\n\ncliquer sur New ;\nchoisir le kernel Python 3 ;\nrenommer le fichier, par exemple Exercice_installation.ipynb.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#vérifier-python",
+    "href": "modules/02-1-installation.html#vérifier-python",
+    "title": "Installation et environnement de travail",
+    "section": "Vérifier Python",
+    "text": "Vérifier Python\nDans une cellule du notebook, saisir :\n\nprint(\"Bonjour, la formation peut commencer !\")\n\nCliquer sur Run ou exécuter la cellule.\nLe résultat attendu est :\nBonjour, la formation peut commencer !\nSi le message s’affiche, Python fonctionne correctement.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#vérifier-les-bibliothèques",
+    "href": "modules/02-1-installation.html#vérifier-les-bibliothèques",
+    "title": "Installation et environnement de travail",
+    "section": "Vérifier les bibliothèques",
+    "text": "Vérifier les bibliothèques\nDans une nouvelle cellule, saisir :\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport sklearn\nimport openpyxl\nimport scipy\n\nprint(\"Toutes les bibliothèques principales sont installées.\")\n\nLe résultat attendu est :\nToutes les bibliothèques principales sont installées.\n\n\n\n\n\n\n\nAstuceInstallation réussie\n\n\n\nSi les deux tests s’exécutent sans erreur, votre environnement de travail est prêt pour la suite du cours.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#points-à-retenir",
+    "href": "modules/02-1-installation.html#points-à-retenir",
+    "title": "Installation et environnement de travail",
+    "section": "Points à retenir",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nMiniconda permet de gérer l’environnement Python et les paquets nécessaires.\nAnaconda Prompt permet d’exécuter les commandes d’installation.\nJupyter Notebook permet d’écrire et d’exécuter du code Python de manière interactive.\nLes bibliothèques pandas, numpy, matplotlib, scikit-learn et openpyxl seront utilisées dans les modules suivants.\nIl est important de vérifier l’installation avant de commencer les exercices.\n\n\n\n\n\n← IA dans l’agriculture\nVariables et types de données →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html",
+    "href": "modules/02-3-calculs.html",
+    "title": "Calculs numériques",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les principales opérations mathématiques en Python ;\neffectuer des calculs à partir de variables ;\ncalculer un rendement et une production totale ;\nutiliser des données agricoles dans des expressions numériques ;\nformater les résultats pour améliorer leur lisibilité.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#objectifs",
+    "href": "modules/02-3-calculs.html#objectifs",
+    "title": "Calculs numériques",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\nutiliser les principales opérations mathématiques en Python ;\neffectuer des calculs à partir de variables ;\ncalculer un rendement et une production totale ;\nutiliser des données agricoles dans des expressions numériques ;\nformater les résultats pour améliorer leur lisibilité.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#les-opérations-de-base",
+    "href": "modules/02-3-calculs.html#les-opérations-de-base",
+    "title": "Calculs numériques",
+    "section": "Les opérations de base",
+    "text": "Les opérations de base\nPython permet d’effectuer directement des calculs numériques.\n\n\n\nOpération\nSymbole\nExemple\n\n\n\n\nAddition\n+\n2 + 3\n\n\nSoustraction\n-\n10 - 4\n\n\nMultiplication\n*\n5 * 3\n\n\nDivision\n/\n10 / 2\n\n\nPuissance\n**\n2 ** 3\n\n\n\n\naddition = 2 + 3\nsoustraction = 10 - 4\nmultiplication = 5 * 3\ndivision = 10 / 2\npuissance = 2 ** 3\n\nprint(addition)\nprint(soustraction)\nprint(multiplication)\nprint(division)\nprint(puissance)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#calculer-avec-des-variables",
+    "href": "modules/02-3-calculs.html#calculer-avec-des-variables",
+    "title": "Calculs numériques",
+    "section": "Calculer avec des variables",
+    "text": "Calculer avec des variables\nLes variables permettent de rendre les calculs plus clairs et réutilisables.\n\nproduction = 1000\nsurface = 500\n\nrendement = production / surface\n\nprint(rendement)\n\nRésultat :\n2.0\nDans cet exemple :\n[ Rendement = ]",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exemple-agricole-calcul-du-rendement",
+    "href": "modules/02-3-calculs.html#exemple-agricole-calcul-du-rendement",
+    "title": "Calculs numériques",
+    "section": "Exemple agricole : calcul du rendement",
+    "text": "Exemple agricole : calcul du rendement\nSupposons qu’une exploitation ait produit 1 000 tonnes sur une surface de 500 hectares.\n\nproduction = 1000\nsurface = 500\n\nrendement = production / surface\n\nprint(\"Rendement :\", rendement, \"t/ha\")\n\nRésultat :\nRendement : 2.0 t/ha",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exemple-agricole-production-totale",
+    "href": "modules/02-3-calculs.html#exemple-agricole-production-totale",
+    "title": "Calculs numériques",
+    "section": "Exemple agricole : production totale",
+    "text": "Exemple agricole : production totale\nOn dispose de la production de trois parcelles :\n\nproduction_parcelle_a = 650\nproduction_parcelle_b = 850\nproduction_parcelle_c = 1050\n\nLa production totale est :\n\nproduction_totale = (\n    production_parcelle_a\n    + production_parcelle_b\n    + production_parcelle_c\n)\n\nprint(production_totale)\n\nRésultat :\n2550\nOn peut ensuite construire un message plus lisible :\n\nnom_region = \"Vakinankaratra\"\n\nprint(\n    \"Production totale dans la région\",\n    nom_region,\n    \"est de\",\n    production_totale,\n    \"tonnes\"\n)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exemple-agricole-quantité-dengrais",
+    "href": "modules/02-3-calculs.html#exemple-agricole-quantité-dengrais",
+    "title": "Calculs numériques",
+    "section": "Exemple agricole : quantité d’engrais",
+    "text": "Exemple agricole : quantité d’engrais\nLa quantité totale d’engrais peut être calculée à partir de la surface et de la dose recommandée par hectare.\n[ Quantité d’engrais = Surface Dose ]\n\nsurface = 5\ndose_par_hectare = 50\n\nquantite_engrais = surface * dose_par_hectare\n\nprint(\"Quantité totale :\", quantite_engrais, \"kg\")\n\nRésultat :\nQuantité totale : 250 kg",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exemple-agricole-calcul-dune-moyenne",
+    "href": "modules/02-3-calculs.html#exemple-agricole-calcul-dune-moyenne",
+    "title": "Calculs numériques",
+    "section": "Exemple agricole : calcul d’une moyenne",
+    "text": "Exemple agricole : calcul d’une moyenne\nOn souhaite calculer le rendement moyen de plusieurs parcelles.\n\nrendements = [3.2, 2.8, 4.1, 3.6, 2.9]\n\nrendement_moyen = sum(rendements) / len(rendements)\n\nprint(rendement_moyen)\n\nLe résultat est environ :\n3.32\nIci :\n\nsum() calcule la somme des valeurs ;\nlen() donne le nombre de valeurs.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#formatage-des-nombres",
+    "href": "modules/02-3-calculs.html#formatage-des-nombres",
+    "title": "Calculs numériques",
+    "section": "Formatage des nombres",
+    "text": "Formatage des nombres\nLe formatage permet d’afficher les résultats de manière plus lisible.\n\nAfficher deux décimales\n\nrendement = 3.3200000000000003\n\nprint(f\"{rendement:.2f}\")\n\nRésultat :\n3.32",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#séparateur-de-milliers",
+    "href": "modules/02-3-calculs.html#séparateur-de-milliers",
+    "title": "Calculs numériques",
+    "section": "Séparateur de milliers",
+    "text": "Séparateur de milliers\nPour les grandes valeurs, on peut ajouter un séparateur de milliers.\n\nrevenu = 24_000_000.5\n\nrevenu_formate = f\"{revenu:,.2f}\"\n\nprint(revenu_formate)\n\nPour adapter l’affichage au format français :\n\nrevenu = 24_000_000.5\n\nrevenu_formate = (\n    f\"{revenu:,.2f}\"\n    .replace(\",\", \" \")\n    .replace(\".\", \",\")\n)\n\nprint(f\"Revenu brut : {revenu_formate} Ar\")\n\nRésultat :\nRevenu brut : 24 000 000,50 Ar",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exercice-1-calcul-du-rendement",
+    "href": "modules/02-3-calculs.html#exercice-1-calcul-du-rendement",
+    "title": "Calculs numériques",
+    "section": "Exercice 1 — Calcul du rendement",
+    "text": "Exercice 1 — Calcul du rendement\nUne exploitation produit 3 600 tonnes de riz sur une surface de 1 200 hectares.\n\nCréer les variables production et surface.\nCalculer le rendement.\nAfficher le résultat en t/ha.\n\n\nproduction = 3600\nsurface = 1200\n\nrendement = ...\n\nprint(...)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exercice-2-quantité-dengrais",
+    "href": "modules/02-3-calculs.html#exercice-2-quantité-dengrais",
+    "title": "Calculs numériques",
+    "section": "Exercice 2 — Quantité d’engrais",
+    "text": "Exercice 2 — Quantité d’engrais\nUne parcelle de 8 hectares reçoit une dose recommandée de 40 kg/ha.\nCalculer la quantité totale d’engrais nécessaire.\n\nsurface = 8\ndose_par_hectare = 40\n\nquantite_totale = ...\n\nprint(...)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#exercice-3-production-de-plusieurs-parcelles",
+    "href": "modules/02-3-calculs.html#exercice-3-production-de-plusieurs-parcelles",
+    "title": "Calculs numériques",
+    "section": "Exercice 3 — Production de plusieurs parcelles",
+    "text": "Exercice 3 — Production de plusieurs parcelles\nLes productions sont :\nParcelle A : 650 tonnes\nParcelle B : 850 tonnes\nParcelle C : 1 050 tonnes\nCalculer la production totale et afficher le résultat.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-3-calculs.html#points-à-retenir",
+    "href": "modules/02-3-calculs.html#points-à-retenir",
+    "title": "Calculs numériques",
+    "section": "Points à retenir",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nPython peut effectuer directement les principales opérations mathématiques.\nLes variables permettent d’intégrer les données agricoles dans les calculs.\nLe rendement peut être calculé avec production / surface.\nsum() et len() permettent de calculer simplement une moyenne.\nLe formatage avec les chaînes f\"...\" améliore la présentation des résultats.\n\n\n\n\n\n← Variables et types de données\nConditions et boucles →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Calculs numériques"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html",
+    "href": "modules/02-5-fonctions.html",
+    "title": "Fonctions",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ndéfinir une fonction avec def ;\nutiliser des paramètres ;\nretourner un résultat avec return ;\nréutiliser une fonction avec différentes valeurs ;\ncombiner fonctions, conditions et boucles ;\nappliquer les fonctions à des exemples agricoles.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#objectifs",
+    "href": "modules/02-5-fonctions.html#objectifs",
+    "title": "Fonctions",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ndéfinir une fonction avec def ;\nutiliser des paramètres ;\nretourner un résultat avec return ;\nréutiliser une fonction avec différentes valeurs ;\ncombiner fonctions, conditions et boucles ;\nappliquer les fonctions à des exemples agricoles.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#structure-générale",
+    "href": "modules/02-5-fonctions.html#structure-générale",
+    "title": "Fonctions",
+    "section": "Structure générale",
+    "text": "Structure générale\n\ndef nom_de_la_fonction(parametre1, parametre2):\n    # bloc de code\n    resultat = ...\n    return resultat\n\nUne fonction est créée avec le mot-clé def.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#exemple-pour-plusieurs-exploitations",
+    "href": "modules/02-5-fonctions.html#exemple-pour-plusieurs-exploitations",
+    "title": "Fonctions",
+    "section": "Exemple pour plusieurs exploitations",
+    "text": "Exemple pour plusieurs exploitations\n\nproduction_a, revenu_a = calculer_revenu(5, 3.2, 2_000_000)\nproduction_b, revenu_b = calculer_revenu(8, 4.0, 3_000_000)\nproduction_c, revenu_c = calculer_revenu(3, 2.5, 1_750_000)\n\nprint(\"Exploitation A :\", production_a, \"tonnes -\", revenu_a, \"Ar\")\nprint(\"Exploitation B :\", production_b, \"tonnes -\", revenu_b, \"Ar\")\nprint(\"Exploitation C :\", production_c, \"tonnes -\", revenu_c, \"Ar\")",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#exemple-besoin-dirrigation",
+    "href": "modules/02-5-fonctions.html#exemple-besoin-dirrigation",
+    "title": "Fonctions",
+    "section": "Exemple : besoin d’irrigation",
+    "text": "Exemple : besoin d’irrigation\n\ndef calculer_besoin_irrigation(besoin_eau, precipitation):\n\n    besoin_irrigation = besoin_eau - precipitation\n\n    if besoin_irrigation &lt; 0:\n        besoin_irrigation = 0\n\n    return besoin_irrigation\n\nUtilisation :\n\nirrigation_mais = calculer_besoin_irrigation(500, 350)\nirrigation_riz = calculer_besoin_irrigation(800, 600)\nirrigation_haricot = calculer_besoin_irrigation(400, 450)\n\nprint(\"Besoin d'irrigation du maïs :\", irrigation_mais, \"mm\")\nprint(\"Besoin d'irrigation du riz :\", irrigation_riz, \"mm\")\nprint(\"Besoin d'irrigation du haricot :\", irrigation_haricot, \"mm\")\n\nRésultat :\nBesoin d'irrigation du maïs : 150 mm\nBesoin d'irrigation du riz : 200 mm\nBesoin d'irrigation du haricot : 0 mm",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#exercice-1-calcul-de-la-production-agricole",
+    "href": "modules/02-5-fonctions.html#exercice-1-calcul-de-la-production-agricole",
+    "title": "Fonctions",
+    "section": "Exercice 1 — Calcul de la production agricole",
+    "text": "Exercice 1 — Calcul de la production agricole\nCréer une fonction calculer_production.\nLa fonction doit :\n\nrecevoir surface et rendement ;\ncalculer la production ;\nretourner le résultat avec return ;\nêtre appelée pour trois parcelles.\n\n\ndef calculer_production(surface, rendement):\n\n    production = ...\n\n    return ...\n\n\nproduction_1 = calculer_production(5, 3.2)\nproduction_2 = calculer_production(8, 4.0)\nproduction_3 = calculer_production(3, 2.5)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#exercice-2-classification-du-niveau-dinfestation",
+    "href": "modules/02-5-fonctions.html#exercice-2-classification-du-niveau-dinfestation",
+    "title": "Fonctions",
+    "section": "Exercice 2 — Classification du niveau d’infestation",
+    "text": "Exercice 2 — Classification du niveau d’infestation\nCréer une fonction :\nclasser_infestation(nombre_ravageurs)\nRègles :\n\n0 ravageur : Aucun ravageur ;\n1 à 10 : Faible infestation ;\n11 à 20 : Infestation moyenne ;\nplus de 20 : Forte infestation.\n\nTester avec :\n0, 8, 16, 25",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#exercice-3-classification-du-ph-du-sol",
+    "href": "modules/02-5-fonctions.html#exercice-3-classification-du-ph-du-sol",
+    "title": "Fonctions",
+    "section": "Exercice 3 — Classification du pH du sol",
+    "text": "Exercice 3 — Classification du pH du sol\nCréer une fonction classer_ph(ph).\nRègles :\n\npH inférieur à 6.5 : sol acide ;\npH compris entre 6.5 et 7.5 : sol neutre ;\npH supérieur à 7.5 : sol basique.\n\nTester avec :\n5.8, 7.0, 8.2",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#exercice-4-température-moyenne",
+    "href": "modules/02-5-fonctions.html#exercice-4-température-moyenne",
+    "title": "Fonctions",
+    "section": "Exercice 4 — Température moyenne",
+    "text": "Exercice 4 — Température moyenne\nCréer une fonction :\ncalculer_temperature_moyenne(temperatures)\nLa fonction doit :\n\nrecevoir une liste de températures ;\nutiliser une boucle for pour additionner les valeurs ;\ncalculer la moyenne ;\nretourner le résultat.\n\nTester avec :\n[26.5, 28.0, 27.5, 29.0, 25.5]\nAfficher le résultat avec deux chiffres après la virgule.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/02-5-fonctions.html#points-à-retenir",
+    "href": "modules/02-5-fonctions.html#points-à-retenir",
+    "title": "Fonctions",
+    "section": "Points à retenir",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nUne fonction est définie avec def.\nLes paramètres permettent de fournir des valeurs à la fonction.\nreturn permet de renvoyer un résultat.\nUne même fonction peut être utilisée plusieurs fois avec différentes valeurs.\nUne fonction peut contenir des conditions et des boucles.\nLes fonctions facilitent la réutilisation et l’organisation du code.\n\n\n\n\n\n← Conditions et boucles\nAnalyse de données agricoles →",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Fonctions"
+    ]
+  },
+  {
+    "objectID": "modules/03-0-analyse-donnees.html",
+    "href": "modules/03-0-analyse-donnees.html",
+    "title": "Analyse de données agricoles",
+    "section": "",
+    "text": "Ce module introduit l’analyse de données agricoles avec Python. Nous utiliserons principalement Pandas, Matplotlib, SciPy et scikit-learn pour importer, explorer, visualiser et analyser des données.\nDeux jeux de données sont utilisés :\n\ndes données FAOSTAT sur plusieurs cultures à Madagascar ;\nun jeu de données simulé de parcelles agricoles destiné aux exercices statistiques."
+  },
+  {
+    "objectID": "modules/03-0-analyse-donnees.html#objectif-du-module",
+    "href": "modules/03-0-analyse-donnees.html#objectif-du-module",
+    "title": "Analyse de données agricoles",
+    "section": "",
+    "text": "Ce module introduit l’analyse de données agricoles avec Python. Nous utiliserons principalement Pandas, Matplotlib, SciPy et scikit-learn pour importer, explorer, visualiser et analyser des données.\nDeux jeux de données sont utilisés :\n\ndes données FAOSTAT sur plusieurs cultures à Madagascar ;\nun jeu de données simulé de parcelles agricoles destiné aux exercices statistiques."
+  },
+  {
+    "objectID": "modules/03-0-analyse-donnees.html#ce-que-vous-allez-apprendre",
+    "href": "modules/03-0-analyse-donnees.html#ce-que-vous-allez-apprendre",
+    "title": "Analyse de données agricoles",
     "section": "Ce que vous allez apprendre",
-    "text": "Ce que vous allez apprendre\nAu cours de ce module, vous apprendrez à :\n\ninstaller et lancer l’environnement de travail ;\ncréer et utiliser des variables ;\nmanipuler différents types de données ;\neffectuer des calculs numériques ;\nutiliser les conditions if, elif et else ;\nutiliser les boucles for ;\ncréer des fonctions simples ;\nappliquer ces notions à des exemples agricoles.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Vue d’ensemble"
-    ]
+    "text": "Ce que vous allez apprendre\n\nimporter un fichier Excel avec Pandas ;\nexplorer la structure d’un DataFrame ;\nfiltrer, trier et regrouper les données ;\ncalculer des statistiques descriptives ;\nproduire et personnaliser des graphiques avec Matplotlib ;\nréaliser et interpréter des tests statistiques simples ;\nintroduire l’analyse multivariée avec l’ACP et l’ACM."
   },
   {
-    "objectID": "modules/02-bases-python.html#exemples-dapplications",
-    "href": "modules/02-bases-python.html#exemples-dapplications",
-    "title": "Vue d’ensemble",
-    "section": "Exemples d’applications",
-    "text": "Exemples d’applications\nLes exemples utilisés dans ce module portent notamment sur :\n\nle calcul du rendement agricole ;\nla production totale d’une parcelle ;\nla quantité d’engrais nécessaire ;\nl’analyse des précipitations ;\nla classification du pH du sol ;\nle niveau d’infestation par des ravageurs ;\nle calcul des besoins en irrigation.",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Vue d’ensemble"
-    ]
-  },
-  {
-    "objectID": "modules/02-bases-python.html#parcours-du-module",
-    "href": "modules/02-bases-python.html#parcours-du-module",
-    "title": "Vue d’ensemble",
+    "objectID": "modules/03-0-analyse-donnees.html#parcours-du-module",
+    "href": "modules/03-0-analyse-donnees.html#parcours-du-module",
+    "title": "Analyse de données agricoles",
     "section": "Parcours du module",
-    "text": "Parcours du module\n\nInstallation et environnement de travail\n\nVariables et types de données\n\nCalculs numériques\n\nConditions et boucles\n\nFonctions\n\n\n\n\n\n\n\nNotePourquoi Python ?\n\n\n\nPython est largement utilisé en analyse de données, en intelligence artificielle et en Machine Learning. Dans la suite du cours, il sera utilisé pour manipuler des données agricoles, construire des modèles prédictifs et analyser des résultats.\n\n\n\nInstallation et environnement de travail →",
-    "crumbs": [
-      "Programme",
-      "2. Bases de Python",
-      "Vue d’ensemble"
-    ]
+    "text": "Parcours du module\n\nPandas et exploration des données\nTraitement et visualisation\nTests statistiques et analyse multivariée\n\n\n\n\n\n\n\nNoteRessource de visualisation\n\n\n\nLes graphiques du module sont produits avec Matplotlib.\nConsulter la documentation officielle de Matplotlib\n\n\n\nPandas et exploration des données →"
   },
   {
     "objectID": "modules/03-2-traitement.html",
     "href": "modules/03-2-traitement.html",
-    "title": "Traitement des données",
+    "title": "Traitement et visualisation des données",
     "section": "",
-    "text": "Traitement des données\nCette section abordera le nettoyage, les valeurs manquantes, le filtrage et la transformation des données.\n\n← Pandas Tests statistiques →",
+    "text": "Nous utiliserons une petite palette cohérente avec le site :\n\nimport matplotlib.pyplot as plt\n\nGREEN = \"#2F6F62\"\nGREEN_LIGHT = \"#B8E7D5\"\nCORAL = \"#FF7973\"\nNAVY = \"#17324D\"\nTEAL = \"#1DA7B8\"\nINK = \"#183B33\"\nGRID = \"#D9E3DE\"\n\nDocumentation officielle de Matplotlib",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html#personnaliser-les-graphiques-avec-matplotlib",
+    "href": "modules/03-2-traitement.html#personnaliser-les-graphiques-avec-matplotlib",
+    "title": "Traitement et visualisation des données",
+    "section": "",
+    "text": "Nous utiliserons une petite palette cohérente avec le site :\n\nimport matplotlib.pyplot as plt\n\nGREEN = \"#2F6F62\"\nGREEN_LIGHT = \"#B8E7D5\"\nCORAL = \"#FF7973\"\nNAVY = \"#17324D\"\nTEAL = \"#1DA7B8\"\nINK = \"#183B33\"\nGRID = \"#D9E3DE\"\n\nDocumentation officielle de Matplotlib",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html#rendement-moyen-par-culture",
+    "href": "modules/03-2-traitement.html#rendement-moyen-par-culture",
+    "title": "Traitement et visualisation des données",
+    "section": "Rendement moyen par culture",
+    "text": "Rendement moyen par culture\nPour améliorer la lisibilité, on peut :\n\ntrier les cultures par rendement ;\nutiliser un graphique horizontal ;\najouter les valeurs au bout des barres ;\nsupprimer les bordures supérieures et droites ;\nutiliser une couleur cohérente avec le site.\n\n\nrendement_moyen = (\n    table_rendement\n    .groupby(\"Culture\")[\"Valeur\"]\n    .mean()\n    .sort_values()\n)\n\nfig, ax = plt.subplots(figsize=(9, 5.2))\n\nbarres = ax.barh(\n    rendement_moyen.index,\n    rendement_moyen.values,\n    color=GREEN\n)\n\nax.set_title(\n    \"Rendement moyen par culture à Madagascar\",\n    loc=\"left\",\n    fontsize=15,\n    fontweight=\"bold\"\n)\n\nax.set_xlabel(\"Rendement moyen (kg/ha)\")\nax.set_ylabel(\"\")\n\nax.spines[\"top\"].set_visible(False)\nax.spines[\"right\"].set_visible(False)\n\nax.grid(\n    axis=\"x\",\n    alpha=0.22,\n    color=GRID\n)\n\nax.set_axisbelow(True)\n\nfor barre, valeur in zip(\n    barres,\n    rendement_moyen.values\n):\n    ax.text(\n        barre.get_width() + rendement_moyen.max() * 0.012,\n        barre.get_y() + barre.get_height() / 2,\n        f\"{valeur:,.0f}\".replace(\",\", \" \"),\n        va=\"center\",\n        fontsize=9,\n        color=INK\n    )\n\nplt.tight_layout()\nplt.show()\n\n\nDocumentation Matplotlib — graphiques en barres",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html#évolution-du-rendement-du-riz",
+    "href": "modules/03-2-traitement.html#évolution-du-rendement-du-riz",
+    "title": "Traitement et visualisation des données",
+    "section": "Évolution du rendement du riz",
+    "text": "Évolution du rendement du riz\n\nriz = table_rendement[\n    table_rendement[\"Culture\"] == \"Rice\"\n].sort_values(\"Annee\")\n\nfig, ax = plt.subplots(figsize=(9, 5))\n\nax.plot(\n    riz[\"Annee\"],\n    riz[\"Valeur\"],\n    color=NAVY,\n    linewidth=2.4,\n    marker=\"o\",\n    markersize=5\n)\n\nax.fill_between(\n    riz[\"Annee\"],\n    riz[\"Valeur\"],\n    riz[\"Valeur\"].min() * 0.96,\n    color=GREEN_LIGHT,\n    alpha=0.35\n)\n\nax.set_title(\n    \"Évolution du rendement du riz à Madagascar\",\n    loc=\"left\",\n    fontsize=15,\n    fontweight=\"bold\"\n)\n\nax.set_xlabel(\"Année\")\nax.set_ylabel(\"Rendement (kg/ha)\")\n\nax.spines[\"top\"].set_visible(False)\nax.spines[\"right\"].set_visible(False)\nax.grid(axis=\"y\", alpha=0.25, color=GRID)\nax.set_axisbelow(True)\n\nplt.tight_layout()\nplt.show()\n\n\nDocumentation Matplotlib — courbes",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html#histogramme",
+    "href": "modules/03-2-traitement.html#histogramme",
+    "title": "Traitement et visualisation des données",
+    "section": "Histogramme",
+    "text": "Histogramme\n\nfig, ax = plt.subplots(figsize=(8, 5))\n\nax.hist(\n    riz[\"Valeur\"],\n    bins=8,\n    color=TEAL,\n    edgecolor=\"white\",\n    linewidth=1.2\n)\n\nax.axvline(\n    riz[\"Valeur\"].mean(),\n    color=CORAL,\n    linestyle=\"--\",\n    linewidth=2,\n    label=\"Moyenne\"\n)\n\nax.set_title(\n    \"Distribution du rendement du riz\",\n    loc=\"left\",\n    fontsize=15,\n    fontweight=\"bold\"\n)\n\nax.set_xlabel(\"Rendement (kg/ha)\")\nax.set_ylabel(\"Fréquence\")\n\nax.spines[\"top\"].set_visible(False)\nax.spines[\"right\"].set_visible(False)\nax.legend(frameon=False)\n\nplt.tight_layout()\nplt.show()\n\n\nDocumentation Matplotlib — histogrammes",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html#boxplot",
+    "href": "modules/03-2-traitement.html#boxplot",
+    "title": "Traitement et visualisation des données",
+    "section": "Boxplot",
+    "text": "Boxplot\n\ndonnees_boxplot = [\n    groupe[\"Valeur\"].values\n    for _, groupe in table_rendement.groupby(\"Culture\")\n]\n\nnoms_cultures = [\n    nom\n    for nom, _ in table_rendement.groupby(\"Culture\")\n]\n\nfig, ax = plt.subplots(figsize=(9, 5))\n\nbox = ax.boxplot(\n    donnees_boxplot,\n    tick_labels=noms_cultures,\n    patch_artist=True,\n    showmeans=True\n)\n\nfor boite in box[\"boxes\"]:\n    boite.set_facecolor(GREEN_LIGHT)\n    boite.set_edgecolor(GREEN)\n\nax.set_title(\n    \"Distribution des rendements par culture\",\n    loc=\"left\",\n    fontsize=15,\n    fontweight=\"bold\"\n)\n\nax.set_ylabel(\"Rendement (kg/ha)\")\nax.tick_params(axis=\"x\", rotation=25)\n\nax.spines[\"top\"].set_visible(False)\nax.spines[\"right\"].set_visible(False)\nax.grid(axis=\"y\", alpha=0.25, color=GRID)\n\nplt.tight_layout()\nplt.show()\n\n\nDocumentation Matplotlib — boxplots",
+    "crumbs": [
+      "Programme",
+      "3. Analyse de données agricoles",
+      "Traitement des données"
+    ]
+  },
+  {
+    "objectID": "modules/03-2-traitement.html#sauvegarder-un-graphique",
+    "href": "modules/03-2-traitement.html#sauvegarder-un-graphique",
+    "title": "Traitement et visualisation des données",
+    "section": "Sauvegarder un graphique",
+    "text": "Sauvegarder un graphique\n\nplt.savefig(\n    \"../images/data-analysis/mon-graphique.png\",\n    dpi=190,\n    bbox_inches=\"tight\",\n    facecolor=\"white\"\n)\n\n\n\n\n\n\n\nNoteGitHub Pages\n\n\n\nLes fichiers PNG placés dans images/data-analysis/ sont versionnés avec le reste du projet. Ils seront donc disponibles sur GitHub Pages après git push et quarto publish gh-pages.\n\n\n\n← Pandas et exploration Tests statistiques →",
     "crumbs": [
       "Programme",
       "3. Analyse de données agricoles",
