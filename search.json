@@ -93,9 +93,93 @@
   {
     "objectID": "modules/04-5-diagnostic-plantes.html",
     "href": "modules/04-5-diagnostic-plantes.html",
-    "title": "Diagnostic des plantes",
+    "title": "Cas pratique — Diagnostic des plantes",
     "section": "",
-    "text": "Diagnostic des plantes\nCette section accueillera le cas pratique de machine learning pour le diagnostic des plantes.\n\n← Random Forest Analyse géospatiale →",
+    "text": "Cette page reprend l’exemple de classification du notebook d’introduction afin d’illustrer le cheminement d’un problème de diagnostic :\nObservations\n    ↓\nVariables X\n    ↓\nClasse cible y\n    ↓\nEntraînement\n    ↓\nPrédiction\n    ↓\nÉvaluation\n\n\n\n\n\n\nAvertissementLimite de l’exemple\n\n\n\nLes données utilisées ici sont synthétiques. Ce cas pratique sert uniquement à comprendre la logique d’un modèle de classification. Il ne constitue pas un outil réel de diagnostic des maladies des plantes.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#objectif",
+    "href": "modules/04-5-diagnostic-plantes.html#objectif",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "",
+    "text": "Cette page reprend l’exemple de classification du notebook d’introduction afin d’illustrer le cheminement d’un problème de diagnostic :\nObservations\n    ↓\nVariables X\n    ↓\nClasse cible y\n    ↓\nEntraînement\n    ↓\nPrédiction\n    ↓\nÉvaluation\n\n\n\n\n\n\nAvertissementLimite de l’exemple\n\n\n\nLes données utilisées ici sont synthétiques. Ce cas pratique sert uniquement à comprendre la logique d’un modèle de classification. Il ne constitue pas un outil réel de diagnostic des maladies des plantes.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#définir-la-cible",
+    "href": "modules/04-5-diagnostic-plantes.html#définir-la-cible",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "1. Définir la cible",
+    "text": "1. Définir la cible\nDans cet exemple :\n0 = plante saine\n1 = plante malade",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#séparer-entraînement-et-test",
+    "href": "modules/04-5-diagnostic-plantes.html#séparer-entraînement-et-test",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "2. Séparer entraînement et test",
+    "text": "2. Séparer entraînement et test\n\nfrom sklearn.model_selection import train_test_split\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X,\n    y,\n    test_size=0.25,\n    random_state=42,\n    stratify=y\n)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#entraîner-la-régression-logistique",
+    "href": "modules/04-5-diagnostic-plantes.html#entraîner-la-régression-logistique",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "3. Entraîner la régression logistique",
+    "text": "3. Entraîner la régression logistique\n\nfrom sklearn.linear_model import LogisticRegression\n\nmodele = LogisticRegression()\n\nmodele.fit(\n    X_train,\n    y_train\n)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#produire-les-prédictions",
+    "href": "modules/04-5-diagnostic-plantes.html#produire-les-prédictions",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "4. Produire les prédictions",
+    "text": "4. Produire les prédictions\n\npredictions = modele.predict(\n    X_test\n)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#évaluer-avec-une-matrice-de-confusion",
+    "href": "modules/04-5-diagnostic-plantes.html#évaluer-avec-une-matrice-de-confusion",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "5. Évaluer avec une matrice de confusion",
+    "text": "5. Évaluer avec une matrice de confusion\n\nfrom sklearn.metrics import confusion_matrix\n\nmatrice = confusion_matrix(\n    y_test,\n    predictions\n)\n\nprint(matrice)\n\n\nLa matrice de confusion permet de distinguer :\n\nles plantes saines correctement classées ;\nles plantes malades correctement classées ;\nles erreurs de classification.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Diagnostic des plantes"
+    ]
+  },
+  {
+    "objectID": "modules/04-5-diagnostic-plantes.html#pour-aller-vers-un-diagnostic-réel",
+    "href": "modules/04-5-diagnostic-plantes.html#pour-aller-vers-un-diagnostic-réel",
+    "title": "Cas pratique — Diagnostic des plantes",
+    "section": "Pour aller vers un diagnostic réel",
+    "text": "Pour aller vers un diagnostic réel\nLe notebook fourni ne contient pas de jeu de données phytosanitaire réel. Pour transformer cet exemple en application scientifique, il faudrait notamment disposer de données étiquetées et validées, puis construire un protocole de validation adapté.\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\nUn modèle de classification ne doit pas être évalué uniquement sur les données utilisées pour l’entraînement. La validation sur des observations séparées est essentielle.\n\n\n\n← Random Forest Analyse géospatiale →",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -105,9 +189,81 @@
   {
     "objectID": "modules/04-3-logistique.html",
     "href": "modules/04-3-logistique.html",
-    "title": "Régression logistique",
+    "title": "Exemple pratique — Régression logistique",
     "section": "",
-    "text": "Régression logistique\nCette section contiendra l’exemple pratique de régression logistique.\n\n← Types d’algorithmes Random Forest →",
+    "text": "La régression logistique est un algorithme de classification. Elle est utilisée lorsque la variable cible possède deux catégories.\nDans l’exemple pédagogique du notebook, nous cherchons à distinguer deux groupes :\n\nplante saine ;\nplante malade.\n\n\n\n\n\n\n\nAvertissementExemple pédagogique\n\n\n\nLes données de cette démonstration sont générées artificiellement dans le notebook d’introduction. Elles illustrent le fonctionnement de la classification et ne constituent pas un diagnostic phytosanitaire réel.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html#objectif",
+    "href": "modules/04-3-logistique.html#objectif",
+    "title": "Exemple pratique — Régression logistique",
+    "section": "",
+    "text": "La régression logistique est un algorithme de classification. Elle est utilisée lorsque la variable cible possède deux catégories.\nDans l’exemple pédagogique du notebook, nous cherchons à distinguer deux groupes :\n\nplante saine ;\nplante malade.\n\n\n\n\n\n\n\nAvertissementExemple pédagogique\n\n\n\nLes données de cette démonstration sont générées artificiellement dans le notebook d’introduction. Elles illustrent le fonctionnement de la classification et ne constituent pas un diagnostic phytosanitaire réel.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html#préparer-les-données",
+    "href": "modules/04-3-logistique.html#préparer-les-données",
+    "title": "Exemple pratique — Régression logistique",
+    "section": "Préparer les données",
+    "text": "Préparer les données\n\nimport numpy as np\n\nnp.random.seed(42)\n\nsaines = np.random.normal(\n    [30, 70],\n    [4, 5],\n    size=(30, 2)\n)\n\nmalades = np.random.normal(\n    [20, 88],\n    [4, 5],\n    size=(30, 2)\n)\n\nX = np.vstack([saines, malades])\n\ny = np.array(\n    [0] * 30 +\n    [1] * 30\n)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html#entraîner-le-modèle",
+    "href": "modules/04-3-logistique.html#entraîner-le-modèle",
+    "title": "Exemple pratique — Régression logistique",
+    "section": "Entraîner le modèle",
+    "text": "Entraîner le modèle\n\nfrom sklearn.linear_model import LogisticRegression\n\nmodele = LogisticRegression()\n\nmodele.fit(X, y)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html#visualiser-la-classification",
+    "href": "modules/04-3-logistique.html#visualiser-la-classification",
+    "title": "Exemple pratique — Régression logistique",
+    "section": "Visualiser la classification",
+    "text": "Visualiser la classification",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html#interpréter",
+    "href": "modules/04-3-logistique.html#interpréter",
+    "title": "Exemple pratique — Régression logistique",
+    "section": "Interpréter",
+    "text": "Interpréter\nLe modèle apprend une frontière permettant de séparer les deux catégories à partir des variables fournies.\nDans une application réelle, les variables pourraient provenir de mesures de terrain, d’images, de capteurs ou de données climatiques. Les données réelles nécessiteraient toutefois une validation agronomique et phytosanitaire.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Régression logistique"
+    ]
+  },
+  {
+    "objectID": "modules/04-3-logistique.html#étape-suivante",
+    "href": "modules/04-3-logistique.html#étape-suivante",
+    "title": "Exemple pratique — Régression logistique",
+    "section": "Étape suivante",
+    "text": "Étape suivante\nUn modèle de classification doit être évalué sur des données non utilisées pour l’entraînement. Une métrique simple est la matrice de confusion, présentée dans le cas pratique de diagnostic des plantes.\n\n← Types d’algorithmes Random Forest →",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -119,7 +275,79 @@
     "href": "modules/04-1-introduction.html",
     "title": "Introduction au Machine Learning",
     "section": "",
-    "text": "Introduction au Machine Learning\nCette section introduira les concepts de base du machine learning et la logique d’un pipeline de modélisation.\n\n← Machine Learning Types d’algorithmes →",
+    "text": "Cette partie introduit le Machine Learning, ses principales familles et le workflow général utilisé dans les exercices du cours.\nÀ la fin de cette partie, vous serez capables de :\n\nexpliquer le principe général du Machine Learning ;\ndistinguer apprentissage supervisé et non supervisé ;\nidentifier une variable cible y et des variables explicatives X ;\ncomprendre la séparation entre données d’entraînement et données de test ;\ndistinguer régression, classification et clustering ;\ncomprendre le rôle de l’évaluation d’un modèle.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html#objectifs",
+    "href": "modules/04-1-introduction.html#objectifs",
+    "title": "Introduction au Machine Learning",
+    "section": "",
+    "text": "Cette partie introduit le Machine Learning, ses principales familles et le workflow général utilisé dans les exercices du cours.\nÀ la fin de cette partie, vous serez capables de :\n\nexpliquer le principe général du Machine Learning ;\ndistinguer apprentissage supervisé et non supervisé ;\nidentifier une variable cible y et des variables explicatives X ;\ncomprendre la séparation entre données d’entraînement et données de test ;\ndistinguer régression, classification et clustering ;\ncomprendre le rôle de l’évaluation d’un modèle.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html#quest-ce-que-le-machine-learning",
+    "href": "modules/04-1-introduction.html#quest-ce-que-le-machine-learning",
+    "title": "Introduction au Machine Learning",
+    "section": "Qu’est-ce que le Machine Learning ?",
+    "text": "Qu’est-ce que le Machine Learning ?\nLe Machine Learning permet de construire des modèles capables d’apprendre à partir de données afin de produire une prédiction ou de classer une observation.\nEn agriculture, il peut notamment être utilisé pour :\n\nprédire un rendement ;\nestimer des besoins en eau ;\nclasser une plante comme saine ou malade ;\nidentifier des groupes d’exploitations similaires ;\naider à la décision à partir de données agricoles et climatiques.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html#les-grandes-familles",
+    "href": "modules/04-1-introduction.html#les-grandes-familles",
+    "title": "Introduction au Machine Learning",
+    "section": "Les grandes familles",
+    "text": "Les grandes familles\n\nApprentissage supervisé\nOn dispose d’une variable cible connue.\n\ncible numérique → régression\ncible catégorielle → classification\n\n\n\nApprentissage non supervisé\nAucune variable cible n’est fournie. L’algorithme cherche des structures ou des groupes dans les données.\nExemple : clustering d’exploitations présentant des profils similaires.\n\n\nApprentissage par renforcement\nCette famille est mentionnée dans le notebook d’introduction, mais elle n’est pas développée dans les exercices pratiques de ce cours.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html#workflow-général",
+    "href": "modules/04-1-introduction.html#workflow-général",
+    "title": "Introduction au Machine Learning",
+    "section": "Workflow général",
+    "text": "Workflow général\nDonnées agricoles\n       ↓\nExploration des données\n       ↓\nDéfinir X et y\n       ↓\nSéparer Train / Test\n       ↓\nChoisir un modèle\n       ↓\nEntraîner le modèle\n       ↓\nFaire des prédictions\n       ↓\nÉvaluer les performances\n       ↓\nInterpréter les résultats\n\n\n\n\n\n\nNoteX et y\n\n\n\nX contient les variables utilisées pour prédire.\ny correspond à la variable que l’on cherche à prédire.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html#syntaxe-générale-avec-scikit-learn",
+    "href": "modules/04-1-introduction.html#syntaxe-générale-avec-scikit-learn",
+    "title": "Introduction au Machine Learning",
+    "section": "Syntaxe générale avec scikit-learn",
+    "text": "Syntaxe générale avec scikit-learn\n\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X,\n    y,\n    test_size=0.2,\n    random_state=42\n)\n\nmodele = LinearRegression()\nmodele.fit(X_train, y_train)\n\npredictions = modele.predict(X_test)",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "modules/04-1-introduction.html#évaluer-un-modèle-de-régression",
+    "href": "modules/04-1-introduction.html#évaluer-un-modèle-de-régression",
+    "title": "Introduction au Machine Learning",
+    "section": "Évaluer un modèle de régression",
+    "text": "Évaluer un modèle de régression\nDeux indicateurs sont utilisés dans les exercices.\n\nMAE — Mean Absolute Error\nLe MAE mesure l’écart absolu moyen entre les valeurs observées et les prédictions.\n[ MAE = _{i=1}^{n}|y_i-_i| ]\nPlus le MAE est faible, plus les prédictions sont proches des observations.\n\n\nR²\nLe coefficient R² mesure la part de variabilité expliquée par le modèle.\n\nproche de 1 : forte capacité explicative ;\nproche de 0 : faible capacité explicative ;\nnégatif : performances inférieures à une prédiction basée sur la moyenne.\n\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\nLe Machine Learning ne commence pas par le choix d’un algorithme. Il commence par une question, des données, une variable cible bien définie et une méthode d’évaluation adaptée.\n\n\n\nTypes d’algorithmes →",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -1447,7 +1675,91 @@
     "href": "modules/04-2-algorithmes.html",
     "title": "Types d’algorithmes",
     "section": "",
-    "text": "Types d’algorithmes\nCette section présentera les principales familles d’algorithmes utilisées dans le cours.\n\n← Introduction au Machine Learning Régression logistique →",
+    "text": "La première question est : avons-nous une variable cible ?\n\n\n\n\n\n\n\n\nSituation\nType de problème\nExemples\n\n\n\n\nCible numérique\nRégression\nrendement, besoin en eau, production\n\n\nCible catégorielle\nClassification\nsaine/malade, risque faible/élevé\n\n\nPas de cible\nClustering\ngroupes d’exploitations similaires",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#comment-choisir-un-type-de-modèle",
+    "href": "modules/04-2-algorithmes.html#comment-choisir-un-type-de-modèle",
+    "title": "Types d’algorithmes",
+    "section": "",
+    "text": "La première question est : avons-nous une variable cible ?\n\n\n\n\n\n\n\n\nSituation\nType de problème\nExemples\n\n\n\n\nCible numérique\nRégression\nrendement, besoin en eau, production\n\n\nCible catégorielle\nClassification\nsaine/malade, risque faible/élevé\n\n\nPas de cible\nClustering\ngroupes d’exploitations similaires",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#régression",
+    "href": "modules/04-2-algorithmes.html#régression",
+    "title": "Types d’algorithmes",
+    "section": "Régression",
+    "text": "Régression\nLa régression est utilisée lorsque la variable cible est numérique continue.\n\nExemples agricoles :\n\nprédire le rendement ;\nestimer la production ;\nprévoir les besoins en eau.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#classification",
+    "href": "modules/04-2-algorithmes.html#classification",
+    "title": "Types d’algorithmes",
+    "section": "Classification",
+    "text": "Classification\nLa classification est utilisée lorsque la cible correspond à une catégorie.\n\nExemples :\n\nplante saine / malade ;\nfruit mûr / non mûr ;\nparcelle à risque / sans risque.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#clustering",
+    "href": "modules/04-2-algorithmes.html#clustering",
+    "title": "Types d’algorithmes",
+    "section": "Clustering",
+    "text": "Clustering\nLe clustering appartient à l’apprentissage non supervisé.\n\nIl peut servir à regrouper des exploitations ou des parcelles présentant des profils similaires.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#arbre-de-décision",
+    "href": "modules/04-2-algorithmes.html#arbre-de-décision",
+    "title": "Types d’algorithmes",
+    "section": "Arbre de décision",
+    "text": "Arbre de décision\nUn arbre de décision effectue une succession de questions.\n\nExemple :\nHumidité du sol &lt; seuil ?\n          ↓\n      oui / non\n          ↓\nIrriguer / Ne pas irriguer",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#random-forest",
+    "href": "modules/04-2-algorithmes.html#random-forest",
+    "title": "Types d’algorithmes",
+    "section": "Random Forest",
+    "text": "Random Forest\nUn Random Forest combine plusieurs arbres de décision. Chaque arbre produit une prédiction, puis les résultats sont combinés.\nCette approche est utilisée dans les exercices suivants pour prédire le rendement agricole.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Types d’algorithmes"
+    ]
+  },
+  {
+    "objectID": "modules/04-2-algorithmes.html#quel-algorithme-pour-quelle-question",
+    "href": "modules/04-2-algorithmes.html#quel-algorithme-pour-quelle-question",
+    "title": "Types d’algorithmes",
+    "section": "Quel algorithme pour quelle question ?",
+    "text": "Quel algorithme pour quelle question ?\n\n\n\n\n\n\n\n\nQuestion agricole\nType\nAlgorithmes possibles\n\n\n\n\nQuel sera le rendement ?\nRégression\nRégression linéaire, Random Forest\n\n\nLa plante est-elle malade ?\nClassification\nRégression logistique, arbre de décision\n\n\nFaut-il irriguer ?\nClassification\nArbre de décision, Random Forest\n\n\nQuels profils de parcelles existent ?\nClustering\nK-means\n\n\n\n\n← Introduction Régression logistique →",
     "crumbs": [
       "Programme",
       "4. Machine Learning",
@@ -1457,9 +1769,69 @@
   {
     "objectID": "modules/04-4-random-forest.html",
     "href": "modules/04-4-random-forest.html",
-    "title": "Random Forest",
+    "title": "Exemple pratique — Random Forest",
     "section": "",
-    "text": "Random Forest\nCette section contiendra l’exemple pratique avec Random Forest.\n\n← Régression logistique Diagnostic des plantes →",
+    "text": "Cette partie reprend les deux exercices Machine Learning fournis.\nLe premier jeu de données contient 5 310 observations et utilise trois variables agricoles pour prédire le rendement céréalier. Le second ajoute la température moyenne et les précipitations.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "modules/04-4-random-forest.html#objectif",
+    "href": "modules/04-4-random-forest.html#objectif",
+    "title": "Exemple pratique — Random Forest",
+    "section": "",
+    "text": "Cette partie reprend les deux exercices Machine Learning fournis.\nLe premier jeu de données contient 5 310 observations et utilise trois variables agricoles pour prédire le rendement céréalier. Le second ajoute la température moyenne et les précipitations.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "modules/04-4-random-forest.html#jeu-de-données-1-variables-agricoles",
+    "href": "modules/04-4-random-forest.html#jeu-de-données-1-variables-agricoles",
+    "title": "Exemple pratique — Random Forest",
+    "section": "Jeu de données 1 — Variables agricoles",
+    "text": "Jeu de données 1 — Variables agricoles\n\nimport pandas as pd\n\ndf_ml = pd.read_excel(\n    \"../data/donnees_agricoles_machine_learning.xlsx\"\n)\n\ndf_ml.shape\n\nVariables utilisées :\n\nfeatures = [\n    \"engrais_kg_ha\",\n    \"surface_cereales_ha\",\n    \"terres_agricoles_pct\"\n]\n\nX = df_ml[features]\ny = df_ml[\"rendement_kg_ha\"]",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "modules/04-4-random-forest.html#modèle-de-référence-régression-linéaire",
+    "href": "modules/04-4-random-forest.html#modèle-de-référence-régression-linéaire",
+    "title": "Exemple pratique — Random Forest",
+    "section": "Modèle de référence — Régression linéaire",
+    "text": "Modèle de référence — Régression linéaire\n\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_absolute_error, r2_score\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X,\n    y,\n    test_size=0.2,\n    random_state=42\n)\n\nmodele = LinearRegression()\nmodele.fit(X_train, y_train)\n\npredictions = modele.predict(X_test)\n\nmae = mean_absolute_error(y_test, predictions)\nr2 = r2_score(y_test, predictions)\n\nRésultats obtenus dans le notebook :\n\nMAE : 1347.9 kg/ha\nR² : 0.232",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "modules/04-4-random-forest.html#random-forest",
+    "href": "modules/04-4-random-forest.html#random-forest",
+    "title": "Exemple pratique — Random Forest",
+    "section": "Random Forest",
+    "text": "Random Forest\n\nfrom sklearn.ensemble import RandomForestRegressor\n\nmodele_rf = RandomForestRegressor(\n    n_estimators=200,\n    random_state=42,\n    n_jobs=-1\n)\n\nmodele_rf.fit(\n    X_train,\n    y_train\n)\n\ny_pred_rf = modele_rf.predict(\n    X_test\n)\n\nÉvaluation :\n\nmae_rf = mean_absolute_error(\n    y_test,\n    y_pred_rf\n)\n\nr2_rf = r2_score(\n    y_test,\n    y_pred_rf\n)\n\nprint(\"MAE :\", mae_rf)\nprint(\"R² :\", r2_rf)\n\nRésultats du notebook :\n\nMAE : 456.1 kg/ha\nR² : 0.799\n\n\nLe Random Forest améliore nettement les performances sur ce jeu de données par rapport à la régression linéaire utilisée comme modèle de référence.",
+    "crumbs": [
+      "Programme",
+      "4. Machine Learning",
+      "Random Forest"
+    ]
+  },
+  {
+    "objectID": "modules/04-4-random-forest.html#importance-des-variables",
+    "href": "modules/04-4-random-forest.html#importance-des-variables",
+    "title": "Exemple pratique — Random Forest",
+    "section": "Importance des variables",
+    "text": "Importance des variables\n\nimportance = pd.Series(\n    modele_rf.feature_importances_,\n    index=features\n).sort_values(\n    ascending=False\n)\n\nimportance\n\n\nDans le notebook, les importances obtenues sont environ :\n\n\n\nVariable\nImportance\n\n\n\n\nEngrais\n0,368\n\n\nTempérature moyenne\n0,213\n\n\nPrécipitations\n0,187\n\n\nSurface céréalière\n0,142\n\n\nTerres agricoles\n0,090\n\n\n\n\n\n\n\n\n\nNoteInterprétation\n\n\n\nL’importance d’une variable indique sa contribution au modèle Random Forest. Elle ne doit pas être interprétée automatiquement comme un effet causal sur le rendement.\n\n\n\n← Régression logistique Diagnostic des plantes →",
     "crumbs": [
       "Programme",
       "4. Machine Learning",

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Régression logistique – Introduction à l’IA pour l’agriculture</title>
+<title>Exemple pratique — Régression logistique – Introduction à l’IA pour l’agriculture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -331,21 +366,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#régression-logistique" id="toc-régression-logistique" class="nav-link active" data-scroll-target="#régression-logistique">Régression logistique</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../programme.html">Programme</a></li><li class="breadcrumb-item"><a href="../modules/04-machine-learning.html">4. Machine Learning</a></li><li class="breadcrumb-item"><a href="../modules/04-3-logistique.html">Régression logistique</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Régression logistique</h1>
+<h1 class="title">Exemple pratique — Régression logistique</h1>
 </div>
 
 
@@ -362,11 +389,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="régression-logistique" class="level1">
-<h1>Régression logistique</h1>
-<p>Cette section contiendra l’exemple pratique de régression logistique.</p>
+<section id="objectif" class="level2">
+<h2 class="anchored" data-anchor-id="objectif">Objectif</h2>
+<p>La <strong>régression logistique</strong> est un algorithme de classification. Elle est utilisée lorsque la variable cible possède deux catégories.</p>
+<p>Dans l’exemple pédagogique du notebook, nous cherchons à distinguer deux groupes :</p>
+<ul>
+<li>plante saine ;</li>
+<li>plante malade.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Exemple pédagogique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les données de cette démonstration sont générées artificiellement dans le notebook d’introduction. Elles illustrent le fonctionnement de la classification et ne constituent pas un diagnostic phytosanitaire réel.</p>
+</div>
+</div>
+</section>
+<section id="préparer-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="préparer-les-données">Préparer les données</h2>
+<div id="e0c921a1" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>saines <span class="op">=</span> np.random.normal(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">30</span>, <span class="dv">70</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>, <span class="dv">5</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>malades <span class="op">=</span> np.random.normal(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">20</span>, <span class="dv">88</span>],</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>, <span class="dv">5</span>],</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">2</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.vstack([saines, malades])</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">30</span> <span class="op">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="op">*</span> <span class="dv">30</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="entraîner-le-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="entraîner-le-modèle">Entraîner le modèle</h2>
+<div id="cb412c36" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>modele <span class="op">=</span> LogisticRegression()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>modele.fit(X, y)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="visualiser-la-classification" class="level2">
+<h2 class="anchored" data-anchor-id="visualiser-la-classification">Visualiser la classification</h2>
+<p><img src="../images/machine-learning/intro-classification.png" class="img-fluid" alt="Classification pédagogique entre plantes saines et malades"></p>
+</section>
+<section id="interpréter" class="level2">
+<h2 class="anchored" data-anchor-id="interpréter">Interpréter</h2>
+<p>Le modèle apprend une frontière permettant de séparer les deux catégories à partir des variables fournies.</p>
+<p>Dans une application réelle, les variables pourraient provenir de mesures de terrain, d’images, de capteurs ou de données climatiques. Les données réelles nécessiteraient toutefois une validation agronomique et phytosanitaire.</p>
+</section>
+<section id="étape-suivante" class="level2">
+<h2 class="anchored" data-anchor-id="étape-suivante">Étape suivante</h2>
+<p>Un modèle de classification doit être évalué sur des données non utilisées pour l’entraînement. Une métrique simple est la <strong>matrice de confusion</strong>, présentée dans le cas pratique de diagnostic des plantes.</p>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/04-2-algorithmes.html">← Types d’algorithmes</a> <a class="chapter-next" href="../modules/04-4-random-forest.html">Random Forest →</a></p>
+<p><a href="../modules/04-2-algorithmes.html" class="chapter-prev">← Types d’algorithmes</a> <a href="../modules/04-4-random-forest.html" class="chapter-next">Random Forest →</a></p>
 </div>
 
 

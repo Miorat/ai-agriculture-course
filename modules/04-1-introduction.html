@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -331,15 +366,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#introduction-au-machine-learning" id="toc-introduction-au-machine-learning" class="nav-link active" data-scroll-target="#introduction-au-machine-learning">Introduction au Machine Learning</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -362,14 +389,140 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction-au-machine-learning" class="level1">
-<h1>Introduction au Machine Learning</h1>
-<p>Cette section introduira les concepts de base du machine learning et la logique d’un pipeline de modélisation.</p>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<p>Cette partie introduit le <strong>Machine Learning</strong>, ses principales familles et le workflow général utilisé dans les exercices du cours.</p>
+<p>À la fin de cette partie, vous serez capables de :</p>
+<ul>
+<li>expliquer le principe général du Machine Learning ;</li>
+<li>distinguer apprentissage supervisé et non supervisé ;</li>
+<li>identifier une variable cible <code>y</code> et des variables explicatives <code>X</code> ;</li>
+<li>comprendre la séparation entre données d’entraînement et données de test ;</li>
+<li>distinguer régression, classification et clustering ;</li>
+<li>comprendre le rôle de l’évaluation d’un modèle.</li>
+</ul>
+</section>
+<section id="quest-ce-que-le-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-que-le-machine-learning">Qu’est-ce que le Machine Learning ?</h2>
+<p>Le <strong>Machine Learning</strong> permet de construire des modèles capables d’apprendre à partir de données afin de produire une prédiction ou de classer une observation.</p>
+<p>En agriculture, il peut notamment être utilisé pour :</p>
+<ul>
+<li>prédire un rendement ;</li>
+<li>estimer des besoins en eau ;</li>
+<li>classer une plante comme saine ou malade ;</li>
+<li>identifier des groupes d’exploitations similaires ;</li>
+<li>aider à la décision à partir de données agricoles et climatiques.</li>
+</ul>
+</section>
+<section id="les-grandes-familles" class="level2">
+<h2 class="anchored" data-anchor-id="les-grandes-familles">Les grandes familles</h2>
+<section id="apprentissage-supervisé" class="level3">
+<h3 class="anchored" data-anchor-id="apprentissage-supervisé">Apprentissage supervisé</h3>
+<p>On dispose d’une variable cible connue.</p>
+<ul>
+<li>cible numérique → <strong>régression</strong></li>
+<li>cible catégorielle → <strong>classification</strong></li>
+</ul>
+</section>
+<section id="apprentissage-non-supervisé" class="level3">
+<h3 class="anchored" data-anchor-id="apprentissage-non-supervisé">Apprentissage non supervisé</h3>
+<p>Aucune variable cible n’est fournie. L’algorithme cherche des structures ou des groupes dans les données.</p>
+<p>Exemple : <strong>clustering</strong> d’exploitations présentant des profils similaires.</p>
+</section>
+<section id="apprentissage-par-renforcement" class="level3">
+<h3 class="anchored" data-anchor-id="apprentissage-par-renforcement">Apprentissage par renforcement</h3>
+<p>Cette famille est mentionnée dans le notebook d’introduction, mais elle n’est pas développée dans les exercices pratiques de ce cours.</p>
+</section>
+</section>
+<section id="workflow-général" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-général">Workflow général</h2>
+<pre class="text"><code>Données agricoles
+       ↓
+Exploration des données
+       ↓
+Définir X et y
+       ↓
+Séparer Train / Test
+       ↓
+Choisir un modèle
+       ↓
+Entraîner le modèle
+       ↓
+Faire des prédictions
+       ↓
+Évaluer les performances
+       ↓
+Interpréter les résultats</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>X et y
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>X</code> contient les variables utilisées pour prédire.</p>
+<p><code>y</code> correspond à la variable que l’on cherche à prédire.</p>
+</div>
+</div>
+</section>
+<section id="syntaxe-générale-avec-scikit-learn" class="level2">
+<h2 class="anchored" data-anchor-id="syntaxe-générale-avec-scikit-learn">Syntaxe générale avec scikit-learn</h2>
+<div id="9d8be327" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    X,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    y,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    test_size<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>modele <span class="op">=</span> LinearRegression()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>modele.fit(X_train, y_train)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> modele.predict(X_test)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="évaluer-un-modèle-de-régression" class="level2">
+<h2 class="anchored" data-anchor-id="évaluer-un-modèle-de-régression">Évaluer un modèle de régression</h2>
+<p>Deux indicateurs sont utilisés dans les exercices.</p>
+<section id="mae-mean-absolute-error" class="level3">
+<h3 class="anchored" data-anchor-id="mae-mean-absolute-error">MAE — Mean Absolute Error</h3>
+<p>Le MAE mesure l’écart absolu moyen entre les valeurs observées et les prédictions.</p>
+<p>[ MAE = _{i=1}^{n}|y_i-_i| ]</p>
+<p>Plus le MAE est faible, plus les prédictions sont proches des observations.</p>
+</section>
+<section id="r²" class="level3">
+<h3 class="anchored" data-anchor-id="r²">R²</h3>
+<p>Le coefficient R² mesure la part de variabilité expliquée par le modèle.</p>
+<ul>
+<li>proche de <code>1</code> : forte capacité explicative ;</li>
+<li>proche de <code>0</code> : faible capacité explicative ;</li>
+<li>négatif : performances inférieures à une prédiction basée sur la moyenne.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le Machine Learning ne commence pas par le choix d’un algorithme. Il commence par une question, des données, une variable cible bien définie et une méthode d’évaluation adaptée.</p>
+</div>
+</div>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/04-machine-learning.html">← Machine Learning</a> <a class="chapter-next" href="../modules/04-2-algorithmes.html">Types d’algorithmes →</a></p>
+<p><a href="../modules/04-2-algorithmes.html" class="chapter-next">Types d’algorithmes →</a></p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
