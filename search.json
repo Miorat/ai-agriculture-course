@@ -443,7 +443,79 @@
     "href": "modules/02-1-installation.html",
     "title": "Installation et environnement de travail",
     "section": "",
-    "text": "Installation et environnement de travail\nCette section présentera l’installation de Python, Jupyter et l’environnement utilisé pendant la formation.\n\n← Bases de Python Variables →",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ninstaller Miniconda ;\nouvrir Anaconda Prompt ;\ninstaller Jupyter Notebook et les bibliothèques nécessaires ;\nlancer un notebook Python ;\ncréer un nouveau fichier Jupyter Notebook ;\nvérifier que l’environnement de travail fonctionne correctement.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#objectifs",
+    "href": "modules/02-1-installation.html#objectifs",
+    "title": "Installation et environnement de travail",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ninstaller Miniconda ;\nouvrir Anaconda Prompt ;\ninstaller Jupyter Notebook et les bibliothèques nécessaires ;\nlancer un notebook Python ;\ncréer un nouveau fichier Jupyter Notebook ;\nvérifier que l’environnement de travail fonctionne correctement.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#étapes-de-linstallation",
+    "href": "modules/02-1-installation.html#étapes-de-linstallation",
+    "title": "Installation et environnement de travail",
+    "section": "Étapes de l’installation",
+    "text": "Étapes de l’installation\nL’installation se déroule en sept étapes :\n\nTélécharger Miniconda ;\nInstaller Miniconda ;\nOuvrir Anaconda Prompt ;\nInstaller Jupyter Notebook ;\nInstaller les bibliothèques nécessaires ;\nLancer Jupyter Notebook ;\nVérifier que l’installation fonctionne.\n\n\n\n\n\n\n\nNoteEnvironnement utilisé dans ce cours\n\n\n\nLe cours utilise Python, Jupyter Notebook et plusieurs bibliothèques scientifiques pour l’analyse de données et le Machine Learning.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#créer-un-nouveau-notebook",
+    "href": "modules/02-1-installation.html#créer-un-nouveau-notebook",
+    "title": "Installation et environnement de travail",
+    "section": "Créer un nouveau notebook",
+    "text": "Créer un nouveau notebook\nDans l’interface Jupyter Notebook :\n\ncliquer sur New ;\nchoisir le kernel Python 3 ;\nrenommer le fichier, par exemple Exercice_installation.ipynb.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#vérifier-python",
+    "href": "modules/02-1-installation.html#vérifier-python",
+    "title": "Installation et environnement de travail",
+    "section": "Vérifier Python",
+    "text": "Vérifier Python\nDans une cellule du notebook, saisir :\n\nprint(\"Bonjour, la formation peut commencer !\")\n\nCliquer sur Run ou exécuter la cellule.\nLe résultat attendu est :\nBonjour, la formation peut commencer !\nSi le message s’affiche, Python fonctionne correctement.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#vérifier-les-bibliothèques",
+    "href": "modules/02-1-installation.html#vérifier-les-bibliothèques",
+    "title": "Installation et environnement de travail",
+    "section": "Vérifier les bibliothèques",
+    "text": "Vérifier les bibliothèques\nDans une nouvelle cellule, saisir :\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport sklearn\nimport openpyxl\nimport scipy\n\nprint(\"Toutes les bibliothèques principales sont installées.\")\n\nLe résultat attendu est :\nToutes les bibliothèques principales sont installées.\n\n\n\n\n\n\n\nAstuceInstallation réussie\n\n\n\nSi les deux tests s’exécutent sans erreur, votre environnement de travail est prêt pour la suite du cours.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Installation et environnement"
+    ]
+  },
+  {
+    "objectID": "modules/02-1-installation.html#points-à-retenir",
+    "href": "modules/02-1-installation.html#points-à-retenir",
+    "title": "Installation et environnement de travail",
+    "section": "Points à retenir",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nMiniconda permet de gérer l’environnement Python et les paquets nécessaires.\nAnaconda Prompt permet d’exécuter les commandes d’installation.\nJupyter Notebook permet d’écrire et d’exécuter du code Python de manière interactive.\nLes bibliothèques pandas, numpy, matplotlib, scikit-learn et openpyxl seront utilisées dans les modules suivants.\nIl est important de vérifier l’installation avant de commencer les exercices.\n\n\n\n\n\n← IA dans l’agriculture\nVariables et types de données →",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
