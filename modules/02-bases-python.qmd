@@ -1,68 +1,55 @@
 ---
-title: "02 · Bases de Python"
+title: "Vue d’ensemble"
+toc: false
 ---
 
-## Installation et environnement de travail
+## Objectif du module
 
-Cette section présentera l’installation de Python et l’utilisation d’un environnement adapté au cours.
+Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.
 
-## Variables
+L’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning.
 
-```{python}
-#| eval: false
+## Ce que vous allez apprendre
 
-culture = "Riz"
-rendement = 4.2
-surface_ha = 2.5
+Au cours de ce module, vous apprendrez à :
 
-print(culture)
-print(rendement)
-```
+- installer et lancer l’environnement de travail ;
+- créer et utiliser des variables ;
+- manipuler différents types de données ;
+- effectuer des calculs numériques ;
+- utiliser les conditions `if`, `elif` et `else` ;
+- utiliser les boucles `for` ;
+- créer des fonctions simples ;
+- appliquer ces notions à des exemples agricoles.
 
-## Calculs numériques
+## Exemples d’applications
 
-```{python}
-#| eval: false
+Les exemples utilisés dans ce module portent notamment sur :
 
-production = rendement * surface_ha
-print(production)
-```
+- le calcul du rendement agricole ;
+- la production totale d’une parcelle ;
+- la quantité d’engrais nécessaire ;
+- l’analyse des précipitations ;
+- la classification du pH du sol ;
+- le niveau d’infestation par des ravageurs ;
+- le calcul des besoins en irrigation.
 
-## Conditions
+## Parcours du module
 
-```{python}
-#| eval: false
+1. Installation et environnement de travail  
+2. Variables et types de données  
+3. Calculs numériques  
+4. Conditions et boucles  
+5. Fonctions  
 
-if rendement > 4:
-    print("Rendement supérieur à 4 t/ha")
-else:
-    print("Rendement inférieur ou égal à 4 t/ha")
-```
+::: {.callout-note}
+## Pourquoi Python ?
 
-## Boucles
-
-```{python}
-#| eval: false
-
-cultures = ["Riz", "Maïs", "Haricot"]
-
-for culture in cultures:
-    print(culture)
-```
-
-## Fonctions
-
-```{python}
-#| eval: false
-
-def production_totale(rendement, surface):
-    return rendement * surface
-
-production_totale(4.2, 2.5)
-```
-
-
-::: {.chapter-nav}
-<a class="chapter-prev" href="01-ia-agriculture.qmd">← IA dans l’agriculture</a>
-<a class="chapter-next" href="02-1-installation.qmd">Installation et environnement →</a>
+Python est largement utilisé en analyse de données, en intelligence artificielle et en Machine Learning. Dans la suite du cours, il sera utilisé pour manipuler des données agricoles, construire des modèles prédictifs et analyser des résultats.
 :::
+
+<div class="chapter-nav">
+
+[Installation et environnement de travail →](02-1-installation.qmd){.chapter-next}
+
+</div>
