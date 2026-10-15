@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -331,15 +366,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#calculs-numériques" id="toc-calculs-numériques" class="nav-link active" data-scroll-target="#calculs-numériques">Calculs numériques</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -362,11 +389,280 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="calculs-numériques" class="level1">
-<h1>Calculs numériques</h1>
-<p>Cette section introduira les opérations numériques et les calculs avec Python et NumPy.</p>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<p>À la fin de cette partie, vous serez capables de :</p>
+<ul>
+<li>utiliser les principales opérations mathématiques en Python ;</li>
+<li>effectuer des calculs à partir de variables ;</li>
+<li>calculer un rendement et une production totale ;</li>
+<li>utiliser des données agricoles dans des expressions numériques ;</li>
+<li>formater les résultats pour améliorer leur lisibilité.</li>
+</ul>
+<hr>
+</section>
+<section id="les-opérations-de-base" class="level2">
+<h2 class="anchored" data-anchor-id="les-opérations-de-base">Les opérations de base</h2>
+<p>Python permet d’effectuer directement des calculs numériques.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Opération</th>
+<th>Symbole</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addition</td>
+<td><code>+</code></td>
+<td><code>2 + 3</code></td>
+</tr>
+<tr class="even">
+<td>Soustraction</td>
+<td><code>-</code></td>
+<td><code>10 - 4</code></td>
+</tr>
+<tr class="odd">
+<td>Multiplication</td>
+<td><code>*</code></td>
+<td><code>5 * 3</code></td>
+</tr>
+<tr class="even">
+<td>Division</td>
+<td><code>/</code></td>
+<td><code>10 / 2</code></td>
+</tr>
+<tr class="odd">
+<td>Puissance</td>
+<td><code>**</code></td>
+<td><code>2 ** 3</code></td>
+</tr>
+</tbody>
+</table>
+<div id="02d6e082" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>addition <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>soustraction <span class="op">=</span> <span class="dv">10</span> <span class="op">-</span> <span class="dv">4</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>multiplication <span class="op">=</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>division <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>puissance <span class="op">=</span> <span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(addition)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(soustraction)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(multiplication)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(division)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(puissance)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="calculer-avec-des-variables" class="level2">
+<h2 class="anchored" data-anchor-id="calculer-avec-des-variables">Calculer avec des variables</h2>
+<p>Les variables permettent de rendre les calculs plus clairs et réutilisables.</p>
+<div id="fc023364" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>production <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>rendement <span class="op">=</span> production <span class="op">/</span> surface</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rendement)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>2.0</code></pre>
+<p>Dans cet exemple :</p>
+<p>[ Rendement = ]</p>
+<hr>
+</section>
+<section id="exemple-agricole-calcul-du-rendement" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-agricole-calcul-du-rendement">Exemple agricole : calcul du rendement</h2>
+<p>Supposons qu’une exploitation ait produit <strong>1 000 tonnes</strong> sur une surface de <strong>500 hectares</strong>.</p>
+<div id="f237d164" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>production <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>rendement <span class="op">=</span> production <span class="op">/</span> surface</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Rendement :"</span>, rendement, <span class="st">"t/ha"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Rendement : 2.0 t/ha</code></pre>
+<hr>
+</section>
+<section id="exemple-agricole-production-totale" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-agricole-production-totale">Exemple agricole : production totale</h2>
+<p>On dispose de la production de trois parcelles :</p>
+<div id="7dfca4bf" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>production_parcelle_a <span class="op">=</span> <span class="dv">650</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>production_parcelle_b <span class="op">=</span> <span class="dv">850</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>production_parcelle_c <span class="op">=</span> <span class="dv">1050</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La production totale est :</p>
+<div id="8cfd6b7d" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>production_totale <span class="op">=</span> (</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    production_parcelle_a</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> production_parcelle_b</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> production_parcelle_c</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(production_totale)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>2550</code></pre>
+<p>On peut ensuite construire un message plus lisible :</p>
+<div id="64258084" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nom_region <span class="op">=</span> <span class="st">"Vakinankaratra"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Production totale dans la région"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    nom_region,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"est de"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    production_totale,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tonnes"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exemple-agricole-quantité-dengrais" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-agricole-quantité-dengrais">Exemple agricole : quantité d’engrais</h2>
+<p>La quantité totale d’engrais peut être calculée à partir de la surface et de la dose recommandée par hectare.</p>
+<p>[ Quantité&nbsp;d’engrais = Surface Dose ]</p>
+<div id="5a91cfb9" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dose_par_hectare <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>quantite_engrais <span class="op">=</span> surface <span class="op">*</span> dose_par_hectare</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Quantité totale :"</span>, quantite_engrais, <span class="st">"kg"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Quantité totale : 250 kg</code></pre>
+<hr>
+</section>
+<section id="exemple-agricole-calcul-dune-moyenne" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-agricole-calcul-dune-moyenne">Exemple agricole : calcul d’une moyenne</h2>
+<p>On souhaite calculer le rendement moyen de plusieurs parcelles.</p>
+<div id="a685f978" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rendements <span class="op">=</span> [<span class="fl">3.2</span>, <span class="fl">2.8</span>, <span class="fl">4.1</span>, <span class="fl">3.6</span>, <span class="fl">2.9</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>rendement_moyen <span class="op">=</span> <span class="bu">sum</span>(rendements) <span class="op">/</span> <span class="bu">len</span>(rendements)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rendement_moyen)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Le résultat est environ :</p>
+<pre class="text"><code>3.32</code></pre>
+<p>Ici :</p>
+<ul>
+<li><code>sum()</code> calcule la somme des valeurs ;</li>
+<li><code>len()</code> donne le nombre de valeurs.</li>
+</ul>
+<hr>
+</section>
+<section id="formatage-des-nombres" class="level2">
+<h2 class="anchored" data-anchor-id="formatage-des-nombres">Formatage des nombres</h2>
+<p>Le formatage permet d’afficher les résultats de manière plus lisible.</p>
+<section id="afficher-deux-décimales" class="level3">
+<h3 class="anchored" data-anchor-id="afficher-deux-décimales">Afficher deux décimales</h3>
+<div id="18f088bd" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>rendement <span class="op">=</span> <span class="fl">3.3200000000000003</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rendement<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>3.32</code></pre>
+<hr>
+</section>
+</section>
+<section id="séparateur-de-milliers" class="level2">
+<h2 class="anchored" data-anchor-id="séparateur-de-milliers">Séparateur de milliers</h2>
+<p>Pour les grandes valeurs, on peut ajouter un séparateur de milliers.</p>
+<div id="695e1c65" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>revenu <span class="op">=</span> <span class="fl">24_000_000.5</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>revenu_formate <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>revenu<span class="sc">:,.2f}</span><span class="ss">"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(revenu_formate)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Pour adapter l’affichage au format français :</p>
+<div id="cb412837" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>revenu <span class="op">=</span> <span class="fl">24_000_000.5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>revenu_formate <span class="op">=</span> (</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>revenu<span class="sc">:,.2f}</span><span class="ss">"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    .replace(<span class="st">","</span>, <span class="st">" "</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    .replace(<span class="st">"."</span>, <span class="st">","</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Revenu brut : </span><span class="sc">{</span>revenu_formate<span class="sc">}</span><span class="ss"> Ar"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Revenu brut : 24 000 000,50 Ar</code></pre>
+<hr>
+</section>
+<section id="exercice-1-calcul-du-rendement" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-calcul-du-rendement">Exercice 1 — Calcul du rendement</h2>
+<p>Une exploitation produit <strong>3 600 tonnes</strong> de riz sur une surface de <strong>1 200 hectares</strong>.</p>
+<ol type="1">
+<li>Créer les variables <code>production</code> et <code>surface</code>.</li>
+<li>Calculer le rendement.</li>
+<li>Afficher le résultat en <code>t/ha</code>.</li>
+</ol>
+<div id="9f824060" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>production <span class="op">=</span> <span class="dv">3600</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> <span class="dv">1200</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>rendement <span class="op">=</span> ...</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(...)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercice-2-quantité-dengrais" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-quantité-dengrais">Exercice 2 — Quantité d’engrais</h2>
+<p>Une parcelle de <strong>8 hectares</strong> reçoit une dose recommandée de <strong>40 kg/ha</strong>.</p>
+<p>Calculer la quantité totale d’engrais nécessaire.</p>
+<div id="f9b75741" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>dose_par_hectare <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>quantite_totale <span class="op">=</span> ...</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(...)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercice-3-production-de-plusieurs-parcelles" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3-production-de-plusieurs-parcelles">Exercice 3 — Production de plusieurs parcelles</h2>
+<p>Les productions sont :</p>
+<pre class="text"><code>Parcelle A : 650 tonnes
+Parcelle B : 850 tonnes
+Parcelle C : 1 050 tonnes</code></pre>
+<p>Calculer la production totale et afficher le résultat.</p>
+<hr>
+</section>
+<section id="points-à-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="points-à-retenir">Points à retenir</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Python peut effectuer directement les principales opérations mathématiques.</li>
+<li>Les variables permettent d’intégrer les données agricoles dans les calculs.</li>
+<li>Le rendement peut être calculé avec <code>production / surface</code>.</li>
+<li><code>sum()</code> et <code>len()</code> permettent de calculer simplement une moyenne.</li>
+<li>Le formatage avec les chaînes <code>f"..."</code> améliore la présentation des résultats.</li>
+</ul>
+</div>
+</div>
+<hr>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/02-2-variables.html">← Variables</a> <a class="chapter-next" href="../modules/02-4-boucles.html">Conditions et boucles →</a></p>
+<p><a href="../modules/02-2-variables.html" class="chapter-prev">← Variables et types de données</a></p>
+<p><a href="../modules/02-4-boucles.html" class="chapter-next">Conditions et boucles →</a></p>
 </div>
 
 
