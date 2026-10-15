@@ -1,13 +1,338 @@
 ---
 title: "Calculs numériques"
+toc: false
 ---
 
-# Calculs numériques
+## Objectifs
 
-Cette section introduira les opérations numériques et les calculs avec Python et NumPy.
+À la fin de cette partie, vous serez capables de :
 
+- utiliser les principales opérations mathématiques en Python ;
+- effectuer des calculs à partir de variables ;
+- calculer un rendement et une production totale ;
+- utiliser des données agricoles dans des expressions numériques ;
+- formater les résultats pour améliorer leur lisibilité.
 
-::: {.chapter-nav}
-<a class="chapter-prev" href="02-2-variables.qmd">← Variables</a>
-<a class="chapter-next" href="02-4-boucles.qmd">Conditions et boucles →</a>
+---
+
+## Les opérations de base
+
+Python permet d’effectuer directement des calculs numériques.
+
+| Opération | Symbole | Exemple |
+|---|---|---|
+| Addition | `+` | `2 + 3` |
+| Soustraction | `-` | `10 - 4` |
+| Multiplication | `*` | `5 * 3` |
+| Division | `/` | `10 / 2` |
+| Puissance | `**` | `2 ** 3` |
+
+```{python}
+#| eval: false
+
+addition = 2 + 3
+soustraction = 10 - 4
+multiplication = 5 * 3
+division = 10 / 2
+puissance = 2 ** 3
+
+print(addition)
+print(soustraction)
+print(multiplication)
+print(division)
+print(puissance)
+```
+
+---
+
+## Calculer avec des variables
+
+Les variables permettent de rendre les calculs plus clairs et réutilisables.
+
+```{python}
+#| eval: false
+
+production = 1000
+surface = 500
+
+rendement = production / surface
+
+print(rendement)
+```
+
+Résultat :
+
+```text
+2.0
+```
+
+Dans cet exemple :
+
+\[
+Rendement = \frac{Production}{Surface}
+\]
+
+---
+
+## Exemple agricole : calcul du rendement
+
+Supposons qu’une exploitation ait produit **1 000 tonnes** sur une surface de **500 hectares**.
+
+```{python}
+#| eval: false
+
+production = 1000
+surface = 500
+
+rendement = production / surface
+
+print("Rendement :", rendement, "t/ha")
+```
+
+Résultat :
+
+```text
+Rendement : 2.0 t/ha
+```
+
+---
+
+## Exemple agricole : production totale
+
+On dispose de la production de trois parcelles :
+
+```{python}
+#| eval: false
+
+production_parcelle_a = 650
+production_parcelle_b = 850
+production_parcelle_c = 1050
+```
+
+La production totale est :
+
+```{python}
+#| eval: false
+
+production_totale = (
+    production_parcelle_a
+    + production_parcelle_b
+    + production_parcelle_c
+)
+
+print(production_totale)
+```
+
+Résultat :
+
+```text
+2550
+```
+
+On peut ensuite construire un message plus lisible :
+
+```{python}
+#| eval: false
+
+nom_region = "Vakinankaratra"
+
+print(
+    "Production totale dans la région",
+    nom_region,
+    "est de",
+    production_totale,
+    "tonnes"
+)
+```
+
+---
+
+## Exemple agricole : quantité d’engrais
+
+La quantité totale d’engrais peut être calculée à partir de la surface et de la dose recommandée par hectare.
+
+\[
+Quantité\ d'engrais = Surface \times Dose
+\]
+
+```{python}
+#| eval: false
+
+surface = 5
+dose_par_hectare = 50
+
+quantite_engrais = surface * dose_par_hectare
+
+print("Quantité totale :", quantite_engrais, "kg")
+```
+
+Résultat :
+
+```text
+Quantité totale : 250 kg
+```
+
+---
+
+## Exemple agricole : calcul d’une moyenne
+
+On souhaite calculer le rendement moyen de plusieurs parcelles.
+
+```{python}
+#| eval: false
+
+rendements = [3.2, 2.8, 4.1, 3.6, 2.9]
+
+rendement_moyen = sum(rendements) / len(rendements)
+
+print(rendement_moyen)
+```
+
+Le résultat est environ :
+
+```text
+3.32
+```
+
+Ici :
+
+- `sum()` calcule la somme des valeurs ;
+- `len()` donne le nombre de valeurs.
+
+---
+
+## Formatage des nombres
+
+Le formatage permet d’afficher les résultats de manière plus lisible.
+
+### Afficher deux décimales
+
+```{python}
+#| eval: false
+
+rendement = 3.3200000000000003
+
+print(f"{rendement:.2f}")
+```
+
+Résultat :
+
+```text
+3.32
+```
+
+---
+
+## Séparateur de milliers
+
+Pour les grandes valeurs, on peut ajouter un séparateur de milliers.
+
+```{python}
+#| eval: false
+
+revenu = 24_000_000.5
+
+revenu_formate = f"{revenu:,.2f}"
+
+print(revenu_formate)
+```
+
+Pour adapter l’affichage au format français :
+
+```{python}
+#| eval: false
+
+revenu = 24_000_000.5
+
+revenu_formate = (
+    f"{revenu:,.2f}"
+    .replace(",", " ")
+    .replace(".", ",")
+)
+
+print(f"Revenu brut : {revenu_formate} Ar")
+```
+
+Résultat :
+
+```text
+Revenu brut : 24 000 000,50 Ar
+```
+
+---
+
+## Exercice 1 — Calcul du rendement
+
+Une exploitation produit **3 600 tonnes** de riz sur une surface de **1 200 hectares**.
+
+1. Créer les variables `production` et `surface`.
+2. Calculer le rendement.
+3. Afficher le résultat en `t/ha`.
+
+```{python}
+#| eval: false
+
+production = 3600
+surface = 1200
+
+rendement = ...
+
+print(...)
+```
+
+---
+
+## Exercice 2 — Quantité d’engrais
+
+Une parcelle de **8 hectares** reçoit une dose recommandée de **40 kg/ha**.
+
+Calculer la quantité totale d’engrais nécessaire.
+
+```{python}
+#| eval: false
+
+surface = 8
+dose_par_hectare = 40
+
+quantite_totale = ...
+
+print(...)
+```
+
+---
+
+## Exercice 3 — Production de plusieurs parcelles
+
+Les productions sont :
+
+```text
+Parcelle A : 650 tonnes
+Parcelle B : 850 tonnes
+Parcelle C : 1 050 tonnes
+```
+
+Calculer la production totale et afficher le résultat.
+
+---
+
+## Points à retenir
+
+::: {.callout-tip}
+## À retenir
+
+- Python peut effectuer directement les principales opérations mathématiques.
+- Les variables permettent d’intégrer les données agricoles dans les calculs.
+- Le rendement peut être calculé avec `production / surface`.
+- `sum()` et `len()` permettent de calculer simplement une moyenne.
+- Le formatage avec les chaînes `f"..."` améliore la présentation des résultats.
 :::
+
+---
+
+<div class="chapter-nav">
+
+[← Variables et types de données](02-2-variables.qmd){.chapter-prev}
+
+[Conditions et boucles →](02-4-boucles.qmd){.chapter-next}
+
+</div>

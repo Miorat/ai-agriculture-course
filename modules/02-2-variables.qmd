@@ -72,7 +72,7 @@ Python permet de manipuler différents types d’informations.
 
 ---
 
-## Chaîne de caractères — `str`
+## Chaîne de caractères : `str`
 
 Une chaîne de caractères permet de stocker du **texte**.
 
@@ -112,7 +112,7 @@ str
 
 ---
 
-## Nombre entier — `int`
+## Nombre entier - `int`
 
 Un entier est un nombre sans partie décimale.
 
@@ -137,7 +137,7 @@ int
 
 ---
 
-## Nombre décimal — `float`
+## Nombre décimal - `float`
 
 Un nombre décimal possède une partie décimale.
 
@@ -171,7 +171,7 @@ rendement = 3.2
 
 ---
 
-## Valeur booléenne — `bool`
+## Valeur booléenne - `bool`
 
 Une variable booléenne possède seulement deux valeurs possibles :
 
@@ -570,7 +570,7 @@ print(observations_climatiques[0]["temperature"])
 
 # Exercices
 
-## Exercice 1 — Décrire une exploitation
+## Exercice 1 - Décrire une exploitation
 
 Créer les variables suivantes :
 
@@ -584,7 +584,7 @@ Choisissez vous-même les valeurs et affichez-les.
 
 ---
 
-## Exercice 2 — Calculer une production
+## Exercice 2 - Calculer une production
 
 \[
 Production = Surface \times Rendement
@@ -612,7 +612,7 @@ print(...)
 
 ---
 
-## Exercice 3 — Quantité d’engrais
+## Exercice 3 - Quantité d’engrais
 
 Une parcelle possède une superficie de **5 hectares** et la dose recommandée est de **50 kg/ha**.
 
@@ -633,7 +633,7 @@ print(...)
 
 ---
 
-## Exercice 4 — Créer un dictionnaire
+## Exercice 4 - Créer un dictionnaire
 
 Créer un dictionnaire `parcelle` contenant :
 

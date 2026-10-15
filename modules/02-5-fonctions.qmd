@@ -1,13 +1,365 @@
 ---
 title: "Fonctions"
+toc: false
 ---
 
-# Fonctions
+## Objectifs
 
-Cette section montrera comment créer et utiliser des fonctions en Python.
+À la fin de cette partie, vous serez capables de :
+
+- définir une fonction avec `def` ;
+- utiliser des paramètres ;
+- retourner un résultat avec `return` ;
+- réutiliser une fonction avec différentes valeurs ;
+- combiner fonctions, conditions et boucles ;
+- appliquer les fonctions à des exemples agricoles.
+
+---
+
+# Qu’est-ce qu’une fonction ?
+
+Une **fonction** est un bloc de code qui permet de définir une tâche précise.
+
+Elle permet notamment :
+
+- d’éviter de répéter le même code ;
+- d’effectuer plusieurs fois le même calcul ;
+- de rendre le programme plus clair et mieux organisé ;
+- de réutiliser une instruction avec différentes valeurs.
+
+---
+
+## Structure générale
+
+```{python}
+#| eval: false
+
+def nom_de_la_fonction(parametre1, parametre2):
+    # bloc de code
+    resultat = ...
+    return resultat
+```
+
+Une fonction est créée avec le mot-clé `def`.
+
+---
+
+# Exemple : calculer la production
+
+```{python}
+#| eval: false
+
+def calculer_production(surface_ha, rendement_t_ha):
+    production = surface_ha * rendement_t_ha
+    return production
+```
+
+Appel de la fonction :
+
+```{python}
+#| eval: false
+
+calculer_production(2.5, 3.2)
+```
+
+Résultat :
+
+```text
+8.0
+```
+
+On peut réutiliser la même fonction :
+
+```{python}
+#| eval: false
+
+production_riz = calculer_production(2.5, 3.2)
+production_mais = calculer_production(1.8, 2.7)
+
+print(production_riz)
+print(production_mais)
+```
+
+Résultat :
+
+```text
+8.0
+4.86
+```
+
+---
+
+# Exemple : calculer la quantité d’engrais
+
+```{python}
+#| eval: false
+
+def calculer_engrais(surface, dose_par_hectare):
+    quantite_totale = surface * dose_par_hectare
+    return quantite_totale
+```
+
+Utilisation pour trois parcelles :
+
+```{python}
+#| eval: false
+
+engrais_parcelle1 = calculer_engrais(5, 50)
+engrais_parcelle2 = calculer_engrais(8, 40)
+engrais_parcelle3 = calculer_engrais(3, 60)
+
+print("Parcelle 1 :", engrais_parcelle1, "kg d'engrais")
+print("Parcelle 2 :", engrais_parcelle2, "kg d'engrais")
+print("Parcelle 3 :", engrais_parcelle3, "kg d'engrais")
+```
+
+Résultat :
+
+```text
+Parcelle 1 : 250 kg d'engrais
+Parcelle 2 : 320 kg d'engrais
+Parcelle 3 : 180 kg d'engrais
+```
+
+---
+
+# Une fonction peut retourner plusieurs valeurs
+
+Une fonction peut retourner plusieurs résultats.
+
+```{python}
+#| eval: false
+
+def calculer_revenu(surface, rendement, prix_tonne):
+
+    production = surface * rendement
+    revenu = production * prix_tonne
+
+    return production, revenu
+```
+
+Utilisation :
+
+```{python}
+#| eval: false
+
+production_a, revenu_a = calculer_revenu(
+    5,
+    3.2,
+    2_000_000
+)
+
+print(production_a)
+print(revenu_a)
+```
+
+---
+
+## Exemple pour plusieurs exploitations
+
+```{python}
+#| eval: false
+
+production_a, revenu_a = calculer_revenu(5, 3.2, 2_000_000)
+production_b, revenu_b = calculer_revenu(8, 4.0, 3_000_000)
+production_c, revenu_c = calculer_revenu(3, 2.5, 1_750_000)
+
+print("Exploitation A :", production_a, "tonnes -", revenu_a, "Ar")
+print("Exploitation B :", production_b, "tonnes -", revenu_b, "Ar")
+print("Exploitation C :", production_c, "tonnes -", revenu_c, "Ar")
+```
+
+---
+
+# Fonction avec une condition
+
+Une fonction peut contenir une condition `if`.
+
+## Exemple : besoin d’irrigation
+
+```{python}
+#| eval: false
+
+def calculer_besoin_irrigation(besoin_eau, precipitation):
+
+    besoin_irrigation = besoin_eau - precipitation
+
+    if besoin_irrigation < 0:
+        besoin_irrigation = 0
+
+    return besoin_irrigation
+```
+
+Utilisation :
+
+```{python}
+#| eval: false
+
+irrigation_mais = calculer_besoin_irrigation(500, 350)
+irrigation_riz = calculer_besoin_irrigation(800, 600)
+irrigation_haricot = calculer_besoin_irrigation(400, 450)
+
+print("Besoin d'irrigation du maïs :", irrigation_mais, "mm")
+print("Besoin d'irrigation du riz :", irrigation_riz, "mm")
+print("Besoin d'irrigation du haricot :", irrigation_haricot, "mm")
+```
+
+Résultat :
+
+```text
+Besoin d'irrigation du maïs : 150 mm
+Besoin d'irrigation du riz : 200 mm
+Besoin d'irrigation du haricot : 0 mm
+```
+
+---
+
+# Fonction avec une boucle et une condition
+
+```{python}
+#| eval: false
+
+def analyser_rendements(rendements):
+
+    for rendement in rendements:
+
+        if rendement < 3:
+            print(rendement, "t/ha : rendement faible")
+
+        elif rendement <= 4:
+            print(rendement, "t/ha : rendement moyen")
+
+        else:
+            print(rendement, "t/ha : rendement élevé")
+```
+
+Utilisation :
+
+```{python}
+#| eval: false
+
+rendements_parcelles = [2.5, 3.8, 4.2, 2.9]
+
+analyser_rendements(rendements_parcelles)
+```
+
+---
+
+# Exercices
+
+## Exercice 1 — Calcul de la production agricole
+
+Créer une fonction `calculer_production`.
+
+La fonction doit :
+
+1. recevoir `surface` et `rendement` ;
+2. calculer la production ;
+3. retourner le résultat avec `return` ;
+4. être appelée pour trois parcelles.
+
+```{python}
+#| eval: false
+
+def calculer_production(surface, rendement):
+
+    production = ...
+
+    return ...
 
 
-::: {.chapter-nav}
-<a class="chapter-prev" href="02-4-boucles.qmd">← Conditions et boucles</a>
-<a class="chapter-next" href="03-analyse-donnees.qmd">Analyse de données agricoles →</a>
+production_1 = calculer_production(5, 3.2)
+production_2 = calculer_production(8, 4.0)
+production_3 = calculer_production(3, 2.5)
+```
+
+---
+
+## Exercice 2 — Classification du niveau d’infestation
+
+Créer une fonction :
+
+```text
+classer_infestation(nombre_ravageurs)
+```
+
+Règles :
+
+- `0` ravageur : **Aucun ravageur** ;
+- `1 à 10` : **Faible infestation** ;
+- `11 à 20` : **Infestation moyenne** ;
+- plus de `20` : **Forte infestation**.
+
+Tester avec :
+
+```text
+0, 8, 16, 25
+```
+
+---
+
+## Exercice 3 — Classification du pH du sol
+
+Créer une fonction `classer_ph(ph)`.
+
+Règles :
+
+- pH inférieur à `6.5` : **sol acide** ;
+- pH compris entre `6.5` et `7.5` : **sol neutre** ;
+- pH supérieur à `7.5` : **sol basique**.
+
+Tester avec :
+
+```text
+5.8, 7.0, 8.2
+```
+
+---
+
+## Exercice 4 — Température moyenne
+
+Créer une fonction :
+
+```text
+calculer_temperature_moyenne(temperatures)
+```
+
+La fonction doit :
+
+1. recevoir une liste de températures ;
+2. utiliser une boucle `for` pour additionner les valeurs ;
+3. calculer la moyenne ;
+4. retourner le résultat.
+
+Tester avec :
+
+```text
+[26.5, 28.0, 27.5, 29.0, 25.5]
+```
+
+Afficher le résultat avec deux chiffres après la virgule.
+
+---
+
+## Points à retenir
+
+::: {.callout-tip}
+## À retenir
+
+- Une fonction est définie avec `def`.
+- Les paramètres permettent de fournir des valeurs à la fonction.
+- `return` permet de renvoyer un résultat.
+- Une même fonction peut être utilisée plusieurs fois avec différentes valeurs.
+- Une fonction peut contenir des conditions et des boucles.
+- Les fonctions facilitent la réutilisation et l’organisation du code.
 :::
+
+---
+
+<div class="chapter-nav">
+
+[← Conditions et boucles](02-4-boucles.qmd){.chapter-prev}
+
+[Analyse de données agricoles →](../03-1-pandas.qmd){.chapter-next}
+
+</div>

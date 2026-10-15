@@ -1,13 +1,347 @@
 ---
 title: "Conditions et boucles"
+toc: false
 ---
 
-# Conditions et boucles
+## Objectifs
 
-Cette section couvrira les conditions `if`, les boucles `for` et les boucles `while`.
+À la fin de cette partie, vous serez capables de :
 
+- utiliser les conditions `if`, `elif` et `else` ;
+- utiliser les opérateurs de comparaison ;
+- parcourir une liste avec une boucle `for` ;
+- combiner une boucle et une condition ;
+- appliquer ces notions à des exemples agricoles.
 
-::: {.chapter-nav}
-<a class="chapter-prev" href="02-3-calculs.qmd">← Calculs numériques</a>
-<a class="chapter-next" href="02-5-fonctions.qmd">Fonctions →</a>
+---
+
+# Les conditions avec `if`
+
+La condition `if` permet d’exécuter un bloc de code uniquement lorsqu’une condition est vraie.
+
+```{python}
+#| eval: false
+
+if condition:
+    # instructions
+```
+
+On peut ajouter `elif` et `else` :
+
+```{python}
+#| eval: false
+
+if condition1:
+    # instructions
+elif condition2:
+    # autres instructions
+else:
+    # instructions si aucune condition n'est vraie
+```
+
+::: {.callout-note}
+## Indentation
+
+En Python, les instructions placées à l’intérieur d’une condition, d’une boucle ou d’une fonction doivent être décalées vers la droite.
+
+On utilise généralement **quatre espaces**.
 :::
+
+---
+
+## Les opérateurs de comparaison
+
+Les opérateurs de comparaison permettent de tester une condition.
+
+| Opérateur | Signification |
+|---|---|
+| `==` | égal à |
+| `!=` | différent de |
+| `<` | inférieur à |
+| `>` | supérieur à |
+| `<=` | inférieur ou égal à |
+| `>=` | supérieur ou égal à |
+
+---
+
+## Exemple : classification du pH du sol
+
+```{python}
+#| eval: false
+
+ph_terrain = 9
+
+if ph_terrain < 6.5:
+    print("Sol acide")
+elif ph_terrain <= 7.5:
+    print("Sol neutre")
+else:
+    print("Sol basique")
+```
+
+Résultat :
+
+```text
+Sol basique
+```
+
+---
+
+## Exemple : niveau d’infestation
+
+On souhaite classer une parcelle selon le nombre de ravageurs observés.
+
+```{python}
+#| eval: false
+
+nombre_ravageurs = 5
+
+if nombre_ravageurs == 0:
+    print("Aucun ravageur observé")
+elif nombre_ravageurs <= 10:
+    print("Faible infestation")
+elif nombre_ravageurs <= 20:
+    print("Infestation moyenne")
+else:
+    print("Forte infestation : intervention recommandée")
+```
+
+Résultat :
+
+```text
+Faible infestation
+```
+
+---
+
+# La boucle `for`
+
+La boucle `for` permet de répéter une même instruction pour plusieurs valeurs.
+
+Structure générale :
+
+```{python}
+#| eval: false
+
+for element in sequence:
+    # instructions à répéter
+```
+
+Elle est utile pour parcourir :
+
+- une liste de températures ;
+- une liste de précipitations ;
+- plusieurs parcelles ;
+- des observations agricoles.
+
+---
+
+## Exemple simple
+
+```{python}
+#| eval: false
+
+for element in [10, 20, 30]:
+    print(element)
+```
+
+Résultat :
+
+```text
+10
+20
+30
+```
+
+---
+
+## Parcourir une liste
+
+```{python}
+#| eval: false
+
+ma_liste = [5, 20, 30, 86, 96, 78, 2, 5, 6, 86, 98]
+
+for element in ma_liste:
+    nouvelle_valeur = element * 2
+    print(nouvelle_valeur)
+```
+
+---
+
+## Exemple agricole : nombre de ravageurs
+
+```{python}
+#| eval: false
+
+nombre_ravageurs = [3, 8, 15, 22, 55, 66, 89]
+
+for nombre in nombre_ravageurs:
+    print("Nombre de ravageurs :", nombre)
+```
+
+La boucle affiche chaque observation, une par une.
+
+---
+
+## Exemple agricole : précipitations
+
+```{python}
+#| eval: false
+
+precipitations = [5, 0, 12, 8, 3]
+
+for pluie in precipitations:
+    print("Précipitations :", pluie, "mm")
+```
+
+---
+
+# Combiner `for` et `if`
+
+Les boucles deviennent particulièrement utiles lorsqu’elles sont combinées avec des conditions.
+
+## Exemple : analyser les précipitations
+
+```{python}
+#| eval: false
+
+precipitations = [5, 0, 12, 8, 20]
+
+for pluie in precipitations:
+
+    if pluie == 0:
+        print(pluie, "mm : Journée sèche")
+
+    elif pluie >= 15:
+        print(pluie, "mm : Pluie importante")
+
+    else:
+        print(pluie, "mm : Pluie modérée")
+```
+
+---
+
+## Exemple : comparer les rendements
+
+```{python}
+#| eval: false
+
+rendements = [2.5, 3.8, 4.2, 2.9]
+
+for rendement in rendements:
+
+    if rendement < 3:
+        print(rendement, "t/ha : rendement faible")
+
+    elif rendement <= 4:
+        print(rendement, "t/ha : rendement moyen")
+
+    else:
+        print(rendement, "t/ha : rendement élevé")
+```
+
+---
+
+## Exemple : parcourir des observations climatiques
+
+On peut aussi parcourir une liste de dictionnaires.
+
+```{python}
+#| eval: false
+
+observations_climatiques = [
+    {
+        "date": "2026-08-01",
+        "temperature": 27.5,
+        "precipitations": 5,
+        "humidite": 70
+    },
+    {
+        "date": "2026-08-02",
+        "temperature": 28.0,
+        "precipitations": 0,
+        "humidite": 68
+    },
+    {
+        "date": "2026-08-03",
+        "temperature": 29.2,
+        "precipitations": 2,
+        "humidite": 65
+    }
+]
+```
+
+Afficher l’humidité de chaque observation :
+
+```{python}
+#| eval: false
+
+for observation in observations_climatiques:
+    print(observation["humidite"])
+```
+
+---
+
+## Exercice 1 — Analyse des précipitations
+
+Les précipitations enregistrées pendant cinq jours sont :
+
+```text
+[5, 0, 12, 8, 20]
+```
+
+### Travail demandé
+
+- créer une liste appelée `precipitations` ;
+- utiliser une boucle `for` ;
+- afficher **Journée sèche** lorsque les précipitations sont égales à `0` ;
+- afficher **Pluie importante** lorsque les précipitations sont supérieures ou égales à `15 mm` ;
+- afficher **Pluie modérée** dans les autres cas.
+
+---
+
+## Exercice 2 — Comparaison des rendements
+
+Créer une liste de rendements et afficher :
+
+- **Rendement faible** si le rendement est inférieur à `3 t/ha` ;
+- **Rendement moyen** s’il est compris entre `3 et 4 t/ha` ;
+- **Rendement élevé** s’il est supérieur à `4 t/ha`.
+
+---
+
+## Exercice 3 — Niveau d’infestation
+
+Tester plusieurs valeurs du nombre de ravageurs :
+
+```text
+0, 8, 16, 25
+```
+
+Utiliser `if`, `elif` et `else` pour afficher le niveau d’infestation correspondant.
+
+---
+
+## Points à retenir
+
+::: {.callout-tip}
+## À retenir
+
+- `if` permet de tester une condition.
+- `elif` permet de tester une condition supplémentaire.
+- `else` traite les autres cas.
+- Les opérateurs `==`, `<`, `>`, `<=` et `>=` permettent de comparer des valeurs.
+- Une boucle `for` permet de parcourir une séquence.
+- `for` et `if` peuvent être combinés pour analyser plusieurs observations automatiquement.
+:::
+
+---
+
+<div class="chapter-nav">
+
+[← Calculs numériques](02-3-calculs.qmd){.chapter-prev}
+
+[Fonctions →](02-5-fonctions.qmd){.chapter-next}
+
+</div>
