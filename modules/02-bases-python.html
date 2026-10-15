@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>02 · Bases de Python – Introduction à l’IA pour l’agriculture</title>
+<title>Vue d’ensemble – Introduction à l’IA pour l’agriculture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,41 +25,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -113,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -366,26 +331,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#installation-et-environnement-de-travail" id="toc-installation-et-environnement-de-travail" class="nav-link active" data-scroll-target="#installation-et-environnement-de-travail">Installation et environnement de travail</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
-  <li><a href="#calculs-numériques" id="toc-calculs-numériques" class="nav-link" data-scroll-target="#calculs-numériques">Calculs numériques</a></li>
-  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a></li>
-  <li><a href="#boucles" id="toc-boucles" class="nav-link" data-scroll-target="#boucles">Boucles</a></li>
-  <li><a href="#fonctions" id="toc-fonctions" class="nav-link" data-scroll-target="#fonctions">Fonctions</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../programme.html">Programme</a></li><li class="breadcrumb-item"><a href="../modules/02-bases-python.html">2. Bases de Python</a></li><li class="breadcrumb-item"><a href="../modules/02-bases-python.html">Vue d’ensemble</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">02 · Bases de Python</h1>
+<h1 class="title">Vue d’ensemble</h1>
 </div>
 
 
@@ -402,56 +354,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="installation-et-environnement-de-travail" class="level2">
-<h2 class="anchored" data-anchor-id="installation-et-environnement-de-travail">Installation et environnement de travail</h2>
-<p>Cette section présentera l’installation de Python et l’utilisation d’un environnement adapté au cours.</p>
+<section id="objectif-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectif-du-module">Objectif du module</h2>
+<p>Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.</p>
+<p>L’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning.</p>
 </section>
-<section id="variables" class="level2">
-<h2 class="anchored" data-anchor-id="variables">Variables</h2>
-<div id="c54acdc6" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>culture <span class="op">=</span> <span class="st">"Riz"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rendement <span class="op">=</span> <span class="fl">4.2</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>surface_ha <span class="op">=</span> <span class="fl">2.5</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(culture)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rendement)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="ce-que-vous-allez-apprendre" class="level2">
+<h2 class="anchored" data-anchor-id="ce-que-vous-allez-apprendre">Ce que vous allez apprendre</h2>
+<p>Au cours de ce module, vous apprendrez à :</p>
+<ul>
+<li>installer et lancer l’environnement de travail ;</li>
+<li>créer et utiliser des variables ;</li>
+<li>manipuler différents types de données ;</li>
+<li>effectuer des calculs numériques ;</li>
+<li>utiliser les conditions <code>if</code>, <code>elif</code> et <code>else</code> ;</li>
+<li>utiliser les boucles <code>for</code> ;</li>
+<li>créer des fonctions simples ;</li>
+<li>appliquer ces notions à des exemples agricoles.</li>
+</ul>
+</section>
+<section id="exemples-dapplications" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-dapplications">Exemples d’applications</h2>
+<p>Les exemples utilisés dans ce module portent notamment sur :</p>
+<ul>
+<li>le calcul du rendement agricole ;</li>
+<li>la production totale d’une parcelle ;</li>
+<li>la quantité d’engrais nécessaire ;</li>
+<li>l’analyse des précipitations ;</li>
+<li>la classification du pH du sol ;</li>
+<li>le niveau d’infestation par des ravageurs ;</li>
+<li>le calcul des besoins en irrigation.</li>
+</ul>
+</section>
+<section id="parcours-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="parcours-du-module">Parcours du module</h2>
+<ol type="1">
+<li>Installation et environnement de travail<br>
+</li>
+<li>Variables et types de données<br>
+</li>
+<li>Calculs numériques<br>
+</li>
+<li>Conditions et boucles<br>
+</li>
+<li>Fonctions</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="calculs-numériques" class="level2">
-<h2 class="anchored" data-anchor-id="calculs-numériques">Calculs numériques</h2>
-<div id="9344291f" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>production <span class="op">=</span> rendement <span class="op">*</span> surface_ha</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(production)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pourquoi Python ?
 </div>
-</section>
-<section id="conditions" class="level2">
-<h2 class="anchored" data-anchor-id="conditions">Conditions</h2>
-<div id="8803164c" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> rendement <span class="op">&gt;</span> <span class="dv">4</span>:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Rendement supérieur à 4 t/ha"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Rendement inférieur ou égal à 4 t/ha"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="boucles" class="level2">
-<h2 class="anchored" data-anchor-id="boucles">Boucles</h2>
-<div id="93c60970" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cultures <span class="op">=</span> [<span class="st">"Riz"</span>, <span class="st">"Maïs"</span>, <span class="st">"Haricot"</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> culture <span class="kw">in</span> cultures:</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(culture)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-body-container callout-body">
+<p>Python est largement utilisé en analyse de données, en intelligence artificielle et en Machine Learning. Dans la suite du cours, il sera utilisé pour manipuler des données agricoles, construire des modèles prédictifs et analyser des résultats.</p>
 </div>
-</section>
-<section id="fonctions" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions">Fonctions</h2>
-<div id="90b53540" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> production_totale(rendement, surface):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rendement <span class="op">*</span> surface</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>production_totale(<span class="fl">4.2</span>, <span class="fl">2.5</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/01-ia-agriculture.html">← IA dans l’agriculture</a> <a class="chapter-next" href="../modules/02-1-installation.html">Installation et environnement →</a></p>
+<p><a href="../modules/02-1-installation.html" class="chapter-next">Installation et environnement de travail →</a></p>
 </div>
 
 
