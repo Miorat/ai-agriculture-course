@@ -523,27 +523,6 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
-    "section": "",
-    "text": "FORMATION · AGRICULTURE NUMÉRIQUE\n\n\n\nUne formation pratique destinée aux étudiants de la Mention Agriculture Tropicale et Développement Durable (AT2D) de l’Ecole Supérieure de Sciences Agronomiques de l’Université d’Antananarivo, conçue dans le cadre du projet TADY et Expert’Izy.\nLe cours introduit les fondamentaux de la programmation Python, l’analyse de données agricoles, le machine learning et l’analyse géospatiale.\nDécouvrir le programme"
-  },
-  {
-    "objectID": "index.html#à-propos-de-la-formation",
-    "href": "index.html#à-propos-de-la-formation",
-    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
-    "section": "À propos de la formation",
-    "text": "À propos de la formation\nCe cours a été conçu pour accompagner l’apprentissage des méthodes numériques appliquées à l’agriculture, depuis les bases de Python jusqu’au machine learning et aux systèmes d’information géographique.\nL’objectif est de proposer un parcours progressif, pratique et directement exploitable à partir de données agricoles, climatiques et géospatiales."
-  },
-  {
-    "objectID": "index.html#à-propos-moi",
-    "href": "index.html#à-propos-moi",
-    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
-    "section": "À propos moi",
-    "text": "À propos moi\nJe suis Mioratina N. T., Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions technologiques d’aide à la décision déployés à l’échelle internationale."
-  },
-  {
     "objectID": "modules/01-ia-agriculture.html",
     "href": "modules/01-ia-agriculture.html",
     "title": "IA dans l’agriculture",
@@ -597,6 +576,62 @@
       "Programme",
       "1. IA dans l’agriculture"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "",
+    "text": "FORMATION · AGRICULTURE NUMÉRIQUE\n\n\n\nUne formation pratique destinée aux étudiants de la Mention Agriculture Tropicale et Développement Durable (AT2D) de l’Ecole Supérieure de Sciences Agronomiques de l’Université d’Antananarivo, conçue dans le cadre du projet TADY et Expert’Izy.\nLe cours introduit les fondamentaux de la programmation Python, l’analyse de données agricoles, le machine learning et l’analyse géospatiale.\nDécouvrir le programme"
+  },
+  {
+    "objectID": "index.html#à-propos-de-la-formation",
+    "href": "index.html#à-propos-de-la-formation",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "À propos de la formation",
+    "text": "À propos de la formation\nCe cours a été conçu pour accompagner l’apprentissage des méthodes numériques appliquées à l’agriculture, depuis les bases de Python jusqu’au machine learning et aux systèmes d’information géographique.\nL’objectif est de proposer un parcours progressif, pratique et directement exploitable à partir de données agricoles, climatiques et géospatiales."
+  },
+  {
+    "objectID": "index.html#à-propos-moi",
+    "href": "index.html#à-propos-moi",
+    "title": "Introduction à l’intelligence artificielle pour une Agriculture de Précision et Durable",
+    "section": "À propos moi",
+    "text": "À propos moi\nJe suis Mioratina N. T., Data Scientist, spécialisée en intelligence artificielle, analyse de données et systèmes d’information géographique.\nJe possède 11 années d’expérience dans le développement de systèmes analytiques et de solutions technologiques d’aide à la décision déployés à l’échelle internationale."
+  },
+  {
+    "objectID": "modules/02-0-vue-ensemble.html",
+    "href": "modules/02-0-vue-ensemble.html",
+    "title": "Vue d’ensemble",
+    "section": "",
+    "text": "Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.\nL’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning."
+  },
+  {
+    "objectID": "modules/02-0-vue-ensemble.html#objectif-du-module",
+    "href": "modules/02-0-vue-ensemble.html#objectif-du-module",
+    "title": "Vue d’ensemble",
+    "section": "",
+    "text": "Ce module introduit les bases de la programmation Python à travers des exemples simples appliqués à l’agriculture.\nL’objectif est de permettre aux participants de comprendre la logique d’un programme, de manipuler des données simples et de préparer les bases nécessaires pour l’analyse de données et le Machine Learning."
+  },
+  {
+    "objectID": "modules/02-0-vue-ensemble.html#ce-que-vous-allez-apprendre",
+    "href": "modules/02-0-vue-ensemble.html#ce-que-vous-allez-apprendre",
+    "title": "Vue d’ensemble",
+    "section": "Ce que vous allez apprendre",
+    "text": "Ce que vous allez apprendre\nAu cours de ce module, vous apprendrez à :\n\ninstaller et lancer l’environnement de travail ;\ncréer et utiliser des variables ;\nmanipuler différents types de données ;\neffectuer des calculs numériques ;\nutiliser les conditions if, elif et else ;\nutiliser les boucles for ;\ncréer des fonctions simples ;\nappliquer ces notions à des exemples agricoles."
+  },
+  {
+    "objectID": "modules/02-0-vue-ensemble.html#exemples-dapplications",
+    "href": "modules/02-0-vue-ensemble.html#exemples-dapplications",
+    "title": "Vue d’ensemble",
+    "section": "Exemples d’applications",
+    "text": "Exemples d’applications\nLes exemples utilisés dans ce module portent notamment sur :\n\nle calcul du rendement agricole ;\nla production totale d’une parcelle ;\nla quantité d’engrais nécessaire ;\nl’analyse des précipitations ;\nla classification du pH du sol ;\nle niveau d’infestation par des ravageurs ;\nle calcul des besoins en irrigation."
+  },
+  {
+    "objectID": "modules/02-0-vue-ensemble.html#parcours-du-module",
+    "href": "modules/02-0-vue-ensemble.html#parcours-du-module",
+    "title": "Vue d’ensemble",
+    "section": "Parcours du module",
+    "text": "Parcours du module\n\nInstallation et environnement de travail\n\nVariables et types de données\n\nCalculs numériques\n\nConditions et boucles\n\nFonctions\n\n\n\n\n\n\n\nNotePourquoi Python ?\n\n\n\nPython est largement utilisé en analyse de données, en intelligence artificielle et en Machine Learning. Dans la suite du cours, il sera utilisé pour manipuler des données agricoles, construire des modèles prédictifs et analyser des résultats.\n\n\n\nInstallation et environnement de travail →"
   },
   {
     "objectID": "modules/02-2-variables.html",
