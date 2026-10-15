@@ -32,7 +32,7 @@ Deux jeux de données sont utilisés :
 ## Ressource de visualisation
 
 Les graphiques du module sont produits avec **Matplotlib**.  
-[Consulter la documentation officielle de Matplotlib](https://matplotlib.org/stable/)
+[Consulter la documentation officielle de Matplotlib](https://matplotlib.org/stable/){target="_blank" rel="noopener"}
 :::
 
 <div class="chapter-nav">

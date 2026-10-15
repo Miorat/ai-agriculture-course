@@ -31,7 +31,25 @@ Les résultats statistiques de cette section sont utilisés à des fins pédagog
 ## Visualisation
 
 Tous les graphiques de cette page sont affichés avec Matplotlib.  
-[Documentation officielle de Matplotlib](https://matplotlib.org/stable/)
+[Documentation officielle de Matplotlib](https://matplotlib.org/stable/){target="_blank" rel="noopener"}
+:::
+
+## Choisir un test statistique
+
+| Question | Exemple | Méthode |
+|---|---|---|
+| La variable est-elle normale ? | rendement | Shapiro-Wilk |
+| Deux variables numériques sont-elles associées ? | pluie et rendement | Corrélation de Pearson |
+| Deux groupes ont-ils des moyennes différentes ? | fertilisé / non fertilisé | Test t |
+| Plus de deux groupes diffèrent-ils ? | types de sol | ANOVA |
+| Comparer des groupes en contrôlant une variable | sol + pluie | ANCOVA |
+| Résumer plusieurs variables quantitatives | propriétés des parcelles | ACP |
+| Explorer plusieurs variables qualitatives | région, culture, sol | ACM |
+
+::: {.callout-note}
+## Comment utiliser ce tableau ?
+
+Commencez par identifier le **type de variables** et la **question posée**, puis choisissez la méthode adaptée. Les sections suivantes détaillent chaque test et montrent comment l’appliquer avec Python.
 :::
 
 # Test de normalité
@@ -51,7 +69,7 @@ print("p-value :", p_value)
 
 ![](../images/data-analysis/qqplot-rendement.png){fig-alt="Q-Q plot du rendement"}
 
-[Documentation Matplotlib — nuage de points](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
+[Documentation Matplotlib — nuage de points](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html){target="_blank" rel="noopener"}
 
 # Corrélation
 
@@ -123,7 +141,7 @@ plt.show()
 
 ![](../images/data-analysis/pluie-vs-rendement.png){fig-alt="Relation entre pluie et rendement"}
 
-[Documentation Matplotlib — scatter](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
+[Documentation Matplotlib — scatter](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html){target="_blank" rel="noopener"}
 
 # Test t de Student
 
@@ -147,7 +165,7 @@ stat, p_value = stats.ttest_ind(
 
 ![](../images/data-analysis/rendement-traitement.png){fig-alt="Rendement selon le traitement"}
 
-[Documentation Matplotlib — boxplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html)
+[Documentation Matplotlib — boxplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html){target="_blank" rel="noopener"}
 
 # ANOVA
 
@@ -175,7 +193,7 @@ stat, p_value = stats.f_oneway(
 
 ![](../images/data-analysis/rendement-type-sol.png){fig-alt="Rendement selon le type de sol"}
 
-[Documentation Matplotlib — boxplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html)
+[Documentation Matplotlib — boxplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html){target="_blank" rel="noopener"}
 
 # ANCOVA
 
@@ -269,7 +287,7 @@ plt.show()
 
 ![](../images/data-analysis/acp-pc1-pc2.png){fig-alt="ACP des parcelles, composantes 1 et 2"}
 
-[Documentation Matplotlib — scatter](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
+[Documentation Matplotlib — scatter](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html){target="_blank" rel="noopener"}
 
 # Analyse des Correspondances Multiples — ACM
 
@@ -304,18 +322,6 @@ coordonnees_acm = acm.row_coordinates(
     variables_acm
 )
 ```
-
-## Choisir un test statistique
-
-| Question | Exemple | Méthode |
-|---|---|---|
-| La variable est-elle normale ? | rendement | Shapiro-Wilk |
-| Deux variables numériques sont-elles associées ? | pluie et rendement | Corrélation de Pearson |
-| Deux groupes ont-ils des moyennes différentes ? | fertilisé / non fertilisé | Test t |
-| Plus de deux groupes diffèrent-ils ? | types de sol | ANOVA |
-| Comparer des groupes en contrôlant une variable | sol + pluie | ANCOVA |
-| Résumer plusieurs variables quantitatives | propriétés des parcelles | ACP |
-| Explorer plusieurs variables qualitatives | région, culture, sol | ACM |
 
 <div class="chapter-nav">
 [← Traitement et visualisation](03-2-traitement.qmd){.chapter-prev}

@@ -21,7 +21,7 @@ INK = "#183B33"
 GRID = "#D9E3DE"
 ```
 
-[Documentation officielle de Matplotlib](https://matplotlib.org/stable/)
+[Documentation officielle de Matplotlib](https://matplotlib.org/stable/){target="_blank" rel="noopener"}
 
 ## Rendement moyen par culture
 
@@ -91,7 +91,7 @@ plt.show()
 
 ![](../images/data-analysis/rendement-moyen-culture.png){fig-alt="Rendement moyen par culture à Madagascar"}
 
-[Documentation Matplotlib — graphiques en barres](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html)
+[Documentation Matplotlib — graphiques en barres](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html){target="_blank" rel="noopener"}
 
 ## Évolution du rendement du riz
 
@@ -142,7 +142,7 @@ plt.show()
 
 ![](../images/data-analysis/tendance-rendement-riz.png){fig-alt="Évolution du rendement du riz à Madagascar"}
 
-[Documentation Matplotlib — courbes](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
+[Documentation Matplotlib — courbes](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html){target="_blank" rel="noopener"}
 
 ## Histogramme
 
@@ -187,7 +187,7 @@ plt.show()
 
 ![](../images/data-analysis/distribution-rendement-riz.png){fig-alt="Distribution du rendement du riz"}
 
-[Documentation Matplotlib — histogrammes](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html)
+[Documentation Matplotlib — histogrammes](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html){target="_blank" rel="noopener"}
 
 ## Boxplot
 
@@ -237,7 +237,7 @@ plt.show()
 
 ![](../images/data-analysis/boxplot-rendement-culture.png){fig-alt="Distribution des rendements par culture"}
 
-[Documentation Matplotlib — boxplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html)
+[Documentation Matplotlib — boxplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html){target="_blank" rel="noopener"}
 
 ## Sauvegarder un graphique
 
