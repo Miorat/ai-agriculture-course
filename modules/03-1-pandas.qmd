@@ -1,13 +1,144 @@
 ---
-title: "Pandas"
+title: "Pandas et exploration des données"
+toc: false
 ---
 
-# Pandas
+## Objectifs
 
-Cette section couvrira l’importation, l’exploration et la manipulation de données agricoles avec pandas.
+À la fin de cette partie, vous serez capables de :
 
+- importer un fichier Excel ;
+- afficher les premières lignes d’un DataFrame ;
+- inspecter les types de variables ;
+- identifier les valeurs manquantes et les doublons ;
+- sélectionner, filtrer et trier des données ;
+- utiliser `groupby()` pour produire des statistiques par groupe.
 
-::: {.chapter-nav}
-<a class="chapter-prev" href="03-analyse-donnees.qmd">← Analyse de données agricoles</a>
-<a class="chapter-next" href="03-2-traitement.qmd">Traitement des données →</a>
+## Importer Pandas
+
+```{python}
+#| eval: false
+
+import pandas as pd
+```
+
+## Charger les données FAOSTAT
+
+```{python}
+#| eval: false
+
+df = pd.read_excel("../data/FAOSTAT_data_MDG.xlsx")
+df.head()
+```
+
+## Explorer le DataFrame
+
+```{python}
+#| eval: false
+
+df.shape
+df.columns
+df.info()
+```
+
+### Vérifier la qualité des données
+
+```{python}
+#| eval: false
+
+df.isna().sum()
+df.duplicated().sum()
+```
+
+### Examiner les valeurs disponibles
+
+```{python}
+#| eval: false
+
+df["Item"].unique()
+df["Element"].unique()
+df["Year"].min()
+df["Year"].max()
+```
+
+## Filtrer les rendements
+
+```{python}
+#| eval: false
+
+table_rendement = df[df["Element"] == "Yield"]
+table_rendement.head()
+```
+
+### Filtrer une culture
+
+```{python}
+#| eval: false
+
+mais = table_rendement[
+    table_rendement["Item"] == "Maize (corn)"
+]
+
+mais.head()
+```
+
+## Trier les données
+
+```{python}
+#| eval: false
+
+table_rendement.sort_values(
+    "Value",
+    ascending=False
+).head()
+```
+
+## Renommer les colonnes
+
+```{python}
+#| eval: false
+
+df = df.rename(columns={
+    "Area": "Pays",
+    "Item": "Culture",
+    "Element": "Indicateur",
+    "Year": "Annee",
+    "Unit": "Unite",
+    "Value": "Valeur"
+})
+```
+
+## Agrégation avec `groupby()`
+
+```{python}
+#| eval: false
+
+table_rendement = df[df["Indicateur"] == "Yield"]
+
+table_rendement.groupby(
+    "Culture"
+)["Valeur"].describe()
+```
+
+## Statistiques descriptives
+
+| Fonction | Utilité |
+|---|---|
+| `mean()` | moyenne |
+| `min()` | minimum |
+| `max()` | maximum |
+| `var()` | variance |
+| `std()` | écart-type |
+| `quantile()` | quartiles |
+| `describe()` | résumé statistique |
+
+::: {.callout-tip}
+## À retenir
+
+Avant de produire un graphique ou un test statistique, il faut d’abord comprendre la structure du jeu de données, vérifier sa qualité et identifier clairement les variables à analyser.
 :::
+
+<div class="chapter-nav">
+[← Analyse de données agricoles](03-0-analyse-donnees.qmd){.chapter-prev}
+[Traitement et visualisation →](03-2-traitement.qmd){.chapter-next}
+</div>

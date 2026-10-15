@@ -1,0 +1,40 @@
+---
+title: "Analyse de données agricoles"
+toc: false
+---
+
+## Objectif du module
+
+Ce module introduit l’analyse de données agricoles avec **Python**. Nous utiliserons principalement **Pandas**, **Matplotlib**, **SciPy** et **scikit-learn** pour importer, explorer, visualiser et analyser des données.
+
+Deux jeux de données sont utilisés :
+
+- des données FAOSTAT sur plusieurs cultures à Madagascar ;
+- un jeu de données simulé de parcelles agricoles destiné aux exercices statistiques.
+
+## Ce que vous allez apprendre
+
+- importer un fichier Excel avec Pandas ;
+- explorer la structure d’un DataFrame ;
+- filtrer, trier et regrouper les données ;
+- calculer des statistiques descriptives ;
+- produire et personnaliser des graphiques avec Matplotlib ;
+- réaliser et interpréter des tests statistiques simples ;
+- introduire l’analyse multivariée avec l’ACP et l’ACM.
+
+## Parcours du module
+
+1. **Pandas et exploration des données**
+2. **Traitement et visualisation**
+3. **Tests statistiques et analyse multivariée**
+
+::: {.callout-note}
+## Ressource de visualisation
+
+Les graphiques du module sont produits avec **Matplotlib**.  
+[Consulter la documentation officielle de Matplotlib](https://matplotlib.org/stable/)
+:::
+
+<div class="chapter-nav">
+[Pandas et exploration des données →](03-1-pandas.qmd){.chapter-next}
+</div>
