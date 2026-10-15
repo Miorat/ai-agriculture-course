@@ -265,9 +265,297 @@
   {
     "objectID": "modules/02-2-variables.html",
     "href": "modules/02-2-variables.html",
-    "title": "Variables",
+    "title": "Variables et types de données",
     "section": "",
-    "text": "Variables\nCette section couvrira les principaux types de variables et structures de données en Python.\n\n← Installation et environnement Calculs numériques →",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ncréer et utiliser une variable en Python ;\nreconnaître les principaux types de données ;\nafficher et vérifier la valeur d’une variable ;\nutiliser des variables dans des calculs simples ;\nmanipuler des listes ;\norganiser des informations à l’aide de dictionnaires ;\nreprésenter des données agricoles simples avec Python.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#objectifs",
+    "href": "modules/02-2-variables.html#objectifs",
+    "title": "Variables et types de données",
+    "section": "",
+    "text": "À la fin de cette partie, vous serez capables de :\n\ncréer et utiliser une variable en Python ;\nreconnaître les principaux types de données ;\nafficher et vérifier la valeur d’une variable ;\nutiliser des variables dans des calculs simples ;\nmanipuler des listes ;\norganiser des informations à l’aide de dictionnaires ;\nreprésenter des données agricoles simples avec Python.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#les-variables",
+    "href": "modules/02-2-variables.html#les-variables",
+    "title": "Variables et types de données",
+    "section": "Les variables",
+    "text": "Les variables\nUne variable permet de stocker une information dans un programme.\nElle possède :\n\nun nom ;\nune valeur ;\nun type de données.\n\nPar exemple :\n\nsurface = 8\n\nIci :\n\nsurface est le nom de la variable ;\n8 est sa valeur ;\nla valeur est un nombre entier.\n\nPour afficher la valeur :\n\nprint(surface)\n\nRésultat :\n8",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#les-principaux-types-de-données",
+    "href": "modules/02-2-variables.html#les-principaux-types-de-données",
+    "title": "Variables et types de données",
+    "section": "Les principaux types de données",
+    "text": "Les principaux types de données\nPython permet de manipuler différents types d’informations.\n\n\n\nType\nPython\nExemple\n\n\n\n\nTexte\nstr\n\"Vakinankaratra\"\n\n\nNombre entier\nint\n8\n\n\nNombre décimal\nfloat\n8.0\n\n\nVrai / Faux\nbool\nTrue\n\n\nListe\nlist\n[24, 26, 29]\n\n\nDictionnaire\ndict\n{\"culture\": \"riz\"}",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#chaîne-de-caractères-str",
+    "href": "modules/02-2-variables.html#chaîne-de-caractères-str",
+    "title": "Variables et types de données",
+    "section": "Chaîne de caractères — str",
+    "text": "Chaîne de caractères — str\nUne chaîne de caractères permet de stocker du texte.\n\nnom_region = \"Vakinankaratra\"\n\nPour afficher la valeur :\n\nprint(nom_region)\n\nRésultat :\nVakinankaratra\nOn peut vérifier le type avec type() :\n\ntype(nom_region)\n\nRésultat :\nstr",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#nombre-entier-int",
+    "href": "modules/02-2-variables.html#nombre-entier-int",
+    "title": "Variables et types de données",
+    "section": "Nombre entier — int",
+    "text": "Nombre entier — int\nUn entier est un nombre sans partie décimale.\n\nnombre_parcelles = 5\nsurface = 8\n\n\ntype(surface)\n\nRésultat :\nint",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#nombre-décimal-float",
+    "href": "modules/02-2-variables.html#nombre-décimal-float",
+    "title": "Variables et types de données",
+    "section": "Nombre décimal — float",
+    "text": "Nombre décimal — float\nUn nombre décimal possède une partie décimale.\n\nsurface_decimale = 8.0\n\n\ntype(surface_decimale)\n\nRésultat :\nfloat\nLes valeurs décimales sont très fréquentes dans les données agricoles :\n\nph_sol = 6.8\nprecipitations = 12.5\nrendement = 3.2",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#valeur-booléenne-bool",
+    "href": "modules/02-2-variables.html#valeur-booléenne-bool",
+    "title": "Variables et types de données",
+    "section": "Valeur booléenne — bool",
+    "text": "Valeur booléenne — bool\nUne variable booléenne possède seulement deux valeurs possibles :\nTrue\nFalse\nPar exemple :\n\nirrigation_active = True\nmaladie_detectee = False\n\nCes variables peuvent servir à représenter l’état d’une parcelle ou d’un système.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#déclarer-des-variables-agricoles",
+    "href": "modules/02-2-variables.html#déclarer-des-variables-agricoles",
+    "title": "Variables et types de données",
+    "section": "Déclarer des variables agricoles",
+    "text": "Déclarer des variables agricoles\nOn peut utiliser plusieurs variables pour décrire une situation agricole.\n\nnom_region = \"Itasy\"\nph_sol = 6.8\nprecipitations = 12.5\nrendement = 3.2\n\nChaque variable représente une information différente.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#afficher-des-informations-avec-print",
+    "href": "modules/02-2-variables.html#afficher-des-informations-avec-print",
+    "title": "Variables et types de données",
+    "section": "Afficher des informations avec print()",
+    "text": "Afficher des informations avec print()\nLa fonction print() permet d’afficher une information.\n\nsurface = 17\nprint(surface)\n\nOn peut également combiner du texte et des variables :\n\nnom_region = \"Vakinankaratra\"\nsurface = 17\n\nprint(\"Région étudiée :\", nom_region)\nprint(\"Surface :\", surface)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#déclarer-plusieurs-variables-en-une-ligne",
+    "href": "modules/02-2-variables.html#déclarer-plusieurs-variables-en-une-ligne",
+    "title": "Variables et types de données",
+    "section": "Déclarer plusieurs variables en une ligne",
+    "text": "Déclarer plusieurs variables en une ligne\nPython permet de créer plusieurs variables simultanément.\n\nregion, annee, production = \"Alaotra\", 2025, 25\n\nPuis :\n\nprint(\"Région :\", region)\nprint(\"Année :\", annee)\nprint(\"Production totale :\", production)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#utiliser-les-variables-dans-un-calcul",
+    "href": "modules/02-2-variables.html#utiliser-les-variables-dans-un-calcul",
+    "title": "Variables et types de données",
+    "section": "Utiliser les variables dans un calcul",
+    "text": "Utiliser les variables dans un calcul\nLes variables peuvent être utilisées dans des opérations mathématiques.\n\nExemple : calcul du rendement\nSupposons :\n\nproduction = 1000\nsurface = 500\n\nLe rendement est calculé par :\n[ Rendement = ]\nEn Python :\n\nrendement = production / surface\nprint(rendement)\n\nRésultat :\n2.0",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exemple-production-de-plusieurs-parcelles",
+    "href": "modules/02-2-variables.html#exemple-production-de-plusieurs-parcelles",
+    "title": "Variables et types de données",
+    "section": "Exemple : production de plusieurs parcelles",
+    "text": "Exemple : production de plusieurs parcelles\n\nproduction_parcelle_a = 650\nproduction_parcelle_b = 850\nproduction_parcelle_c = 1050\n\nproduction_totale = (\n    production_parcelle_a\n    + production_parcelle_b\n    + production_parcelle_c\n)\n\nprint(production_totale)\n\nRésultat :\n2550\nOn peut produire un affichage plus explicite :\n\nnom_region = \"Vakinankaratra\"\n\nprint(\n    \"Production totale dans la région\",\n    nom_region,\n    \":\",\n    production_totale,\n    \"tonnes\"\n)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#les-commentaires",
+    "href": "modules/02-2-variables.html#les-commentaires",
+    "title": "Variables et types de données",
+    "section": "Les commentaires",
+    "text": "Les commentaires\nLes commentaires permettent d’expliquer le code.\nIls commencent par le symbole #.\n\n# Type de culture\ntype_culture = \"Vivrière\"\n\n# Surface de l'exploitation\nsurface_exploitation = 10\n\nUn commentaire peut également être ajouté à la fin d’une ligne :\n\nsurface_exploitation = 10  # unité : are\n\n\n\n\n\n\n\nNotePourquoi commenter le code ?\n\n\n\nLes commentaires permettent de rendre un programme plus facile à comprendre, à vérifier et à réutiliser.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exemple-liste-de-cultures",
+    "href": "modules/02-2-variables.html#exemple-liste-de-cultures",
+    "title": "Variables et types de données",
+    "section": "Exemple : liste de cultures",
+    "text": "Exemple : liste de cultures\n\ncultures = [\"Maïs\", \"Riz\", \"Haricot\"]\n\nprint(cultures[0])\nprint(cultures[1])",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#calculer-un-rendement-moyen",
+    "href": "modules/02-2-variables.html#calculer-un-rendement-moyen",
+    "title": "Variables et types de données",
+    "section": "Calculer un rendement moyen",
+    "text": "Calculer un rendement moyen\n\nrendements = [3.2, 2.8, 4.1, 3.6, 2.9]\n\nrendement_moyen = sum(rendements) / len(rendements)\n\nprint(rendement_moyen)\n\nLe résultat est environ :\n3.32",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exemple-représenter-une-parcelle",
+    "href": "modules/02-2-variables.html#exemple-représenter-une-parcelle",
+    "title": "Variables et types de données",
+    "section": "Exemple : représenter une parcelle",
+    "text": "Exemple : représenter une parcelle\n\nparcelle = {\n    \"nom\": \"Ankadikely\",\n    \"culture\": \"Maïs\",\n    \"surface\": 5,\n    \"rendement\": 3.4\n}\n\nPour accéder à une information :\n\nprint(parcelle[\"culture\"])\nprint(parcelle[\"surface\"])",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exemple-avec-davantage-dinformations",
+    "href": "modules/02-2-variables.html#exemple-avec-davantage-dinformations",
+    "title": "Variables et types de données",
+    "section": "Exemple avec davantage d’informations",
+    "text": "Exemple avec davantage d’informations\n\nparcelle = {\n    \"culture\": \"riz\",\n    \"surface_ha\": 2.5,\n    \"rendement_t_ha\": 3.2,\n    \"region\": \"Alaotra-Mangoro\",\n    \"temperature\": 28,\n    \"ph\": 3.5\n}\n\n\nprint(parcelle[\"culture\"])\nprint(parcelle[\"rendement_t_ha\"])",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exemple-observation-climatique",
+    "href": "modules/02-2-variables.html#exemple-observation-climatique",
+    "title": "Variables et types de données",
+    "section": "Exemple : observation climatique",
+    "text": "Exemple : observation climatique\n\nobservation_climatique = {\n    \"date\": \"2026-08-07\",\n    \"temperature\": 28.5,\n    \"precipitations\": 12,\n    \"humidite\": 75\n}\n\n\nprint(observation_climatique[\"temperature\"])\nprint(observation_climatique[\"precipitations\"])",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#combiner-listes-et-dictionnaires",
+    "href": "modules/02-2-variables.html#combiner-listes-et-dictionnaires",
+    "title": "Variables et types de données",
+    "section": "Combiner listes et dictionnaires",
+    "text": "Combiner listes et dictionnaires\n\nobservations_climatiques = [\n    {\n        \"date\": \"2026-08-01\",\n        \"temperature\": 27.5,\n        \"precipitations\": 5,\n        \"humidite\": 70\n    },\n    {\n        \"date\": \"2026-08-02\",\n        \"temperature\": 28.0,\n        \"precipitations\": 0,\n        \"humidite\": 68\n    },\n    {\n        \"date\": \"2026-08-03\",\n        \"temperature\": 29.2,\n        \"precipitations\": 2,\n        \"humidite\": 65\n    }\n]\n\nPour afficher la première observation :\n\nprint(observations_climatiques[0])\n\nPour afficher sa température :\n\nprint(observations_climatiques[0][\"temperature\"])",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exercice-1-décrire-une-exploitation",
+    "href": "modules/02-2-variables.html#exercice-1-décrire-une-exploitation",
+    "title": "Variables et types de données",
+    "section": "Exercice 1 — Décrire une exploitation",
+    "text": "Exercice 1 — Décrire une exploitation\nCréer les variables suivantes :\n\nculture\nsurface\nrendement\nregion\nirrigation_active\n\nChoisissez vous-même les valeurs et affichez-les.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exercice-2-calculer-une-production",
+    "href": "modules/02-2-variables.html#exercice-2-calculer-une-production",
+    "title": "Variables et types de données",
+    "section": "Exercice 2 — Calculer une production",
+    "text": "Exercice 2 — Calculer une production\n[ Production = Surface Rendement ]\nAvec :\nsurface = 5 hectares\nrendement = 3.2 tonnes/hectare\nComplétez :\n\nsurface = 5\nrendement = 3.2\n\nproduction = ...\n\nprint(...)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exercice-3-quantité-dengrais",
+    "href": "modules/02-2-variables.html#exercice-3-quantité-dengrais",
+    "title": "Variables et types de données",
+    "section": "Exercice 3 — Quantité d’engrais",
+    "text": "Exercice 3 — Quantité d’engrais\nUne parcelle possède une superficie de 5 hectares et la dose recommandée est de 50 kg/ha.\n[ Quantité = Surface Dose ]\n\nsurface = 5\ndose_par_hectare = 50\n\nquantite_engrais = ...\n\nprint(...)",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#exercice-4-créer-un-dictionnaire",
+    "href": "modules/02-2-variables.html#exercice-4-créer-un-dictionnaire",
+    "title": "Variables et types de données",
+    "section": "Exercice 4 — Créer un dictionnaire",
+    "text": "Exercice 4 — Créer un dictionnaire\nCréer un dictionnaire parcelle contenant :\n\nla culture ;\nla région ;\nla superficie ;\nle rendement ;\nle pH du sol.\n\nPuis afficher la culture, le rendement et le pH.",
+    "crumbs": [
+      "Programme",
+      "2. Bases de Python",
+      "Variables"
+    ]
+  },
+  {
+    "objectID": "modules/02-2-variables.html#points-à-retenir",
+    "href": "modules/02-2-variables.html#points-à-retenir",
+    "title": "Variables et types de données",
+    "section": "Points à retenir",
+    "text": "Points à retenir\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nUne variable permet de stocker une information.\nstr correspond au texte.\nint correspond aux nombres entiers.\nfloat correspond aux nombres décimaux.\nbool représente une valeur vraie ou fausse.\nUne liste permet de stocker plusieurs valeurs.\nL’indice du premier élément d’une liste est 0.\nUn dictionnaire organise les informations sous forme de paires clé-valeur.\nLes listes et dictionnaires permettent de représenter des données agricoles structurées.\n\n\n\n\n\n← Installation et environnement de travail\nCalculs numériques →",
     "crumbs": [
       "Programme",
       "2. Bases de Python",
