@@ -1,0 +1,12 @@
+{
+  "hash": "bba2647336471a1fb2d99d62da54d84e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Exemple pratique — Régression logistique\"\ntoc: false\n---\n\n## Objectif\n\nLa **régression logistique** est un algorithme de classification. Elle est utilisée lorsque la variable cible possède deux catégories.\n\nDans l'exemple pédagogique du notebook, nous cherchons à distinguer deux groupes :\n\n- plante saine ;\n- plante malade.\n\n::: {.callout-warning}\n## Exemple pédagogique\n\nLes données de cette démonstration sont générées artificiellement dans le notebook d'introduction. Elles illustrent le fonctionnement de la classification et ne constituent pas un diagnostic phytosanitaire réel.\n:::\n\n## Préparer les données\n\n::: {#e0c921a1 .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\n\nnp.random.seed(42)\n\nsaines = np.random.normal(\n    [30, 70],\n    [4, 5],\n    size=(30, 2)\n)\n\nmalades = np.random.normal(\n    [20, 88],\n    [4, 5],\n    size=(30, 2)\n)\n\nX = np.vstack([saines, malades])\n\ny = np.array(\n    [0] * 30 +\n    [1] * 30\n)\n```\n:::\n\n\n## Entraîner le modèle\n\n::: {#cb412c36 .cell execution_count=2}\n``` {.python .cell-code}\nfrom sklearn.linear_model import LogisticRegression\n\nmodele = LogisticRegression()\n\nmodele.fit(X, y)\n```\n:::\n\n\n## Visualiser la classification\n\n![](../images/machine-learning/intro-classification.png){fig-alt=\"Classification pédagogique entre plantes saines et malades\"}\n\n## Interpréter\n\nLe modèle apprend une frontière permettant de séparer les deux catégories à partir des variables fournies.\n\nDans une application réelle, les variables pourraient provenir de mesures de terrain, d'images, de capteurs ou de données climatiques. Les données réelles nécessiteraient toutefois une validation agronomique et phytosanitaire.\n\n## Étape suivante\n\nUn modèle de classification doit être évalué sur des données non utilisées pour l'entraînement. Une métrique simple est la **matrice de confusion**, présentée dans le cas pratique de diagnostic des plantes.\n\n<div class=\"chapter-nav\">\n[← Types d'algorithmes](04-2-algorithmes.qmd){.chapter-prev}\n[Random Forest →](04-4-random-forest.qmd){.chapter-next}\n</div>\n\n",
+    "supporting": [
+      "04-3-logistique_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

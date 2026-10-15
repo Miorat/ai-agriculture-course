@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -331,15 +331,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#types-dalgorithmes" id="toc-types-dalgorithmes" class="nav-link active" data-scroll-target="#types-dalgorithmes">Types d’algorithmes</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -362,11 +354,125 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="types-dalgorithmes" class="level1">
-<h1>Types d’algorithmes</h1>
-<p>Cette section présentera les principales familles d’algorithmes utilisées dans le cours.</p>
+<section id="comment-choisir-un-type-de-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="comment-choisir-un-type-de-modèle">Comment choisir un type de modèle ?</h2>
+<p>La première question est : <strong>avons-nous une variable cible ?</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Type de problème</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cible numérique</td>
+<td>Régression</td>
+<td>rendement, besoin en eau, production</td>
+</tr>
+<tr class="even">
+<td>Cible catégorielle</td>
+<td>Classification</td>
+<td>saine/malade, risque faible/élevé</td>
+</tr>
+<tr class="odd">
+<td>Pas de cible</td>
+<td>Clustering</td>
+<td>groupes d’exploitations similaires</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="régression" class="level2">
+<h2 class="anchored" data-anchor-id="régression">Régression</h2>
+<p>La régression est utilisée lorsque la variable cible est <strong>numérique continue</strong>.</p>
+<p><img src="../images/machine-learning/intro-regression.png" class="img-fluid" alt="Exemple de régression entre quantité d'engrais et rendement"></p>
+<p>Exemples agricoles :</p>
+<ul>
+<li>prédire le rendement ;</li>
+<li>estimer la production ;</li>
+<li>prévoir les besoins en eau.</li>
+</ul>
+</section>
+<section id="classification" class="level2">
+<h2 class="anchored" data-anchor-id="classification">Classification</h2>
+<p>La classification est utilisée lorsque la cible correspond à une <strong>catégorie</strong>.</p>
+<p><img src="../images/machine-learning/intro-classification.png" class="img-fluid" alt="Exemple de classification de plantes saines et malades"></p>
+<p>Exemples :</p>
+<ul>
+<li>plante saine / malade ;</li>
+<li>fruit mûr / non mûr ;</li>
+<li>parcelle à risque / sans risque.</li>
+</ul>
+</section>
+<section id="clustering" class="level2">
+<h2 class="anchored" data-anchor-id="clustering">Clustering</h2>
+<p>Le clustering appartient à l’apprentissage non supervisé.</p>
+<p><img src="../images/machine-learning/intro-clustering.png" class="img-fluid" alt="Exemple de clustering en trois groupes"></p>
+<p>Il peut servir à regrouper des exploitations ou des parcelles présentant des profils similaires.</p>
+</section>
+<section id="arbre-de-décision" class="level2">
+<h2 class="anchored" data-anchor-id="arbre-de-décision">Arbre de décision</h2>
+<p>Un arbre de décision effectue une succession de questions.</p>
+<p><img src="../images/machine-learning/intro-arbre-decision.png" class="img-fluid" alt="Arbre de décision pour une recommandation d'irrigation"></p>
+<p>Exemple :</p>
+<pre class="text"><code>Humidité du sol &lt; seuil ?
+          ↓
+      oui / non
+          ↓
+Irriguer / Ne pas irriguer</code></pre>
+</section>
+<section id="random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="random-forest">Random Forest</h2>
+<p>Un <strong>Random Forest</strong> combine plusieurs arbres de décision. Chaque arbre produit une prédiction, puis les résultats sont combinés.</p>
+<p>Cette approche est utilisée dans les exercices suivants pour prédire le rendement agricole.</p>
+</section>
+<section id="quel-algorithme-pour-quelle-question" class="level2">
+<h2 class="anchored" data-anchor-id="quel-algorithme-pour-quelle-question">Quel algorithme pour quelle question ?</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question agricole</th>
+<th>Type</th>
+<th>Algorithmes possibles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quel sera le rendement ?</td>
+<td>Régression</td>
+<td>Régression linéaire, Random Forest</td>
+</tr>
+<tr class="even">
+<td>La plante est-elle malade ?</td>
+<td>Classification</td>
+<td>Régression logistique, arbre de décision</td>
+</tr>
+<tr class="odd">
+<td>Faut-il irriguer ?</td>
+<td>Classification</td>
+<td>Arbre de décision, Random Forest</td>
+</tr>
+<tr class="even">
+<td>Quels profils de parcelles existent ?</td>
+<td>Clustering</td>
+<td>K-means</td>
+</tr>
+</tbody>
+</table>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/04-1-introduction.html">← Introduction au Machine Learning</a> <a class="chapter-next" href="../modules/04-3-logistique.html">Régression logistique →</a></p>
+<p><a href="../modules/04-1-introduction.html" class="chapter-prev">← Introduction</a> <a href="../modules/04-3-logistique.html" class="chapter-next">Régression logistique →</a></p>
 </div>
 
 
