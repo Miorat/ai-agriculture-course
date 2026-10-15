@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -331,15 +366,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#fonctions" id="toc-fonctions" class="nav-link active" data-scroll-target="#fonctions">Fonctions</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -362,14 +389,284 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="fonctions" class="level1">
-<h1>Fonctions</h1>
-<p>Cette section montrera comment créer et utiliser des fonctions en Python.</p>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<p>À la fin de cette partie, vous serez capables de :</p>
+<ul>
+<li>définir une fonction avec <code>def</code> ;</li>
+<li>utiliser des paramètres ;</li>
+<li>retourner un résultat avec <code>return</code> ;</li>
+<li>réutiliser une fonction avec différentes valeurs ;</li>
+<li>combiner fonctions, conditions et boucles ;</li>
+<li>appliquer les fonctions à des exemples agricoles.</li>
+</ul>
+<hr>
+</section>
+<section id="quest-ce-quune-fonction" class="level1">
+<h1>Qu’est-ce qu’une fonction ?</h1>
+<p>Une <strong>fonction</strong> est un bloc de code qui permet de définir une tâche précise.</p>
+<p>Elle permet notamment :</p>
+<ul>
+<li>d’éviter de répéter le même code ;</li>
+<li>d’effectuer plusieurs fois le même calcul ;</li>
+<li>de rendre le programme plus clair et mieux organisé ;</li>
+<li>de réutiliser une instruction avec différentes valeurs.</li>
+</ul>
+<hr>
+<section id="structure-générale" class="level2">
+<h2 class="anchored" data-anchor-id="structure-générale">Structure générale</h2>
+<div id="ecabff8a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nom_de_la_fonction(parametre1, parametre2):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># bloc de code</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> ...</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultat</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Une fonction est créée avec le mot-clé <code>def</code>.</p>
+<hr>
+</section>
+</section>
+<section id="exemple-calculer-la-production" class="level1">
+<h1>Exemple : calculer la production</h1>
+<div id="b6938956" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculer_production(surface_ha, rendement_t_ha):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    production <span class="op">=</span> surface_ha <span class="op">*</span> rendement_t_ha</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> production</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Appel de la fonction :</p>
+<div id="0b81df23" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calculer_production(<span class="fl">2.5</span>, <span class="fl">3.2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>8.0</code></pre>
+<p>On peut réutiliser la même fonction :</p>
+<div id="bc0e2629" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>production_riz <span class="op">=</span> calculer_production(<span class="fl">2.5</span>, <span class="fl">3.2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>production_mais <span class="op">=</span> calculer_production(<span class="fl">1.8</span>, <span class="fl">2.7</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(production_riz)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(production_mais)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>8.0
+4.86</code></pre>
+<hr>
+</section>
+<section id="exemple-calculer-la-quantité-dengrais" class="level1">
+<h1>Exemple : calculer la quantité d’engrais</h1>
+<div id="fb841d8d" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculer_engrais(surface, dose_par_hectare):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    quantite_totale <span class="op">=</span> surface <span class="op">*</span> dose_par_hectare</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> quantite_totale</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Utilisation pour trois parcelles :</p>
+<div id="6f0e4950" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>engrais_parcelle1 <span class="op">=</span> calculer_engrais(<span class="dv">5</span>, <span class="dv">50</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>engrais_parcelle2 <span class="op">=</span> calculer_engrais(<span class="dv">8</span>, <span class="dv">40</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>engrais_parcelle3 <span class="op">=</span> calculer_engrais(<span class="dv">3</span>, <span class="dv">60</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Parcelle 1 :"</span>, engrais_parcelle1, <span class="st">"kg d'engrais"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Parcelle 2 :"</span>, engrais_parcelle2, <span class="st">"kg d'engrais"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Parcelle 3 :"</span>, engrais_parcelle3, <span class="st">"kg d'engrais"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Parcelle 1 : 250 kg d'engrais
+Parcelle 2 : 320 kg d'engrais
+Parcelle 3 : 180 kg d'engrais</code></pre>
+<hr>
+</section>
+<section id="une-fonction-peut-retourner-plusieurs-valeurs" class="level1">
+<h1>Une fonction peut retourner plusieurs valeurs</h1>
+<p>Une fonction peut retourner plusieurs résultats.</p>
+<div id="091a8dc2" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculer_revenu(surface, rendement, prix_tonne):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    production <span class="op">=</span> surface <span class="op">*</span> rendement</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    revenu <span class="op">=</span> production <span class="op">*</span> prix_tonne</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> production, revenu</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Utilisation :</p>
+<div id="7b8cb0b8" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>production_a, revenu_a <span class="op">=</span> calculer_revenu(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">3.2</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2_000_000</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(production_a)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(revenu_a)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<section id="exemple-pour-plusieurs-exploitations" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-pour-plusieurs-exploitations">Exemple pour plusieurs exploitations</h2>
+<div id="518eecd6" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>production_a, revenu_a <span class="op">=</span> calculer_revenu(<span class="dv">5</span>, <span class="fl">3.2</span>, <span class="dv">2_000_000</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>production_b, revenu_b <span class="op">=</span> calculer_revenu(<span class="dv">8</span>, <span class="fl">4.0</span>, <span class="dv">3_000_000</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>production_c, revenu_c <span class="op">=</span> calculer_revenu(<span class="dv">3</span>, <span class="fl">2.5</span>, <span class="dv">1_750_000</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Exploitation A :"</span>, production_a, <span class="st">"tonnes -"</span>, revenu_a, <span class="st">"Ar"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Exploitation B :"</span>, production_b, <span class="st">"tonnes -"</span>, revenu_b, <span class="st">"Ar"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Exploitation C :"</span>, production_c, <span class="st">"tonnes -"</span>, revenu_c, <span class="st">"Ar"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="fonction-avec-une-condition" class="level1">
+<h1>Fonction avec une condition</h1>
+<p>Une fonction peut contenir une condition <code>if</code>.</p>
+<section id="exemple-besoin-dirrigation" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-besoin-dirrigation">Exemple : besoin d’irrigation</h2>
+<div id="835a4c8a" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculer_besoin_irrigation(besoin_eau, precipitation):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    besoin_irrigation <span class="op">=</span> besoin_eau <span class="op">-</span> precipitation</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> besoin_irrigation <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        besoin_irrigation <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> besoin_irrigation</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Utilisation :</p>
+<div id="4030e10c" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>irrigation_mais <span class="op">=</span> calculer_besoin_irrigation(<span class="dv">500</span>, <span class="dv">350</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>irrigation_riz <span class="op">=</span> calculer_besoin_irrigation(<span class="dv">800</span>, <span class="dv">600</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>irrigation_haricot <span class="op">=</span> calculer_besoin_irrigation(<span class="dv">400</span>, <span class="dv">450</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Besoin d'irrigation du maïs :"</span>, irrigation_mais, <span class="st">"mm"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Besoin d'irrigation du riz :"</span>, irrigation_riz, <span class="st">"mm"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Besoin d'irrigation du haricot :"</span>, irrigation_haricot, <span class="st">"mm"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Besoin d'irrigation du maïs : 150 mm
+Besoin d'irrigation du riz : 200 mm
+Besoin d'irrigation du haricot : 0 mm</code></pre>
+<hr>
+</section>
+</section>
+<section id="fonction-avec-une-boucle-et-une-condition" class="level1">
+<h1>Fonction avec une boucle et une condition</h1>
+<div id="dc97a5f1" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyser_rendements(rendements):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> rendement <span class="kw">in</span> rendements:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> rendement <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(rendement, <span class="st">"t/ha : rendement faible"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> rendement <span class="op">&lt;=</span> <span class="dv">4</span>:</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(rendement, <span class="st">"t/ha : rendement moyen"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(rendement, <span class="st">"t/ha : rendement élevé"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Utilisation :</p>
+<div id="394d1a7a" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rendements_parcelles <span class="op">=</span> [<span class="fl">2.5</span>, <span class="fl">3.8</span>, <span class="fl">4.2</span>, <span class="fl">2.9</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>analyser_rendements(rendements_parcelles)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercices" class="level1">
+<h1>Exercices</h1>
+<section id="exercice-1-calcul-de-la-production-agricole" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-calcul-de-la-production-agricole">Exercice 1 — Calcul de la production agricole</h2>
+<p>Créer une fonction <code>calculer_production</code>.</p>
+<p>La fonction doit :</p>
+<ol type="1">
+<li>recevoir <code>surface</code> et <code>rendement</code> ;</li>
+<li>calculer la production ;</li>
+<li>retourner le résultat avec <code>return</code> ;</li>
+<li>être appelée pour trois parcelles.</li>
+</ol>
+<div id="e8480065" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculer_production(surface, rendement):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    production <span class="op">=</span> ...</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ...</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>production_1 <span class="op">=</span> calculer_production(<span class="dv">5</span>, <span class="fl">3.2</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>production_2 <span class="op">=</span> calculer_production(<span class="dv">8</span>, <span class="fl">4.0</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>production_3 <span class="op">=</span> calculer_production(<span class="dv">3</span>, <span class="fl">2.5</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercice-2-classification-du-niveau-dinfestation" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-classification-du-niveau-dinfestation">Exercice 2 — Classification du niveau d’infestation</h2>
+<p>Créer une fonction :</p>
+<pre class="text"><code>classer_infestation(nombre_ravageurs)</code></pre>
+<p>Règles :</p>
+<ul>
+<li><code>0</code> ravageur : <strong>Aucun ravageur</strong> ;</li>
+<li><code>1 à 10</code> : <strong>Faible infestation</strong> ;</li>
+<li><code>11 à 20</code> : <strong>Infestation moyenne</strong> ;</li>
+<li>plus de <code>20</code> : <strong>Forte infestation</strong>.</li>
+</ul>
+<p>Tester avec :</p>
+<pre class="text"><code>0, 8, 16, 25</code></pre>
+<hr>
+</section>
+<section id="exercice-3-classification-du-ph-du-sol" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3-classification-du-ph-du-sol">Exercice 3 — Classification du pH du sol</h2>
+<p>Créer une fonction <code>classer_ph(ph)</code>.</p>
+<p>Règles :</p>
+<ul>
+<li>pH inférieur à <code>6.5</code> : <strong>sol acide</strong> ;</li>
+<li>pH compris entre <code>6.5</code> et <code>7.5</code> : <strong>sol neutre</strong> ;</li>
+<li>pH supérieur à <code>7.5</code> : <strong>sol basique</strong>.</li>
+</ul>
+<p>Tester avec :</p>
+<pre class="text"><code>5.8, 7.0, 8.2</code></pre>
+<hr>
+</section>
+<section id="exercice-4-température-moyenne" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-4-température-moyenne">Exercice 4 — Température moyenne</h2>
+<p>Créer une fonction :</p>
+<pre class="text"><code>calculer_temperature_moyenne(temperatures)</code></pre>
+<p>La fonction doit :</p>
+<ol type="1">
+<li>recevoir une liste de températures ;</li>
+<li>utiliser une boucle <code>for</code> pour additionner les valeurs ;</li>
+<li>calculer la moyenne ;</li>
+<li>retourner le résultat.</li>
+</ol>
+<p>Tester avec :</p>
+<pre class="text"><code>[26.5, 28.0, 27.5, 29.0, 25.5]</code></pre>
+<p>Afficher le résultat avec deux chiffres après la virgule.</p>
+<hr>
+</section>
+<section id="points-à-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="points-à-retenir">Points à retenir</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Une fonction est définie avec <code>def</code>.</li>
+<li>Les paramètres permettent de fournir des valeurs à la fonction.</li>
+<li><code>return</code> permet de renvoyer un résultat.</li>
+<li>Une même fonction peut être utilisée plusieurs fois avec différentes valeurs.</li>
+<li>Une fonction peut contenir des conditions et des boucles.</li>
+<li>Les fonctions facilitent la réutilisation et l’organisation du code.</li>
+</ul>
+</div>
+</div>
+<hr>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/02-4-boucles.html">← Conditions et boucles</a> <a class="chapter-next" href="../modules/03-analyse-donnees.html">Analyse de données agricoles →</a></p>
+<p><a href="../modules/02-4-boucles.html" class="chapter-prev">← Conditions et boucles</a></p>
+<p><a href="../03-1-pandas.qmd" class="chapter-next">Analyse de données agricoles →</a></p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

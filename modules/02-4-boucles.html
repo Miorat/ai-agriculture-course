@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -331,15 +366,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#conditions-et-boucles" id="toc-conditions-et-boucles" class="nav-link active" data-scroll-target="#conditions-et-boucles">Conditions et boucles</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -362,14 +389,319 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="conditions-et-boucles" class="level1">
-<h1>Conditions et boucles</h1>
-<p>Cette section couvrira les conditions <code>if</code>, les boucles <code>for</code> et les boucles <code>while</code>.</p>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<p>À la fin de cette partie, vous serez capables de :</p>
+<ul>
+<li>utiliser les conditions <code>if</code>, <code>elif</code> et <code>else</code> ;</li>
+<li>utiliser les opérateurs de comparaison ;</li>
+<li>parcourir une liste avec une boucle <code>for</code> ;</li>
+<li>combiner une boucle et une condition ;</li>
+<li>appliquer ces notions à des exemples agricoles.</li>
+</ul>
+<hr>
+</section>
+<section id="les-conditions-avec-if" class="level1">
+<h1>Les conditions avec <code>if</code></h1>
+<p>La condition <code>if</code> permet d’exécuter un bloc de code uniquement lorsqu’une condition est vraie.</p>
+<div id="098c537f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># instructions</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On peut ajouter <code>elif</code> et <code>else</code> :</p>
+<div id="60322980" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition1:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># instructions</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> condition2:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># autres instructions</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># instructions si aucune condition n'est vraie</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Indentation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En Python, les instructions placées à l’intérieur d’une condition, d’une boucle ou d’une fonction doivent être décalées vers la droite.</p>
+<p>On utilise généralement <strong>quatre espaces</strong>.</p>
+</div>
+</div>
+<hr>
+<section id="les-opérateurs-de-comparaison" class="level2">
+<h2 class="anchored" data-anchor-id="les-opérateurs-de-comparaison">Les opérateurs de comparaison</h2>
+<p>Les opérateurs de comparaison permettent de tester une condition.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Opérateur</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>égal à</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>différent de</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>inférieur à</td>
+</tr>
+<tr class="even">
+<td><code>&gt;</code></td>
+<td>supérieur à</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;=</code></td>
+<td>inférieur ou égal à</td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td>supérieur ou égal à</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="exemple-classification-du-ph-du-sol" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-classification-du-ph-du-sol">Exemple : classification du pH du sol</h2>
+<div id="8c2d84c5" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ph_terrain <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ph_terrain <span class="op">&lt;</span> <span class="fl">6.5</span>:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sol acide"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> ph_terrain <span class="op">&lt;=</span> <span class="fl">7.5</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sol neutre"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sol basique"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Sol basique</code></pre>
+<hr>
+</section>
+<section id="exemple-niveau-dinfestation" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-niveau-dinfestation">Exemple : niveau d’infestation</h2>
+<p>On souhaite classer une parcelle selon le nombre de ravageurs observés.</p>
+<div id="48746d3f" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nombre_ravageurs <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nombre_ravageurs <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Aucun ravageur observé"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nombre_ravageurs <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Faible infestation"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nombre_ravageurs <span class="op">&lt;=</span> <span class="dv">20</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Infestation moyenne"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Forte infestation : intervention recommandée"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>Faible infestation</code></pre>
+<hr>
+</section>
+</section>
+<section id="la-boucle-for" class="level1">
+<h1>La boucle <code>for</code></h1>
+<p>La boucle <code>for</code> permet de répéter une même instruction pour plusieurs valeurs.</p>
+<p>Structure générale :</p>
+<div id="c3f70ca3" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> sequence:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># instructions à répéter</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Elle est utile pour parcourir :</p>
+<ul>
+<li>une liste de températures ;</li>
+<li>une liste de précipitations ;</li>
+<li>plusieurs parcelles ;</li>
+<li>des observations agricoles.</li>
+</ul>
+<hr>
+<section id="exemple-simple" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-simple">Exemple simple</h2>
+<div id="3161a8f8" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>]:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(element)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Résultat :</p>
+<pre class="text"><code>10
+20
+30</code></pre>
+<hr>
+</section>
+<section id="parcourir-une-liste" class="level2">
+<h2 class="anchored" data-anchor-id="parcourir-une-liste">Parcourir une liste</h2>
+<div id="77f9b722" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">86</span>, <span class="dv">96</span>, <span class="dv">78</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">86</span>, <span class="dv">98</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> ma_liste:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    nouvelle_valeur <span class="op">=</span> element <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(nouvelle_valeur)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exemple-agricole-nombre-de-ravageurs" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-agricole-nombre-de-ravageurs">Exemple agricole : nombre de ravageurs</h2>
+<div id="60280208" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nombre_ravageurs <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">22</span>, <span class="dv">55</span>, <span class="dv">66</span>, <span class="dv">89</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre <span class="kw">in</span> nombre_ravageurs:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Nombre de ravageurs :"</span>, nombre)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La boucle affiche chaque observation, une par une.</p>
+<hr>
+</section>
+<section id="exemple-agricole-précipitations" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-agricole-précipitations">Exemple agricole : précipitations</h2>
+<div id="c517a457" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>precipitations <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">3</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pluie <span class="kw">in</span> precipitations:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Précipitations :"</span>, pluie, <span class="st">"mm"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="combiner-for-et-if" class="level1">
+<h1>Combiner <code>for</code> et <code>if</code></h1>
+<p>Les boucles deviennent particulièrement utiles lorsqu’elles sont combinées avec des conditions.</p>
+<section id="exemple-analyser-les-précipitations" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-analyser-les-précipitations">Exemple : analyser les précipitations</h2>
+<div id="d13067ed" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>precipitations <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">20</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pluie <span class="kw">in</span> precipitations:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pluie <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(pluie, <span class="st">"mm : Journée sèche"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> pluie <span class="op">&gt;=</span> <span class="dv">15</span>:</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(pluie, <span class="st">"mm : Pluie importante"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(pluie, <span class="st">"mm : Pluie modérée"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exemple-comparer-les-rendements" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-comparer-les-rendements">Exemple : comparer les rendements</h2>
+<div id="d519ced6" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>rendements <span class="op">=</span> [<span class="fl">2.5</span>, <span class="fl">3.8</span>, <span class="fl">4.2</span>, <span class="fl">2.9</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rendement <span class="kw">in</span> rendements:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> rendement <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(rendement, <span class="st">"t/ha : rendement faible"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> rendement <span class="op">&lt;=</span> <span class="dv">4</span>:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(rendement, <span class="st">"t/ha : rendement moyen"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(rendement, <span class="st">"t/ha : rendement élevé"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exemple-parcourir-des-observations-climatiques" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-parcourir-des-observations-climatiques">Exemple : parcourir des observations climatiques</h2>
+<p>On peut aussi parcourir une liste de dictionnaires.</p>
+<div id="c98530a3" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>observations_climatiques <span class="op">=</span> [</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"date"</span>: <span class="st">"2026-08-01"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"temperature"</span>: <span class="fl">27.5</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"precipitations"</span>: <span class="dv">5</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"humidite"</span>: <span class="dv">70</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"date"</span>: <span class="st">"2026-08-02"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"temperature"</span>: <span class="fl">28.0</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"precipitations"</span>: <span class="dv">0</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"humidite"</span>: <span class="dv">68</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"date"</span>: <span class="st">"2026-08-03"</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"temperature"</span>: <span class="fl">29.2</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"precipitations"</span>: <span class="dv">2</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"humidite"</span>: <span class="dv">65</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Afficher l’humidité de chaque observation :</p>
+<div id="41daf1d7" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> observation <span class="kw">in</span> observations_climatiques:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(observation[<span class="st">"humidite"</span>])</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercice-1-analyse-des-précipitations" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-analyse-des-précipitations">Exercice 1 — Analyse des précipitations</h2>
+<p>Les précipitations enregistrées pendant cinq jours sont :</p>
+<pre class="text"><code>[5, 0, 12, 8, 20]</code></pre>
+<section id="travail-demandé" class="level3">
+<h3 class="anchored" data-anchor-id="travail-demandé">Travail demandé</h3>
+<ul>
+<li>créer une liste appelée <code>precipitations</code> ;</li>
+<li>utiliser une boucle <code>for</code> ;</li>
+<li>afficher <strong>Journée sèche</strong> lorsque les précipitations sont égales à <code>0</code> ;</li>
+<li>afficher <strong>Pluie importante</strong> lorsque les précipitations sont supérieures ou égales à <code>15 mm</code> ;</li>
+<li>afficher <strong>Pluie modérée</strong> dans les autres cas.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="exercice-2-comparaison-des-rendements" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-comparaison-des-rendements">Exercice 2 — Comparaison des rendements</h2>
+<p>Créer une liste de rendements et afficher :</p>
+<ul>
+<li><strong>Rendement faible</strong> si le rendement est inférieur à <code>3 t/ha</code> ;</li>
+<li><strong>Rendement moyen</strong> s’il est compris entre <code>3 et 4 t/ha</code> ;</li>
+<li><strong>Rendement élevé</strong> s’il est supérieur à <code>4 t/ha</code>.</li>
+</ul>
+<hr>
+</section>
+<section id="exercice-3-niveau-dinfestation" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3-niveau-dinfestation">Exercice 3 — Niveau d’infestation</h2>
+<p>Tester plusieurs valeurs du nombre de ravageurs :</p>
+<pre class="text"><code>0, 8, 16, 25</code></pre>
+<p>Utiliser <code>if</code>, <code>elif</code> et <code>else</code> pour afficher le niveau d’infestation correspondant.</p>
+<hr>
+</section>
+<section id="points-à-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="points-à-retenir">Points à retenir</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>if</code> permet de tester une condition.</li>
+<li><code>elif</code> permet de tester une condition supplémentaire.</li>
+<li><code>else</code> traite les autres cas.</li>
+<li>Les opérateurs <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> et <code>&gt;=</code> permettent de comparer des valeurs.</li>
+<li>Une boucle <code>for</code> permet de parcourir une séquence.</li>
+<li><code>for</code> et <code>if</code> peuvent être combinés pour analyser plusieurs observations automatiquement.</li>
+</ul>
+</div>
+</div>
+<hr>
 <div class="chapter-nav">
-<p><a class="chapter-prev" href="../modules/02-3-calculs.html">← Calculs numériques</a> <a class="chapter-next" href="../modules/02-5-fonctions.html">Fonctions →</a></p>
+<p><a href="../modules/02-3-calculs.html" class="chapter-prev">← Calculs numériques</a></p>
+<p><a href="../modules/02-5-fonctions.html" class="chapter-next">Fonctions →</a></p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
